@@ -1,0 +1,291 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Faculty AI Orientation Schedule</title>
+
+  <style>
+    :root{
+      --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial, "Noto Sans", "Liberation Sans", sans-serif;
+      --border-radius-md: 12px;
+
+      --color-text-primary: #0f172a;
+      --color-text-secondary: #475569;
+      --color-text-tertiary: #64748b;
+
+      --color-background-primary: #ffffff;
+      --color-background-secondary: #f1f5f9;
+
+      --color-border-secondary: #e2e8f0;
+      --color-border-tertiary: #cbd5e1;
+
+      --color-background-info: #e0f2fe;
+      --color-text-info: #0369a1;
+      --color-border-info: #7dd3fc;
+
+      --color-background-success: #dcfce7;
+      --color-text-success: #166534;
+
+      --color-background-warning: #fef3c7;
+      --color-text-warning: #92400e;
+
+      --color-background-danger: #fee2e2;
+      --color-text-danger: #b91c1c;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: var(--font-sans); background: var(--color-background-primary); color: var(--color-text-primary); }
+
+    .wrap { padding: 1.5rem 0; max-width: 680px; font-family: var(--font-sans); margin: 0 auto; }
+    .header { margin-bottom: 1.5rem; }
+    .header h1 { font-size: 18px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 4px; }
+    .header p { font-size: 13px; color: var(--color-text-secondary); }
+    .tabs { display: flex; gap: 8px; margin-bottom: 1.25rem; }
+    .tab { padding: 7px 18px; border-radius: var(--border-radius-md); border: 0.5px solid var(--color-border-secondary); background: transparent; cursor: pointer; font-size: 13px; font-weight: 500; color: var(--color-text-secondary); transition: all 0.15s; }
+    .tab.active { background: var(--color-background-info); color: var(--color-text-info); border-color: var(--color-border-info); }
+    .meta-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 1.25rem; }
+    .meta-card { background: var(--color-background-secondary); border-radius: var(--border-radius-md); padding: 10px 14px; }
+    .meta-card .label { font-size: 11px; color: var(--color-text-tertiary); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 3px; }
+    .meta-card .value { font-size: 14px; font-weight: 500; color: var(--color-text-primary); }
+    .session-label { font-size: 11px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.08em; color: var(--color-text-tertiary); margin: 1rem 0 8px; }
+    .slot { display: grid; grid-template-columns: 90px 1fr; border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-md); margin-bottom: 8px; overflow: hidden; }
+    .slot-time { padding: 10px 12px; background: var(--color-background-secondary); font-size: 12px; font-weight: 500; color: var(--color-text-secondary); display: flex; flex-direction: column; justify-content: center; gap: 2px; border-right: 0.5px solid var(--color-border-tertiary); }
+    .slot-time .dur { font-size: 11px; font-weight: 400; color: var(--color-text-tertiary); }
+    .slot-body { padding: 10px 14px; background: var(--color-background-primary); }
+    .slot-body .title { font-size: 14px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 3px; }
+    .slot-body .desc { font-size: 12px; color: var(--color-text-secondary); line-height: 1.5; }
+    .slot-body .tags { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 6px; }
+    .tag { font-size: 11px; padding: 2px 8px; border-radius: 20px; }
+    .t-blue { background: var(--color-background-info); color: var(--color-text-info); }
+    .t-green { background: var(--color-background-success); color: var(--color-text-success); }
+    .t-amber { background: var(--color-background-warning); color: var(--color-text-warning); }
+    .t-red { background: var(--color-background-danger); color: var(--color-text-danger); }
+    .t-gray { background: var(--color-background-secondary); color: var(--color-text-secondary); }
+    .slot.lunch .slot-body { background: var(--color-background-secondary); }
+    .slot.lunch .slot-time { background: var(--color-background-secondary); }
+    .note-box { border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-md); padding: 10px 14px; margin-top: 1rem; background: var(--color-background-secondary); }
+    .note-box .note-title { font-size: 12px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 4px; }
+    .note-box .note-text { font-size: 12px; color: var(--color-text-secondary); line-height: 1.6; }
+    .hidden { display: none; }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <div class="header">
+      <h1>Faculty AI Orientation Programme — St. Xavier's College</h1>
+      <p>Two-day immersive workshop · GreenAI Services · Academic Consultant Draft for Vetting</p>
+    </div>
+
+    <div class="tabs">
+      <button class="tab active" onclick="switchDay(1)">Day 1 — Science & Arts</button>
+      <button class="tab" onclick="switchDay(2)">Day 2 — Commerce & Management</button>
+    </div>
+
+    <div id="day1">
+      <div class="meta-row">
+        <div class="meta-card"><div class="label">Cohort</div><div class="value">120 Faculty</div></div>
+        <div class="meta-card"><div class="label">Focus streams</div><div class="value">Science · Arts · Humanities</div></div>
+        <div class="meta-card"><div class="label">Contact hours</div><div class="value">5 hrs + 1 hr lunch</div></div>
+      </div>
+
+      <div class="session-label">Morning session — 9:30 am to 12:00 pm</div>
+
+      <div class="slot">
+        <div class="slot-time">9:30 – 9:45<div class="dur">15 min</div></div>
+        <div class="slot-body">
+          <div class="title">Welcome, orientation brief & pre-assessment</div>
+          <div class="desc">Dean/HOD welcome, programme goals, digital pre-survey on current AI familiarity levels.</div>
+          <div class="tags"><span class="tag t-gray">Plenary</span></div>
+        </div>
+      </div>
+
+      <div class="slot">
+        <div class="slot-time">9:45 – 10:30<div class="dur">45 min</div></div>
+        <div class="slot-body">
+          <div class="title">Fundamentals of AI — how machines learn</div>
+          <div class="desc">ML vs. rule-based systems, large language models demystified, neural networks through analogy. Emphasis on intuition, not mathematics. Examples drawn from biology, ecology, and literary pattern analysis.</div>
+          <div class="tags"><span class="tag t-blue">Basics of AI</span><span class="tag t-gray">Lecture + Q&A</span></div>
+        </div>
+      </div>
+
+      <div class="slot">
+        <div class="slot-time">10:30 – 11:20<div class="dur">50 min</div></div>
+        <div class="slot-body">
+          <div class="title">AI, ethics & fairness — the stakes for academia</div>
+          <div class="desc">Algorithmic bias, data provenance, fairness in research outputs, IP and authorship, IndiaAI Mission's ethical guardrails. Case studies: bias in image classification, gender skew in citation tools. Group exercise: ethical red-flag spotting.</div>
+          <div class="tags"><span class="tag t-red">AI Ethics</span><span class="tag t-amber">Fairness</span><span class="tag t-gray">Case study</span></div>
+        </div>
+      </div>
+
+      <div class="slot">
+        <div class="slot-time">11:20 – 12:00<div class="dur">40 min</div></div>
+        <div class="slot-body">
+          <div class="title">AI tools for research — science & humanities strand</div>
+          <div class="desc">Live demos: Elicit, Semantic Scholar, SciSpace, Research Rabbit for literature review; Zotero AI for reference management; NotebookLM for source synthesis. Humanists track: Voyant Tools, JSTOR AI, digital corpus analysis.</div>
+          <div class="tags"><span class="tag t-green">Research Tools</span><span class="tag t-gray">Demo</span></div>
+        </div>
+      </div>
+
+      <div class="slot lunch">
+        <div class="slot-time">12:00 – 1:00<div class="dur">60 min</div></div>
+        <div class="slot-body">
+          <div class="title">Lunch & informal networking</div>
+          <div class="desc">Optional: resource booklet distribution · AI poster display in breakout area.</div>
+          <div class="tags"><span class="tag t-gray">Break</span></div>
+        </div>
+      </div>
+
+      <div class="session-label">Afternoon session — 1:00 pm to 3:30 pm</div>
+
+      <div class="slot">
+        <div class="slot-time">1:00 – 1:50<div class="dur">50 min</div></div>
+        <div class="slot-body">
+          <div class="title">AI tools for teaching — pedagogy & classroom design</div>
+          <div class="desc">Lesson planning with Claude/ChatGPT; rubric and quiz generation; Canva AI for visual aids; Gamma.app for lecture decks; MagicSchool.ai for curriculum scaffolding; anti-plagiarism framework and responsible use policy drafting.</div>
+          <div class="tags"><span class="tag t-green">Teaching Tools</span><span class="tag t-blue">Pedagogy</span></div>
+        </div>
+      </div>
+
+      <div class="slot">
+        <div class="slot-time">1:50 – 2:45<div class="dur">55 min</div></div>
+        <div class="slot-body">
+          <div class="title">Hands-on lab — guided exploration</div>
+          <div class="desc">Breakout by discipline (Science / Arts). Task cards: (1) Design a 10-question quiz on your subject using AI, (2) Run a literature search on Elicit and evaluate output quality, (3) Generate an inclusive, bias-audited rubric. Facilitator-guided peer review.</div>
+          <div class="tags"><span class="tag t-amber">Hands-on</span><span class="tag t-gray">Laptop required</span></div>
+        </div>
+      </div>
+
+      <div class="slot">
+        <div class="slot-time">2:45 – 3:15<div class="dur">30 min</div></div>
+        <div class="slot-body">
+          <div class="title">Institutional AI policy, UGC guidelines & NEP 2020 alignment</div>
+          <div class="desc">UGC's draft framework on Generative AI in HE, NEP 2020 digital competency goals, AICTE advisory on AI tools in assessment, crafting a department-level responsible AI use statement.</div>
+          <div class="tags"><span class="tag t-red">Ethics</span><span class="tag t-blue">Policy</span></div>
+        </div>
+      </div>
+
+      <div class="slot">
+        <div class="slot-time">3:15 – 3:30<div class="dur">15 min</div></div>
+        <div class="slot-body">
+          <div class="title">Reflection, commitments & close</div>
+          <div class="desc">One-thing-I-will-try card, post-survey, certificate preview, GreenAI Academy follow-on programme announcement.</div>
+          <div class="tags"><span class="tag t-gray">Plenary</span></div>
+        </div>
+      </div>
+
+      <div class="note-box">
+        <div class="note-title">Facilitator notes — Day 1</div>
+        <div class="note-text">Recommend 2 domain facilitators (1 Science, 1 Arts/Humanities) + 1 tech support. Pre-configure shared Google Colab / NotebookLM sessions. Ensure college WiFi load-tested for 120 simultaneous devices. Print ethics case-study handout (A4, 2 sides).</div>
+      </div>
+    </div>
+
+    <div id="day2" class="hidden">
+      <div class="meta-row">
+        <div class="meta-card"><div class="label">Cohort</div><div class="value">120 Faculty</div></div>
+        <div class="meta-card"><div class="label">Focus streams</div><div class="value">Commerce · Management · Economics</div></div>
+        <div class="meta-card"><div class="label">Contact hours</div><div class="value">5 hrs + 1 hr lunch</div></div>
+      </div>
+
+      <div class="session-label">Morning session — 9:30 am to 12:00 pm</div>
+
+      <div class="slot">
+        <div class="slot-time">9:30 – 9:45<div class="dur">15 min</div></div>
+        <div class="slot-body">
+          <div class="title">Welcome, recap of Day 1 highlights & pre-assessment</div>
+          <div class="desc">Brief synthesis of Day 1 learnings for cross-pollination, digital survey on current AI use in finance/management teaching.</div>
+          <div class="tags"><span class="tag t-gray">Plenary</span></div>
+        </div>
+      </div>
+
+      <div class="slot">
+        <div class="slot-time">9:45 – 10:30<div class="dur">45 min</div></div>
+        <div class="slot-body">
+          <div class="title">Fundamentals of AI — through a business & economics lens</div>
+          <div class="desc">Predictive analytics, recommendation systems, demand forecasting as familiar AI entry points. Generative AI vs. analytical AI distinction. Real-world examples: Swiggy logistics AI, Zepto inventory models, NSE algo trading.</div>
+          <div class="tags"><span class="tag t-blue">Basics of AI</span><span class="tag t-gray">Lecture + Q&A</span></div>
+        </div>
+      </div>
+
+      <div class="slot">
+        <div class="slot-time">10:30 – 11:20<div class="dur">50 min</div></div>
+        <div class="slot-body">
+          <div class="title">AI ethics & fairness — the business accountability dimension</div>
+          <div class="desc">Bias in credit scoring and hiring algorithms (RBI/SEBI context), dark patterns in AI-driven commerce, ESG data integrity. Fairness in student assessment using AI. Case: Amazon's scrapped AI recruiter. Group debate: "Should AI grade MBA case analyses?"</div>
+          <div class="tags"><span class="tag t-red">AI Ethics</span><span class="tag t-amber">Fairness</span><span class="tag t-gray">Debate</span></div>
+        </div>
+      </div>
+
+      <div class="slot">
+        <div class="slot-time">11:20 – 12:00<div class="dur">40 min</div></div>
+        <div class="slot-body">
+          <div class="title">AI tools for research — commerce & management strand</div>
+          <div class="desc">Elicit and Consensus for systematic reviews; Perplexity for market intelligence; SPSS with AI assist, ATLAS.ti for qualitative coding; Bloomberg GPT overview; Connected Papers for citation mapping; Mendeley AI.</div>
+          <div class="tags"><span class="tag t-green">Research Tools</span><span class="tag t-gray">Demo</span></div>
+        </div>
+      </div>
+
+      <div class="slot lunch">
+        <div class="slot-time">12:00 – 1:00<div class="dur">60 min</div></div>
+        <div class="slot-body">
+          <div class="title">Lunch & informal networking</div>
+          <div class="desc">Optional: AI tools reference card distribution · panel preview for afternoon.</div>
+          <div class="tags"><span class="tag t-gray">Break</span></div>
+        </div>
+      </div>
+
+      <div class="session-label">Afternoon session — 1:00 pm to 3:30 pm</div>
+
+      <div class="slot">
+        <div class="slot-time">1:00 – 1:50<div class="dur">50 min</div></div>
+        <div class="slot-body">
+          <div class="title">AI tools for teaching — case pedagogy & simulation</div>
+          <div class="desc">Generating business case studies with Claude; building live simulations with ChatGPT; Excel Copilot for financial modelling classes; Power BI AI narratives; Gamma.app for B-school decks; designing AI-resistant assessments (open-book, reflective, oral).</div>
+          <div class="tags"><span class="tag t-green">Teaching Tools</span><span class="tag t-blue">Pedagogy</span></div>
+        </div>
+      </div>
+
+      <div class="slot">
+        <div class="slot-time">1:50 – 2:45<div class="dur">55 min</div></div>
+        <div class="slot-body">
+          <div class="title">Hands-on lab — guided exploration</div>
+          <div class="desc">Breakout by discipline (Commerce / Management). Task cards: (1) Build a market research brief for a startup using Perplexity + Claude, (2) Generate a company law scenario and 5 discussion questions, (3) Audit an AI-generated financial statement for ethical red flags. Peer presentation (3 min per group).</div>
+          <div class="tags"><span class="tag t-amber">Hands-on</span><span class="tag t-gray">Laptop required</span></div>
+        </div>
+      </div>
+
+      <div class="slot">
+        <div class="slot-time">2:45 – 3:15<div class="dur">30 min</div></div>
+        <div class="slot-body">
+          <div class="title">Institutional AI policy, AICTE guidelines & accreditation implications</div>
+          <div class="desc">AI in NAAC/NBA documentation, AICTE's model curriculum for AI literacy, crafting a departmental AI use charter, IQAC integration of AI audit trails. Open floor for institutional policy Q&A.</div>
+          <div class="tags"><span class="tag t-red">Ethics</span><span class="tag t-blue">Policy</span></div>
+        </div>
+      </div>
+
+      <div class="slot">
+        <div class="slot-time">3:15 – 3:30<div class="dur">15 min</div></div>
+        <div class="slot-body">
+          <div class="title">Cross-day synthesis, commitments & valediction</div>
+          <div class="desc">Two-day learning harvest, commitment cards, certificates, GreenAI Academy PG Certificate pathway briefing, feedback form.</div>
+          <div class="tags"><span class="tag t-gray">Plenary</span></div>
+        </div>
+      </div>
+
+      <div class="note-box">
+        <div class="note-title">Facilitator notes — Day 2</div>
+        <div class="note-text">Recommend 2 domain facilitators (1 Commerce, 1 Management/HR) + 1 tech support. Pre-load Excel Copilot demo file and Power BI sample dataset. Ensure MS 365 trial access or shared demo account for Copilot. Ethics debate needs a moderator with RBI/SEBI regulatory familiarity.</div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function switchDay(n) {
+      document.getElementById('day1').classList.toggle('hidden', n !== 1);
+      document.getElementById('day2').classList.toggle('hidden', n !== 2);
+      document.querySelectorAll('.tab').forEach(function(t, i) { t.classList.toggle('active', i === n - 1); });
+    }
+  </script>
+</body>
+</html>

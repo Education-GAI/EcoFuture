@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>AI Tools Exercise Timeline</title>
+
+  <style>
+    :root{
+      --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial, "Noto Sans", "Liberation Sans", sans-serif;
+
+      --color-text-primary: #0f172a;
+      --color-text-secondary: #475569;
+      --color-text-tertiary: #64748b;
+
+      --color-background-secondary: #f1f5f9;
+
+      --color-border-secondary: #e2e8f0;
+      --color-border-tertiary: #cbd5e1;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: var(--font-sans); color: var(--color-text-primary); background: #fff; }
+
+    .wrap { padding: 1.5rem 0; font-family: var(--font-sans); max-width: 1100px; margin: 0 auto; }
+    .controls { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 1.25rem; }
+    .ctrl-group { display: flex; gap: 6px; align-items: center; }
+    .ctrl-label { font-size: 11px; color: var(--color-text-tertiary); text-transform: uppercase; letter-spacing: 0.06em; margin-right: 2px; }
+    .pill { padding: 5px 13px; border-radius: 20px; border: 0.5px solid var(--color-border-secondary); background: transparent; font-size: 12px; color: var(--color-text-secondary); cursor: pointer; transition: all 0.12s; }
+    .pill.on { border-color: transparent; }
+    .pill.d-all.on  { background: var(--color-background-secondary); color: var(--color-text-primary); }
+    .pill.d-1.on   { background: #E6F1FB; color: #0C447C; }
+    .pill.d-2.on   { background: #E1F5EE; color: #085041; }
+    .pill.s-all.on  { background: var(--color-background-secondary); color: var(--color-text-primary); }
+    .pill.s-res.on  { background: #EEEDFE; color: #3C3489; }
+    .pill.s-teach.on{ background: #FAEEDA; color: #633806; }
+    .pill.s-lab.on  { background: #FAECE7; color: #712B13; }
+    .divider { width: 1px; height: 20px; background: var(--color-border-tertiary); margin: 0 4px; }
+    .count-bar { font-size: 12px; color: var(--color-text-tertiary); margin-bottom: 10px; }
+
+    table { width: 100%; border-collapse: collapse; table-layout: fixed; }
+    colgroup col:nth-child(1) { width: 110px; }
+    colgroup col:nth-child(2) { width: 130px; }
+    colgroup col:nth-child(3) { width: 60px; }
+    colgroup col:nth-child(4) { width: 180px; }
+    colgroup col:nth-child(5) { width: auto; }
+    thead th { font-size: 11px; font-weight: 600; color: var(--color-text-tertiary); text-transform: uppercase; letter-spacing: 0.06em; padding: 10px 10px; border-bottom: 0.5px solid var(--color-border-secondary); text-align: left; background: var(--color-background-secondary); }
+    tbody tr { border-bottom: 0.5px solid var(--color-border-tertiary); }
+    tbody tr:hover { background: var(--color-background-secondary); }
+    tbody td { font-size: 12.5px; color: var(--color-text-primary); padding: 10px 10px; vertical-align: top; line-height: 1.45; }
+    .time-cell { font-size: 11.5px; color: var(--color-text-secondary); white-space: nowrap; }
+    .tool-cell { font-weight: 600; color: var(--color-text-primary); }
+    .tool-sub { font-size: 11px; color: var(--color-text-tertiary); font-weight: 400; margin-top: 2px; }
+    .badge { display: inline-block; font-size: 10px; padding: 2px 7px; border-radius: 20px; white-space: nowrap; }
+    .b-res   { background: #EEEDFE; color: #3C3489; }
+    .b-teach { background: #FAEEDA; color: #633806; }
+    .b-lab   { background: #FAECE7; color: #712B13; }
+    .b-demo  { background: var(--color-background-secondary); color: var(--color-text-secondary); }
+    .b-d1    { background: #E6F1FB; color: #0C447C; }
+    .b-d2    { background: #E1F5EE; color: #085041; }
+    .mode-cell { text-align: center; }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <div class="controls">
+      <div class="ctrl-group">
+        <span class="ctrl-label">Day</span>
+        <button class="pill d-all on" onclick="setDay('all')">All</button>
+        <button class="pill d-1" onclick="setDay('1')">Day 1 — Science & Arts</button>
+        <button class="pill d-2" onclick="setDay('2')">Day 2 — Commerce & Mgmt</button>
+      </div>
+      <div class="divider"></div>
+      <div class="ctrl-group">
+        <span class="ctrl-label">Session</span>
+        <button class="pill s-all on" onclick="setSess('all')">All</button>
+        <button class="pill s-res" onclick="setSess('res')">Research</button>
+        <button class="pill s-teach" onclick="setSess('teach')">Teaching</button>
+        <button class="pill s-lab" onclick="setSess('lab')">Lab</button>
+      </div>
+    </div>
+
+    <div class="count-bar" id="count-bar">Showing all exercises</div>
+
+    <table>
+      <colgroup><col/><col/><col/><col/><col/></colgroup>
+      <thead>
+        <tr>
+          <th>Time slot</th>
+          <th>Tool</th>
+          <th>Day</th>
+          <th>Session type</th>
+          <th>Exercise / activity</th>
+        </tr>
+      </thead>
+      <tbody id="tbody"></tbody>
+    </table>
+  </div>
+
+  <script>
+    var rows = [
+      { time:'11:20 – 12:00', dur:'40 min', tool:'Elicit', sub:'AI research assistant', day:'1', sess:'res', mode:'Demo', exercise:'Run a structured literature search on an assigned science/humanities topic; evaluate relevance of top 10 results; note gaps.' },
+      { time:'11:20 – 12:00', dur:'40 min', tool:'Semantic Scholar', sub:'Citation intelligence', day:'1', sess:'res', mode:'Demo', exercise:'Explore a citation network around a seminal paper; identify research clusters and emerging sub-fields.' },
+      { time:'11:20 – 12:00', dur:'40 min', tool:'SciSpace', sub:'Paper Q&A tool', day:'1', sess:'res', mode:'Demo', exercise:'Upload a journal article; ask 5 follow-up questions; compare AI-generated summary with manual reading.' },
+      { time:'11:20 – 12:00', dur:'40 min', tool:'Research Rabbit', sub:'Connected paper maps', day:'1', sess:'res', mode:'Demo', exercise:'Seed with one foundational paper; build a connected papers map; export references to Zotero.' },
+      { time:'11:20 – 12:00', dur:'40 min', tool:'Zotero AI', sub:'Reference manager', day:'1', sess:'res', mode:'Demo', exercise:'Import references from Research Rabbit; auto-tag by theme; generate APA-style bibliography.' },
+      { time:'11:20 – 12:00', dur:'40 min', tool:'NotebookLM', sub:'Source synthesis (Google)', day:'1', sess:'res', mode:'Demo', exercise:'Upload 3 PDFs on a common topic; generate a comparative summary; create a study guide with follow-up Q&A.' },
+      { time:'11:20 – 12:00', dur:'40 min', tool:'Voyant Tools', sub:'Text corpus analysis', day:'1', sess:'res', mode:'Demo', exercise:'Upload a short literary corpus; analyse word frequency, collocations, and trend graphs across texts.' },
+      { time:'11:20 – 12:00', dur:'40 min', tool:'JSTOR AI', sub:'Humanities search', day:'1', sess:'res', mode:'Demo', exercise:'Search a humanities query; use AI summarisation to triage 5 articles; critique the summaries for accuracy.' },
+      { time:'1:00 – 1:50', dur:'50 min', tool:'Claude', sub:'Anthropic LLM', day:'1', sess:'teach', mode:'Demo', exercise:'Prompt Claude to generate a 45-minute lesson plan for an assigned topic with learning objectives, activities, and an exit ticket.' },
+      { time:'1:00 – 1:50', dur:'50 min', tool:'ChatGPT', sub:'OpenAI LLM', day:'1', sess:'teach', mode:'Demo', exercise:'Generate 20 MCQs on an assigned topic at Bloom\'s Remember and Apply levels; compare output with manually written questions.' },
+      { time:'1:00 – 1:50', dur:'50 min', tool:'Canva AI', sub:'Visual design platform', day:'1', sess:'teach', mode:'Demo', exercise:'Generate an infographic on an assigned concept using text-to-design; evaluate visual clarity and accessibility.' },
+      { time:'1:00 – 1:50', dur:'50 min', tool:'Gamma.app', sub:'AI slide generator', day:'1', sess:'teach', mode:'Demo', exercise:'Generate a 10-slide lecture deck from a topic prompt; edit one slide for accuracy; assess pedagogic structure.' },
+      { time:'1:00 – 1:50', dur:'50 min', tool:'MagicSchool.ai', sub:'Curriculum scaffold', day:'1', sess:'teach', mode:'Demo', exercise:'Use the rubric generator to create a 4-level assessment rubric for a written assignment; test for bias using the fairness checker.' },
+      { time:'1:50 – 2:45', dur:'55 min', tool:'Elicit', sub:'AI research assistant', day:'1', sess:'lab', mode:'Hands-on', exercise:'Task card A: Each group runs a literature search on their subject; evaluates output quality; presents 3 observations to the cohort.' },
+      { time:'1:50 – 2:45', dur:'55 min', tool:'ChatGPT', sub:'OpenAI LLM', day:'1', sess:'lab', mode:'Hands-on', exercise:'Task card B: Design a 10-question quiz for an actual class topic; peer-review for Bloom\'s level coverage and cultural sensitivity.' },
+      { time:'1:50 – 2:45', dur:'55 min', tool:'Claude', sub:'Anthropic LLM', day:'1', sess:'lab', mode:'Hands-on', exercise:'Task card C: Generate an assessment rubric; audit it for gender/socioeconomic bias; revise with an inclusive prompt.' },
+      { time:'11:20 – 12:00', dur:'40 min', tool:'Elicit', sub:'AI research assistant', day:'2', sess:'res', mode:'Demo', exercise:'Conduct a systematic review search on an assigned management/economics topic; filter by study type and year.' },
+      { time:'11:20 – 12:00', dur:'40 min', tool:'Consensus', sub:'Evidence-based search', day:'2', sess:'res', mode:'Demo', exercise:'Query a contested business hypothesis (e.g., "Does remote work reduce productivity?"); analyse consensus meter output.' },
+      { time:'11:20 – 12:00', dur:'40 min', tool:'Perplexity', sub:'AI research synthesis', day:'2', sess:'res', mode:'Demo', exercise:'Generate a market intelligence brief on an assigned industry; verify 3 cited sources manually; note hallucination risk.' },
+      { time:'11:20 – 12:00', dur:'40 min', tool:'SPSS + AI assist', sub:'Quantitative analysis', day:'2', sess:'res', mode:'Demo', exercise:'Load a pre-prepared dataset; use AI-assisted variable selection; interpret regression output with AI commentary.' },
+      { time:'11:20 – 12:00', dur:'40 min', tool:'ATLAS.ti', sub:'Qualitative coding', day:'2', sess:'res', mode:'Demo (recorded)', exercise:'Watch instructor walkthrough of AI-assisted coding of 10 interview transcripts; discuss accuracy vs. manual coding.' },
+      { time:'11:20 – 12:00', dur:'40 min', tool:'Bloomberg GPT', sub:'Financial LLM', day:'2', sess:'res', mode:'Conceptual', exercise:'Slide-based walkthrough of Bloomberg GPT use cases; group discussion on proprietary AI in financial research ethics.' },
+      { time:'11:20 – 12:00', dur:'40 min', tool:'Connected Papers', sub:'Citation mapping', day:'2', sess:'res', mode:'Demo', exercise:'Map a strategic management paper\'s citation network; identify foundational vs. derivative work clusters.' },
+      { time:'11:20 – 12:00', dur:'40 min', tool:'Mendeley AI', sub:'Reference manager', day:'2', sess:'res', mode:'Demo', exercise:'Import 10 PDFs; use AI to auto-extract metadata and keywords; generate an annotated bibliography.' },
+      { time:'1:00 – 1:50', dur:'50 min', tool:'Claude', sub:'Anthropic LLM', day:'2', sess:'teach', mode:'Demo', exercise:'Generate a realistic 800-word B-school case study on an Indian company; identify ethical dimensions in the case.' },
+      { time:'1:00 – 1:50', dur:'50 min', tool:'ChatGPT', sub:'OpenAI LLM', day:'2', sess:'teach', mode:'Demo', exercise:'Build a market entry simulation prompt with decision nodes; run 2 scenario branches; evaluate realism of outputs.' },
+      { time:'1:00 – 1:50', dur:'50 min', tool:'Excel Copilot', sub:'Microsoft 365', day:'2', sess:'teach', mode:'Demo', exercise:'Load a pre-built financial model; use Copilot to explain formulas in plain language; auto-generate scenario analysis.' },
+      { time:'1:00 – 1:50', dur:'50 min', tool:'Power BI AI', sub:'Microsoft analytics', day:'2', sess:'teach', mode:'Demo', exercise:'Load a sample sales dataset; generate a narrative summary using AI insights; evaluate output for classroom use.' },
+      { time:'1:00 – 1:50', dur:'50 min', tool:'Gamma.app', sub:'AI slide generator', day:'2', sess:'teach', mode:'Demo', exercise:'Generate a B-school case debrief deck from a text prompt; edit for Harvard Business School slide conventions.' },
+      { time:'1:50 – 2:45', dur:'55 min', tool:'Perplexity + Claude', sub:'Research + LLM combo', day:'2', sess:'lab', mode:'Hands-on', exercise:'Task card A: Use Perplexity to research a startup market; use Claude to structure findings into a one-page investment brief.' },
+      { time:'1:50 – 2:45', dur:'55 min', tool:'Claude', sub:'Anthropic LLM', day:'2', sess:'lab', mode:'Hands-on', exercise:'Task card B: Generate a company law scenario for LL.B prep; write 5 discussion questions; peer-review for legal accuracy.' },
+      { time:'1:50 – 2:45', dur:'55 min', tool:'ChatGPT', sub:'OpenAI LLM', day:'2', sess:'lab', mode:'Hands-on', exercise:'Task card C: Prompt ChatGPT to generate a financial statement; audit the output for 3 ethical red flags; group presentation.' }
+    ];
+
+    var dayFilter = 'all', sessFilter = 'all';
+
+    function sessBadge(s) {
+      if(s==='res')   return '<span class="badge b-res">Research</span>';
+      if(s==='teach') return '<span class="badge b-teach">Teaching</span>';
+      if(s==='lab')   return '<span class="badge b-lab">Lab</span>';
+      return '';
+    }
+
+    function modeBadge(m) {
+      if(m==='Hands-on') return '<span class="badge b-lab">Hands-on</span>';
+      if(m==='Demo (recorded)') return '<span class="badge b-demo">Recorded demo</span>';
+      if(m==='Conceptual') return '<span class="badge b-demo">Conceptual</span>';
+      return '<span class="badge b-demo">Live demo</span>';
+    }
+
+    function dayBadge(d) {
+      return d==='1' ? '<span class="badge b-d1">Day 1</span>' : '<span class="badge b-d2">Day 2</span>';
+    }
+
+    function render() {
+      var filtered = rows.filter(function(r) {
+        return (dayFilter==='all' || r.day===dayFilter) && (sessFilter==='all' || r.sess===sessFilter);
+      });
+
+      var tbody = document.getElementById('tbody');
+      var html = '';
+
+      filtered.forEach(function(r) {
+        html += '<tr>';
+        html += '<td class="time-cell">' + r.time + '<br><span style="color:var(--color-text-tertiary);font-size:11px;">' + r.dur + '</span></td>';
+        html += '<td class="tool-cell">' + r.tool + '<div class="tool-sub">' + r.sub + '</div></td>';
+        html += '<td class="mode-cell">' + dayBadge(r.day) + '</td>';
+        html += '<td>' + sessBadge(r.sess) + '<br><span style="font-size:11px;color:var(--color-text-tertiary);margin-top:3px;display:block;">' + modeBadge(r.mode) + '</span></td>';
+        html += '<td>' + r.exercise + '</td>';
+        html += '</tr>';
+      });
+
+      tbody.innerHTML = html || '<tr><td colspan="5" style="text-align:center;padding:2rem;color:var(--color-text-tertiary);font-size:13px;">No exercises match this filter.</td></tr>';
+      document.getElementById('count-bar').textContent = 'Showing ' + filtered.length + ' of ' + rows.length + ' exercises';
+    }
+
+    function setDay(v) {
+      dayFilter = v;
+      document.querySelectorAll('.pill[class*="d-"]').forEach(function(p) { p.classList.remove('on'); });
+      document.querySelector('.pill.d-' + v).classList.add('on');
+      render();
+    }
+
+    function setSess(v) {
+      sessFilter = v;
+      document.querySelectorAll('.pill[class*="s-"]').forEach(function(p) { p.classList.remove('on'); });
+      document.querySelector('.pill.s-' + v).classList.add('on');
+      render();
+    }
+
+    render();
+  </script>
+</body>
+</html>

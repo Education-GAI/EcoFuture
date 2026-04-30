@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>AI Lab for Lawyers | Practice-First Productivity</title>
+   <script src="https://cdn.tailwindcss.com"></script>
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+   <style>
+       /* Custom Accordion Styling */
+       details > summary {
+           list-style: none;
+       }
+       details > summary::-webkit-details-marker {
+           display: none;
+       }
+       details[open] summary ~ * {
+           animation: slideDown 0.3s ease-in-out;
+       }
+       @keyframes slideDown {
+           from { opacity: 0; transform: translateY(-10px); }
+           to { opacity: 1; transform: translateY(0); }
+       }
+       .timeline-container {
+           position: relative;
+       }
+       .timeline-container::before {
+           content: '';
+           position: absolute;
+           top: 0;
+           bottom: 0;
+           left: 1.5rem; /* center of the 3rem width icon container */
+           width: 2px;
+           background-color: #e2e8f0;
+           z-index: 0;
+       }
+       @media (min-width: 768px) {
+           .timeline-container::before {
+               left: 50%;
+               transform: translateX(-50%);
+           }
+       }
+   </style>
+   <script>
+       tailwind.config = {
+           theme: {
+               extend: {
+                   colors: {
+                       brand: {
+                           50: '#f0fdfa',
+                           100: '#ccfbf1',
+                           500: '#14b8a6',
+                           700: '#0f766e',
+                           900: '#134e4a',
+                           navy: '#0f172a',
+                           gold: '#d97706'
+                       }
+                   }
+               }
+           }
+       }
+   </script>
+</head>
+<body class="font-sans text-slate-800 bg-slate-50 antialiased selection:bg-brand-500 selection:text-white">
+
+
+   <!-- Navigation -->
+   <nav class="fixed w-full bg-white/90 backdrop-blur-md shadow-sm z-50 transition-all border-b border-slate-200">
+       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+           <div class="flex justify-between h-16 items-center">
+               <div class="flex-shrink-0 flex items-center gap-2">
+                   <i class="fa-solid fa-scale-balanced text-brand-500 text-2xl"></i>
+                   <span class="font-bold text-xl text-brand-navy tracking-tight">AILab<span class="font-light text-slate-500">ForLawyers</span></span>
+               </div>
+               <div class="hidden md:flex space-x-8">
+                   <a href="#why" class="text-sm font-medium text-slate-600 hover:text-brand-500 transition-colors">Why Attend</a>
+                   <a href="#approach" class="text-sm font-medium text-slate-600 hover:text-brand-500 transition-colors">Our Approach</a>
+                   <a href="#syllabus" class="text-sm font-medium text-slate-600 hover:text-brand-500 transition-colors">Syllabus</a>
+                   <a href="#agenda" class="text-sm font-medium text-slate-600 hover:text-brand-500 transition-colors">1-Day Agenda</a>
+               </div>
+               <div>
+                   <a href="#register" class="bg-brand-navy text-white px-5 py-2.5 rounded-lg text-sm font-semibold hover:bg-slate-800 transition-colors shadow-md">Request Brochure</a>
+               </div>
+           </div>
+       </div>
+   </nav>
+
+
+   <!-- Hero Section -->
+   <section class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 bg-brand-navy overflow-hidden">
+       <div class="absolute inset-0 opacity-10">
+           <div class="absolute inset-0 bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px]"></div>
+       </div>
+       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+           <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-800 border border-slate-700 text-brand-gold text-sm font-semibold mb-8">
+               <i class="fa-solid fa-bolt"></i> No Coding. No Maths. Just Legal Productivity.
+           </div>
+           <h1 class="text-5xl md:text-7xl font-extrabold text-white tracking-tight mb-6 leading-tight">
+               The <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-500 to-teal-300">AI-Empowered</span> Lawyer
+           </h1>
+           <p class="mt-4 text-xl md:text-2xl text-slate-300 max-w-3xl mx-auto font-light leading-relaxed">
+               From research and drafting to review, chronology, client communication, and compliance support. A practice-first syllabus for everyday legal work.
+           </p>
+          
+           <div class="mt-10 flex flex-col sm:flex-row justify-center gap-4">
+               <a href="#syllabus" class="bg-brand-500 text-white px-8 py-4 rounded-xl text-lg font-bold hover:bg-brand-700 transition-all shadow-lg hover:shadow-brand-500/25">View Full Syllabus</a>
+               <a href="#agenda" class="bg-slate-800 text-white border border-slate-700 px-8 py-4 rounded-xl text-lg font-bold hover:bg-slate-700 transition-all">See 1-Day Agenda</a>
+           </div>
+
+
+           <div class="mt-16 pt-8 border-t border-slate-800">
+               <p class="text-sm text-slate-400 uppercase tracking-widest font-semibold mb-4">Designed specifically for</p>
+               <div class="flex flex-wrap justify-center gap-3">
+                   <span class="px-4 py-2 rounded-lg bg-slate-800/50 text-slate-300 text-sm border border-slate-700/50">Advocates</span>
+                   <span class="px-4 py-2 rounded-lg bg-slate-800/50 text-slate-300 text-sm border border-slate-700/50">Law Firm Associates</span>
+                   <span class="px-4 py-2 rounded-lg bg-slate-800/50 text-slate-300 text-sm border border-slate-700/50">In-House Counsel</span>
+                   <span class="px-4 py-2 rounded-lg bg-slate-800/50 text-slate-300 text-sm border border-slate-700/50">Legal Ops Teams</span>
+                   <span class="px-4 py-2 rounded-lg bg-slate-800/50 text-slate-300 text-sm border border-slate-700/50">Policy Professionals</span>
+               </div>
+           </div>
+       </div>
+   </section>
+
+
+   <!-- Why This Course / Utility Section -->
+   <section id="why" class="py-20 bg-white">
+       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+           <div class="text-center max-w-3xl mx-auto mb-16">
+               <h2 class="text-3xl md:text-4xl font-bold text-brand-navy mb-4">Built around actual day-to-day legal work</h2>
+               <p class="text-lg text-slate-600">This lab isn't about AI theory. It's about turning hours of tedious review and drafting into minutes of strategic verification.</p>
+           </div>
+
+
+           <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+               <!-- Utility Cards -->
+               <div class="bg-slate-50 rounded-2xl p-6 border border-slate-100 hover:shadow-lg transition-shadow">
+                   <div class="w-12 h-12 bg-brand-100 text-brand-700 rounded-xl flex items-center justify-center text-xl mb-6">
+                       <i class="fa-solid fa-magnifying-glass-chart"></i>
+                   </div>
+                   <h3 class="text-lg font-bold text-brand-navy mb-2">Accelerated Research</h3>
+                   <p class="text-slate-600 text-sm leading-relaxed">Find the right issue faster and read long documents quickly without missing what matters.</p>
+               </div>
+
+
+               <div class="bg-slate-50 rounded-2xl p-6 border border-slate-100 hover:shadow-lg transition-shadow">
+                   <div class="w-12 h-12 bg-brand-100 text-brand-700 rounded-xl flex items-center justify-center text-xl mb-6">
+                       <i class="fa-solid fa-file-signature"></i>
+                   </div>
+                   <h3 class="text-lg font-bold text-brand-navy mb-2">Better First Drafts</h3>
+                   <p class="text-slate-600 text-sm leading-relaxed">Draft superior first versions of notices, replies, clauses, summaries, and memos in seconds.</p>
+               </div>
+
+
+               <div class="bg-slate-50 rounded-2xl p-6 border border-slate-100 hover:shadow-lg transition-shadow">
+                   <div class="w-12 h-12 bg-brand-100 text-brand-700 rounded-xl flex items-center justify-center text-xl mb-6">
+                       <i class="fa-solid fa-timeline"></i>
+                   </div>
+                   <h3 class="text-lg font-bold text-brand-navy mb-2">Fact Organization</h3>
+                   <p class="text-slate-600 text-sm leading-relaxed">Instantly build case chronologies, issue trees, and extract facts from messy unstructured data.</p>
+               </div>
+
+
+               <div class="bg-slate-50 rounded-2xl p-6 border border-slate-100 hover:shadow-lg transition-shadow">
+                   <div class="w-12 h-12 bg-red-100 text-red-600 rounded-xl flex items-center justify-center text-xl mb-6">
+                       <i class="fa-solid fa-shield-halved"></i>
+                   </div>
+                   <h3 class="text-lg font-bold text-brand-navy mb-2">Safe & Ethical Practice</h3>
+                   <p class="text-slate-600 text-sm leading-relaxed">Handle AI safely: master confidentiality, hallucination checks, source verification, and professional responsibility.</p>
+               </div>
+           </div>
+       </div>
+   </section>
+
+
+   <!-- Pedagogy & Delivery Models -->
+   <section id="approach" class="py-20 bg-slate-50 border-y border-slate-200">
+       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+           <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+              
+               <!-- Pedagogy -->
+               <div>
+                   <h2 class="text-3xl font-bold text-brand-navy mb-6">Our Pedagogy: The 60% Rule</h2>
+                   <p class="text-slate-600 mb-8 leading-relaxed">We believe in active learning. You won't sit through lectures about neural networks. Every session follows a strict, practice-oriented pattern designed to build muscle memory.</p>
+                  
+                   <div class="space-y-4">
+                       <div class="flex items-center gap-4">
+                           <div class="w-16 h-10 rounded bg-slate-200 flex items-center justify-center font-bold text-slate-700 text-sm">15%</div>
+                           <div class="flex-1 text-slate-700 font-medium">Concept Briefing</div>
+                       </div>
+                       <div class="flex items-center gap-4">
+                           <div class="w-full max-w-[60%] h-10 rounded bg-brand-500 flex items-center justify-center font-bold text-white text-sm shadow-md">60%</div>
+                           <div class="flex-1 text-brand-700 font-bold">Guided Hands-On Lab</div>
+                       </div>
+                       <div class="flex items-center gap-4">
+                           <div class="w-16 h-10 rounded bg-slate-200 flex items-center justify-center font-bold text-slate-700 text-sm">15%</div>
+                           <div class="flex-1 text-slate-700 font-medium">Critique and Correction</div>
+                       </div>
+                       <div class="flex items-center gap-4">
+                           <div class="w-12 h-10 rounded bg-brand-gold flex items-center justify-center font-bold text-white text-sm">10%</div>
+                           <div class="flex-1 text-slate-700 font-medium">Reusable Workflow Building</div>
+                       </div>
+                   </div>
+               </div>
+
+
+               <!-- Delivery Models -->
+               <div>
+                   <h2 class="text-3xl font-bold text-brand-navy mb-6">Delivery Models</h2>
+                   <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                      
+                       <div class="bg-white rounded-2xl p-8 shadow-sm border border-slate-200 relative overflow-hidden">
+                           <div class="absolute top-0 left-0 w-full h-2 bg-brand-gold"></div>
+                           <h3 class="text-xl font-bold text-brand-navy mb-1">Intensive Lab</h3>
+                           <p class="text-brand-gold font-semibold text-sm mb-4">Option A</p>
+                           <div class="flex items-end gap-2 mb-6">
+                               <span class="text-4xl font-extrabold text-slate-800">1 Day</span>
+                           </div>
+                           <ul class="space-y-3 text-sm text-slate-600 mb-8">
+                               <li class="flex items-start gap-2"><i class="fa-solid fa-check text-brand-500 mt-1"></i> Total duration: 8 hours</li>
+                               <li class="flex items-start gap-2"><i class="fa-solid fa-check text-brand-500 mt-1"></i> 6 teaching-lab sessions</li>
+                               <li class="flex items-start gap-2"><i class="fa-solid fa-check text-brand-500 mt-1"></i> 1 mini capstone</li>
+                               <li class="flex items-start gap-2"><i class="fa-solid fa-check text-brand-500 mt-1"></i> Wrap-up and workflow clinic</li>
+                           </ul>
+                           <a href="#agenda" class="block text-center w-full bg-slate-100 text-slate-800 font-semibold py-2.5 rounded-lg hover:bg-slate-200 transition-colors">View Agenda</a>
+                       </div>
+
+
+                       <div class="bg-brand-navy rounded-2xl p-8 shadow-xl relative overflow-hidden">
+                           <div class="absolute top-0 right-0 bg-brand-500 text-white text-xs font-bold px-3 py-1 rounded-bl-lg">FLAGSHIP</div>
+                           <h3 class="text-xl font-bold text-white mb-1">Certificate Format</h3>
+                           <p class="text-brand-500 font-semibold text-sm mb-4">Option B</p>
+                           <div class="flex items-end gap-2 mb-6">
+                               <span class="text-4xl font-extrabold text-white">18 Hrs</span>
+                           </div>
+                           <ul class="space-y-3 text-sm text-slate-300 mb-8">
+                               <li class="flex items-start gap-2"><i class="fa-solid fa-check text-brand-500 mt-1"></i> 9 sessions x 2 hours each</li>
+                               <li class="flex items-start gap-2"><i class="fa-solid fa-check text-brand-500 mt-1"></i> Deeper hands-on practice</li>
+                               <li class="flex items-start gap-2"><i class="fa-solid fa-check text-brand-500 mt-1"></i> Custom office adoption plans</li>
+                               <li class="flex items-start gap-2"><i class="fa-solid fa-check text-brand-500 mt-1"></i> Full Capstone Assessment</li>
+                           </ul>
+                           <a href="#syllabus" class="block text-center w-full bg-brand-500 text-white font-semibold py-2.5 rounded-lg hover:bg-brand-700 transition-colors">View Full Syllabus</a>
+                       </div>
+
+
+                   </div>
+               </div>
+
+
+           </div>
+       </div>
+   </section>
+
+
+   <!-- Comprehensive Syllabus Section -->
+   <section id="syllabus" class="py-20 bg-white">
+       <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+           <div class="text-center mb-16">
+               <h2 class="text-3xl md:text-5xl font-bold text-brand-navy mb-4">The Flagship Syllabus</h2>
+               <p class="text-lg text-slate-600">Explore the detailed 18-hour curriculum designed to systematically upgrade your legal workflows.</p>
+           </div>
+
+
+           <div class="space-y-4">
+              
+               <!-- Session 1 -->
+               <details class="group bg-white border border-slate-200 rounded-xl shadow-sm overflow-hidden" open>
+                   <summary class="flex justify-between items-center font-bold cursor-pointer list-none p-6 bg-slate-50 hover:bg-slate-100 transition-colors">
+                       <div class="flex items-center gap-4">
+                           <div class="w-10 h-10 rounded-lg bg-brand-navy text-white flex items-center justify-center font-bold">1</div>
+                           <span class="text-lg text-brand-navy">The AI Paradigm Shift & The Lawyer's Desk</span>
+                       </div>
+                       <span class="transition group-open:rotate-180">
+                           <i class="fa-solid fa-chevron-down text-slate-400"></i>
+                       </span>
+                   </summary>
+                   <div class="p-6 border-t border-slate-200 text-slate-600">
+                       <p class="mb-4"><strong>Focus:</strong> Understand AI without technical jargon. Learn the difference between General AI (ChatGPT) and Legal-Native AI (Harvey, CoCounsel). Navigate confidentiality and the "Human-in-the-Loop" workflow.</p>
+                       <p class="mb-4"><strong>🛠️ LAB 1: "Red-Teaming" the AI:</strong> Deliberately prompt a general LLM to hallucinate a fake legal precedent. Spot the visual/structural "tells". Apply the Traffic Light Framework to safe/unsafe delegation.</p>
+                       <p><strong>Deliverable:</strong> AI Use Policy for your firm.</p>
+                   </div>
+               </details>
+
+
+               <!-- Session 2 -->
+               <details class="group bg-white border border-slate-200 rounded-xl shadow-sm overflow-hidden">
+                   <summary class="flex justify-between items-center font-bold cursor-pointer list-none p-6 hover:bg-slate-50 transition-colors">
+                       <div class="flex items-center gap-4">
+                           <div class="w-10 h-10 rounded-lg bg-brand-navy text-white flex items-center justify-center font-bold">2</div>
+                           <span class="text-lg text-brand-navy">The Art of Legal Prompt Engineering</span>
+                       </div>
+                       <span class="transition group-open:rotate-180"><i class="fa-solid fa-chevron-down text-slate-400"></i></span>
+                   </summary>
+                   <div class="p-6 border-t border-slate-200 text-slate-600">
+                       <p class="mb-4"><strong>Focus:</strong> Stop searching, start commanding. Move beyond basic questions to structured prompt frameworks (Role + Task + Jurisdiction + Facts + Format + Constraints).</p>
+                       <p class="mb-4"><strong>🛠️ LAB 2: The 5-Minute Cease & Desist:</strong> Input a messy, bulleted list of client grievances to generate a polished C&D letter. Iterate the prompt for three tones: Highly Aggressive, Firm but Amicable, and Legally Neutral.</p>
+                       <p><strong>Deliverable:</strong> 20-Prompt Starter Kit.</p>
+                   </div>
+               </details>
+
+
+               <!-- Session 3 -->
+               <details class="group bg-white border border-slate-200 rounded-xl shadow-sm overflow-hidden">
+                   <summary class="flex justify-between items-center font-bold cursor-pointer list-none p-6 hover:bg-slate-50 transition-colors">
+                       <div class="flex items-center gap-4">
+                           <div class="w-10 h-10 rounded-lg bg-brand-navy text-white flex items-center justify-center font-bold">3</div>
+                           <span class="text-lg text-brand-navy">Supercharged Legal Research & Case Understanding</span>
+                       </div>
+                       <span class="transition group-open:rotate-180"><i class="fa-solid fa-chevron-down text-slate-400"></i></span>
+                   </summary>
+                   <div class="p-6 border-t border-slate-200 text-slate-600">
+                       <p class="mb-4"><strong>Focus:</strong> Accelerate research preparation while preserving rigor. Frame research questions, extract holdings, and distinguish ratio vs. obiter.</p>
+                       <p class="mb-4"><strong>🛠️ LAB 3: The Research Triage:</strong> Convert a client problem into a research plan. Summarize a judgment in three formats (partner brief, detailed note, client explanation). Verify claims against source material.</p>
+                       <p><strong>Deliverable:</strong> Case brief sheet & Verification Checklist.</p>
+                   </div>
+               </details>
+
+
+               <!-- Session 4 -->
+                <details class="group bg-white border border-slate-200 rounded-xl shadow-sm overflow-hidden">
+                   <summary class="flex justify-between items-center font-bold cursor-pointer list-none p-6 hover:bg-slate-50 transition-colors">
+                       <div class="flex items-center gap-4">
+                           <div class="w-10 h-10 rounded-lg bg-brand-navy text-white flex items-center justify-center font-bold">4</div>
+                           <span class="text-lg text-brand-navy">AI for Drafting: Notices, Memos & Opinions</span>
+                       </div>
+                       <span class="transition group-open:rotate-180"><i class="fa-solid fa-chevron-down text-slate-400"></i></span>
+                   </summary>
+                   <div class="p-6 border-t border-slate-200 text-slate-600">
+                       <p class="mb-4"><strong>Focus:</strong> Produce better first drafts faster. Draft from facts vs. precedent, and instruct AI to avoid overclaiming.</p>
+                       <p class="mb-4"><strong>🛠️ LAB 4: The Strategy Synthesizer:</strong> Given a complex employment dispute fact pattern, generate the top 5 legal vulnerabilities, draft a memo of opposing counsel's arguments, and shrink a long opinion into a 1-page executive memo.</p>
+                       <p><strong>Deliverable:</strong> Drafting prompt pack & Legal memo skeleton.</p>
+                   </div>
+               </details>
+
+
+               <!-- Session 5 -->
+               <details class="group bg-white border border-slate-200 rounded-xl shadow-sm overflow-hidden">
+                   <summary class="flex justify-between items-center font-bold cursor-pointer list-none p-6 hover:bg-slate-50 transition-colors">
+                       <div class="flex items-center gap-4">
+                           <div class="w-10 h-10 rounded-lg bg-brand-navy text-white flex items-center justify-center font-bold">5</div>
+                           <span class="text-lg text-brand-navy">Accelerating Document Review</span>
+                       </div>
+                       <span class="transition group-open:rotate-180"><i class="fa-solid fa-chevron-down text-slate-400"></i></span>
+                   </summary>
+                   <div class="p-6 border-t border-slate-200 text-slate-600">
+                       <p class="mb-4"><strong>Focus:</strong> Turn a 5-hour review into a 15-minute verification task. Digest massive files, extract clauses, and spot risks.</p>
+                       <p class="mb-4"><strong>🛠️ LAB 5: The "Needle in the Haystack" Audit:</strong> Compare two versions of a 50-page lease. Extract indemnification clauses, generate a red-flag list, identify missing standard protections, and prepare fallback language.</p>
+                       <p><strong>Deliverable:</strong> Contract review checklist & Clause deviation table.</p>
+                   </div>
+               </details>
+
+
+               <!-- Session 6 -->
+               <details class="group bg-white border border-slate-200 rounded-xl shadow-sm overflow-hidden">
+                   <summary class="flex justify-between items-center font-bold cursor-pointer list-none p-6 hover:bg-slate-50 transition-colors">
+                       <div class="flex items-center gap-4">
+                           <div class="w-10 h-10 rounded-lg bg-brand-navy text-white flex items-center justify-center font-bold">6</div>
+                           <span class="text-lg text-brand-navy">Fact Management & E-Discovery</span>
+                       </div>
+                       <span class="transition group-open:rotate-180"><i class="fa-solid fa-chevron-down text-slate-400"></i></span>
+                   </summary>
+                   <div class="p-6 border-t border-slate-200 text-slate-600">
+                       <p class="mb-4"><strong>Focus:</strong> Turn document chaos into litigation-ready structure. Extract facts from messy emails, notices, and transcripts.</p>
+                       <p class="mb-4"><strong>🛠️ LAB 6: The Evidence Matrix:</strong> Upload a mixed bundle of facts to create a master chronology, an actor map, an issue-to-evidence table, and a witness question bank.</p>
+                       <p><strong>Deliverable:</strong> Chronology builder prompt & Evidence matrix template.</p>
+                   </div>
+               </details>
+
+
+               <!-- Session 7 -->
+               <details class="group bg-white border border-slate-200 rounded-xl shadow-sm overflow-hidden">
+                   <summary class="flex justify-between items-center font-bold cursor-pointer list-none p-6 hover:bg-slate-50 transition-colors">
+                       <div class="flex items-center gap-4">
+                           <div class="w-10 h-10 rounded-lg bg-brand-navy text-white flex items-center justify-center font-bold">7</div>
+                           <span class="text-lg text-brand-navy">Client Communication & Simplification</span>
+                       </div>
+                       <span class="transition group-open:rotate-180"><i class="fa-solid fa-chevron-down text-slate-400"></i></span>
+                   </summary>
+                   <div class="p-6 border-t border-slate-200 text-slate-600">
+                       <p class="mb-4"><strong>Focus:</strong> Reduce friction with clients while preserving legal accuracy. Translate dense jargon into plain language for founders and boards.</p>
+                       <p class="mb-4"><strong>🛠️ LAB 7: The Client-Facing Translator:</strong> Take a dense Supreme Court ruling and generate an internal executive summary, a polite 3-paragraph email to a non-lawyer client, and a compliant LinkedIn post.</p>
+                       <p><strong>Deliverable:</strong> Client explanation sheet & FAQ prompt bank.</p>
+                   </div>
+               </details>
+
+
+               <!-- Session 8 -->
+               <details class="group bg-white border border-slate-200 rounded-xl shadow-sm overflow-hidden">
+                   <summary class="flex justify-between items-center font-bold cursor-pointer list-none p-6 hover:bg-slate-50 transition-colors">
+                       <div class="flex items-center gap-4">
+                           <div class="w-10 h-10 rounded-lg bg-brand-navy text-white flex items-center justify-center font-bold">8</div>
+                           <span class="text-lg text-brand-navy">Compliance, Policy, and Legal Ops</span>
+                       </div>
+                       <span class="transition group-open:rotate-180"><i class="fa-solid fa-chevron-down text-slate-400"></i></span>
+                   </summary>
+                   <div class="p-6 border-t border-slate-200 text-slate-600">
+                       <p class="mb-4"><strong>Focus:</strong> Reclaim your day from administrative friction. Automate client intakes, policy summaries, and standard operating procedures (SOPs).</p>
+                       <p class="mb-4"><strong>🛠️ LAB 8: The Ops Automator:</strong> Extract obligations from a regulation text to build a compliance tracker. Design a no-code intake workflow for legal requests.</p>
+                       <p><strong>Deliverable:</strong> Obligation extraction sheet & SOP drafting template.</p>
+                   </div>
+               </details>
+
+
+               <!-- Session 9 -->
+               <details class="group bg-white border border-slate-200 rounded-xl shadow-sm overflow-hidden">
+                   <summary class="flex justify-between items-center font-bold cursor-pointer list-none p-6 hover:bg-slate-50 transition-colors">
+                       <div class="flex items-center gap-4">
+                           <div class="w-10 h-10 rounded-lg bg-brand-navy text-white flex items-center justify-center font-bold">9</div>
+                           <span class="text-lg text-brand-navy">Responsible AI Practice & Ethics</span>
+                       </div>
+                       <span class="transition group-open:rotate-180"><i class="fa-solid fa-chevron-down text-slate-400"></i></span>
+                   </summary>
+                   <div class="p-6 border-t border-slate-200 text-slate-600">
+                       <p class="mb-4"><strong>Focus:</strong> Build professional judgment. Address hallucinations, false completeness, anonymization, and professional accountability.</p>
+                       <p class="mb-4"><strong>🛠️ LAB 9: The Repair & Rescue:</strong> Diagnose a deliberately bad AI-generated legal memo with fake citations. Rewrite prompts to force uncertainty disclosure and source discipline.</p>
+                       <p><strong>Deliverable:</strong> Safe-use protocol & Confidentiality screening checklist.</p>
+                   </div>
+               </details>
+
+
+               <!-- Capstone -->
+               <div class="bg-brand-navy text-white rounded-xl shadow-lg overflow-hidden mt-8 border border-brand-700">
+                   <div class="p-6">
+                       <div class="flex items-center gap-4 mb-4">
+                           <div class="w-10 h-10 rounded-lg bg-brand-500 text-white flex items-center justify-center text-xl"><i class="fa-solid fa-graduation-cap"></i></div>
+                           <h3 class="text-2xl font-bold text-white">Capstone: The "Friday Afternoon Emergency"</h3>
+                       </div>
+                       <p class="text-slate-300 mb-6">A realistic, high-pressure simulation bringing together all skills learned.</p>
+                      
+                       <div class="grid grid-cols-1 md:grid-cols-2 gap-6 bg-slate-800/50 p-6 rounded-lg">
+                           <div>
+                               <h4 class="font-bold text-brand-gold mb-2">The Brief (4:00 PM)</h4>
+                               <p class="text-sm text-slate-300 mb-2">A client sends a panicked email with a messy narrative and a 30-page opposing contract attached.</p>
+                           </div>
+                           <div>
+                               <h4 class="font-bold text-brand-gold mb-2">Required Outputs (by 4:45 PM)</h4>
+                               <ul class="list-disc list-inside space-y-1 text-sm text-slate-300">
+                                   <li>Summarize core issue & flag contract risks</li>
+                                   <li>Draft holding response to opposing counsel</li>
+                                   <li>Draft actionable strategy email to client</li>
+                                   <li>Manual verification risk note</li>
+                               </ul>
+                           </div>
+                       </div>
+                   </div>
+               </div>
+
+
+           </div>
+       </div>
+   </section>
+
+
+   <!-- 1-Day Intensive Agenda -->
+   <section id="agenda" class="py-20 bg-slate-50 border-t border-slate-200">
+       <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+           <div class="text-center mb-16">
+               <span class="text-brand-500 font-bold tracking-wider uppercase text-sm mb-2 block">Executive Version</span>
+               <h2 class="text-3xl md:text-4xl font-bold text-brand-navy mb-4">One-Day Intensive Agenda</h2>
+               <p class="text-lg text-slate-600">8 hours total. Focused, fast-paced, and highly practical. Driven by a single master case file simulating a real commercial dispute.</p>
+           </div>
+
+
+           <div class="timeline-container space-y-8">
+              
+               <!-- Timeline Item -->
+               <div class="relative z-10 flex flex-col md:flex-row items-start">
+                   <div class="hidden md:block md:w-1/2 md:pr-12 text-right pt-2">
+                       <span class="text-brand-navy font-bold text-lg">09:30 – 10:00 AM</span>
+                   </div>
+                   <div class="absolute left-0 md:left-1/2 transform md:-translate-x-1/2 flex items-center justify-center w-12 h-12 bg-white border-4 border-brand-navy rounded-full shadow-md text-brand-navy">
+                       <i class="fa-solid fa-door-open"></i>
+                   </div>
+                   <div class="md:w-1/2 pl-16 md:pl-12 w-full">
+                       <span class="text-brand-navy font-bold md:hidden block mb-1">09:30 – 10:00 AM</span>
+                       <div class="bg-white p-5 rounded-xl shadow-sm border border-slate-200">
+                           <h3 class="font-bold text-slate-800">Registration & Framing</h3>
+                           <p class="text-sm text-slate-600 mt-1">Participant mapping, expectations, and responsible-use ground rules. Creating a personal AI-use map.</p>
+                       </div>
+                   </div>
+               </div>
+
+
+               <!-- Timeline Item -->
+               <div class="relative z-10 flex flex-col md:flex-row items-start">
+                   <div class="hidden md:block md:w-1/2 md:pr-12 text-right pt-2">
+                       <span class="text-brand-navy font-bold text-lg">10:00 – 11:30 AM</span>
+                   </div>
+                   <div class="absolute left-0 md:left-1/2 transform md:-translate-x-1/2 flex items-center justify-center w-12 h-12 bg-white border-4 border-brand-500 rounded-full shadow-md text-brand-500">
+                       <i class="fa-solid fa-robot"></i>
+                   </div>
+                   <div class="md:w-1/2 pl-16 md:pl-12 w-full">
+                       <span class="text-brand-navy font-bold md:hidden block mb-1">10:00 – 11:30 AM</span>
+                       <div class="bg-white p-5 rounded-xl shadow-sm border border-slate-200">
+                           <h3 class="font-bold text-slate-800">Session 1 & 2: Fundamentals & Prompting</h3>
+                           <p class="text-sm text-slate-600 mt-1">Identify safe/unsafe tasks. Convert vague instructions into precise legal prompts (Context + Task + Rules).</p>
+                       </div>
+                   </div>
+               </div>
+
+
+               <!-- Timeline Item: Break -->
+               <div class="relative z-10 flex flex-col md:flex-row items-start">
+                   <div class="hidden md:block md:w-1/2 md:pr-12 text-right pt-1">
+                       <span class="text-slate-400 font-medium text-sm">11:30 AM</span>
+                   </div>
+                   <div class="absolute left-0 md:left-1/2 transform md:-translate-x-1/2 flex items-center justify-center w-8 h-8 bg-slate-100 border-2 border-slate-300 rounded-full text-slate-400 text-xs mt-1 ml-2 md:ml-0">
+                       <i class="fa-solid fa-mug-hot"></i>
+                   </div>
+                   <div class="md:w-1/2 pl-16 md:pl-12 w-full pt-1">
+                       <span class="text-slate-500 font-medium text-sm">Tea Break</span>
+                   </div>
+               </div>
+
+
+               <!-- Timeline Item -->
+               <div class="relative z-10 flex flex-col md:flex-row items-start">
+                   <div class="hidden md:block md:w-1/2 md:pr-12 text-right pt-2">
+                       <span class="text-brand-navy font-bold text-lg">11:45 – 01:30 PM</span>
+                   </div>
+                   <div class="absolute left-0 md:left-1/2 transform md:-translate-x-1/2 flex items-center justify-center w-12 h-12 bg-white border-4 border-brand-500 rounded-full shadow-md text-brand-500">
+                       <i class="fa-solid fa-gavel"></i>
+                   </div>
+                   <div class="md:w-1/2 pl-16 md:pl-12 w-full">
+                       <span class="text-brand-navy font-bold md:hidden block mb-1">11:45 – 01:30 PM</span>
+                       <div class="bg-white p-5 rounded-xl shadow-sm border border-slate-200">
+                           <h3 class="font-bold text-slate-800">Session 3 & 4: Research & Drafting</h3>
+                           <p class="text-sm text-slate-600 mt-1">Judgment summarization lab followed by drafting notices, memos, and tone-controlled client updates.</p>
+                       </div>
+                   </div>
+               </div>
+
+
+               <!-- Timeline Item: Break -->
+               <div class="relative z-10 flex flex-col md:flex-row items-start">
+                   <div class="hidden md:block md:w-1/2 md:pr-12 text-right pt-1">
+                       <span class="text-slate-400 font-medium text-sm">01:30 PM</span>
+                   </div>
+                   <div class="absolute left-0 md:left-1/2 transform md:-translate-x-1/2 flex items-center justify-center w-8 h-8 bg-slate-100 border-2 border-slate-300 rounded-full text-slate-400 text-xs mt-1 ml-2 md:ml-0">
+                       <i class="fa-solid fa-utensils"></i>
+                   </div>
+                   <div class="md:w-1/2 pl-16 md:pl-12 w-full pt-1">
+                       <span class="text-slate-500 font-medium text-sm">Lunch Break</span>
+                   </div>
+               </div>
+
+
+                <!-- Timeline Item -->
+                <div class="relative z-10 flex flex-col md:flex-row items-start">
+                   <div class="hidden md:block md:w-1/2 md:pr-12 text-right pt-2">
+                       <span class="text-brand-navy font-bold text-lg">02:15 – 04:00 PM</span>
+                   </div>
+                   <div class="absolute left-0 md:left-1/2 transform md:-translate-x-1/2 flex items-center justify-center w-12 h-12 bg-white border-4 border-brand-500 rounded-full shadow-md text-brand-500">
+                       <i class="fa-solid fa-file-contract"></i>
+                   </div>
+                   <div class="md:w-1/2 pl-16 md:pl-12 w-full">
+                       <span class="text-brand-navy font-bold md:hidden block mb-1">02:15 – 04:00 PM</span>
+                       <div class="bg-white p-5 rounded-xl shadow-sm border border-slate-200">
+                           <h3 class="font-bold text-slate-800">Session 5 & 6: Contracts & Chronology</h3>
+                           <p class="text-sm text-slate-600 mt-1">Compare NDAs, spot red-flags. Then turn unstructured messy facts into a master chronology and evidence matrix.</p>
+                       </div>
+                   </div>
+               </div>
+
+
+               <!-- Timeline Item: Break -->
+               <div class="relative z-10 flex flex-col md:flex-row items-start">
+                   <div class="hidden md:block md:w-1/2 md:pr-12 text-right pt-1">
+                       <span class="text-slate-400 font-medium text-sm">04:00 PM</span>
+                   </div>
+                   <div class="absolute left-0 md:left-1/2 transform md:-translate-x-1/2 flex items-center justify-center w-8 h-8 bg-slate-100 border-2 border-slate-300 rounded-full text-slate-400 text-xs mt-1 ml-2 md:ml-0">
+                       <i class="fa-solid fa-mug-hot"></i>
+                   </div>
+                   <div class="md:w-1/2 pl-16 md:pl-12 w-full pt-1">
+                       <span class="text-slate-500 font-medium text-sm">Tea Break</span>
+                   </div>
+               </div>
+
+
+               <!-- Timeline Item -->
+               <div class="relative z-10 flex flex-col md:flex-row items-start">
+                   <div class="hidden md:block md:w-1/2 md:pr-12 text-right pt-2">
+                       <span class="text-brand-navy font-bold text-lg">04:15 – 05:30 PM</span>
+                   </div>
+                   <div class="absolute left-0 md:left-1/2 transform md:-translate-x-1/2 flex items-center justify-center w-12 h-12 bg-brand-navy border-4 border-brand-gold rounded-full shadow-md text-brand-gold">
+                       <i class="fa-solid fa-flag-checkered"></i>
+                   </div>
+                   <div class="md:w-1/2 pl-16 md:pl-12 w-full">
+                       <span class="text-brand-navy font-bold md:hidden block mb-1">04:15 – 05:30 PM</span>
+                       <div class="bg-white p-5 rounded-xl shadow-sm border border-slate-200 border-l-4 border-l-brand-gold">
+                           <h3 class="font-bold text-slate-800">Session 7, 8 & Capstone</h3>
+                           <p class="text-sm text-slate-600 mt-1">Client communication, responsible AI ethics, and a high-speed mini capstone exercise tying it all together. Takeaway distribution.</p>
+                       </div>
+                   </div>
+               </div>
+
+
+           </div>
+       </div>
+   </section>
+
+
+   <!-- Takeaways Section -->
+   <section class="py-20 bg-brand-navy text-white">
+       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+           <h2 class="text-3xl md:text-4xl font-bold mb-4">The Take-Home Toolkit</h2>
+           <p class="text-lg text-slate-400 mb-12 max-w-2xl mx-auto">You don't just leave with knowledge. You leave with an actionable, ready-to-use arsenal of resources to implement on Monday morning.</p>
+          
+           <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+               <div class="bg-slate-800 p-4 rounded-xl border border-slate-700 hover:border-brand-500 transition-colors">
+                   <i class="fa-solid fa-layer-group text-2xl text-brand-500 mb-3"></i>
+                   <h4 class="font-bold text-sm">3x Prompt Packs</h4>
+                   <p class="text-xs text-slate-400 mt-1">Litigation, Contracts & In-House</p>
+               </div>
+               <div class="bg-slate-800 p-4 rounded-xl border border-slate-700 hover:border-brand-500 transition-colors">
+                   <i class="fa-solid fa-clipboard-check text-2xl text-brand-500 mb-3"></i>
+                   <h4 class="font-bold text-sm">Verification Checklists</h4>
+                   <p class="text-xs text-slate-400 mt-1">Fact & Citation checking</p>
+               </div>
+               <div class="bg-slate-800 p-4 rounded-xl border border-slate-700 hover:border-brand-500 transition-colors">
+                   <i class="fa-solid fa-list-ol text-2xl text-brand-500 mb-3"></i>
+                   <h4 class="font-bold text-sm">Chronology Builder</h4>
+                   <p class="text-xs text-slate-400 mt-1">Evidence matrix templates</p>
+               </div>
+               <div class="bg-slate-800 p-4 rounded-xl border border-slate-700 hover:border-brand-500 transition-colors">
+                   <i class="fa-solid fa-file-circle-exclamation text-2xl text-brand-500 mb-3"></i>
+                   <h4 class="font-bold text-sm">Contract Red-Flags</h4>
+                   <p class="text-xs text-slate-400 mt-1">Deviation and risk templates</p>
+               </div>
+               <div class="bg-slate-800 p-4 rounded-xl border border-slate-700 hover:border-brand-500 transition-colors">
+                   <i class="fa-solid fa-user-shield text-2xl text-brand-500 mb-3"></i>
+                   <h4 class="font-bold text-sm">Safe-Use Protocol</h4>
+                   <p class="text-xs text-slate-400 mt-1">Confidentiality screening</p>
+               </div>
+           </div>
+       </div>
+   </section>
+
+
+   <!-- Footer / CTA -->
+   <footer class="bg-slate-950 py-12 border-t border-slate-900">
+       <div class="max-w-4xl mx-auto px-4 text-center">
+           <h3 class="text-2xl font-bold text-white mb-6">Ready to upgrade your firm's workflows?</h3>
+           <p class="text-slate-400 italic mb-8">
+               "AI Lab for Lawyers is not a technology lecture. It is a practical legal productivity and judgment lab that helps professionals research faster, draft better, review more carefully, communicate more clearly, and use AI responsibly in everyday practice."
+           </p>
+           <button class="bg-brand-gold text-brand-navy font-bold py-3 px-8 rounded-lg shadow-lg hover:bg-yellow-500 transition-colors">
+               Contact for Corporate Bookings
+           </button>
+           <div class="mt-12 text-sm text-slate-600">
+               &copy; 2026 AI Lab for Lawyers. Designed for legal professionals.
+           </div>
+       </div>
+   </footer>
+
+
+</body>
+</html>
+
