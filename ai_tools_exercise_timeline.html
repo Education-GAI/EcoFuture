@@ -59,6 +59,14 @@
     .b-d1    { background: #E6F1FB; color: #0C447C; }
     .b-d2    { background: #E1F5EE; color: #085041; }
     .mode-cell { text-align: center; }
+
+    .notes-wrap { margin-top: 18px; }
+    .notes-title { font-size: 11px; font-weight: 600; color: var(--color-text-tertiary); text-transform: uppercase; letter-spacing: 0.08em; margin: 16px 0 8px; }
+    .note-box { border: 0.5px solid var(--color-border-tertiary); border-radius: 14px; padding: 12px 14px; background: var(--color-background-secondary); }
+    .note-box + .note-box { margin-top: 10px; }
+    .note-title { font-size: 13px; font-weight: 700; color: var(--color-text-primary); margin-bottom: 6px; }
+    .note-text { font-size: 12.5px; color: var(--color-text-secondary); line-height: 1.6; }
+    .hidden { display: none; }
   </style>
 </head>
 
@@ -96,6 +104,24 @@
       </thead>
       <tbody id="tbody"></tbody>
     </table>
+
+    <div class="notes-wrap" id="notes-wrap">
+      <div class="notes-title">Facilitator notes</div>
+
+      <div class="note-box" id="notes-day-1">
+        <div class="note-title">Facilitator notes — Day 1</div>
+        <div class="note-text">
+          Recommend 2 domain facilitators (1 Science, 1 Arts/Humanities) + 1 tech support. Pre-configure shared Google Colab / NotebookLM sessions. Ensure college WiFi load-tested for 120 simultaneous devices. Print ethics case-study handout (A4, 2 sides).
+        </div>
+      </div>
+
+      <div class="note-box" id="notes-day-2">
+        <div class="note-title">Facilitator notes — Day 2</div>
+        <div class="note-text">
+          Recommend 2 domain facilitators (1 Commerce, 1 Management/HR) + 1 tech support. Pre-load Excel Copilot demo file and Power BI sample dataset. Ensure MS 365 trial access or shared demo account for Copilot. Ethics debate needs a moderator with RBI/SEBI regulatory familiarity.
+        </div>
+      </div>
+    </div>
   </div>
 
   <script>
@@ -174,6 +200,13 @@
 
       tbody.innerHTML = html || '<tr><td colspan="5" style="text-align:center;padding:2rem;color:var(--color-text-tertiary);font-size:13px;">No exercises match this filter.</td></tr>';
       document.getElementById('count-bar').textContent = 'Showing ' + filtered.length + ' of ' + rows.length + ' exercises';
+
+      var n1 = document.getElementById('notes-day-1');
+      var n2 = document.getElementById('notes-day-2');
+      if (n1 && n2) {
+        n1.classList.toggle('hidden', dayFilter === '2');
+        n2.classList.toggle('hidden', dayFilter === '1');
+      }
     }
 
     function setDay(v) {
