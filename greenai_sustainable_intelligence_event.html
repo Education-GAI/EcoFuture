@@ -1,0 +1,274 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Sustainable Intelligence for India — A landmark summit on building AI that is efficient, inclusive, sovereign and rooted in Indian realities." />
+  <title>Sustainable Intelligence for India | GreenAI × IISER Kolkata</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: { navy: '#0f172a' }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    .hero-bg {
+      background:
+        radial-gradient(circle at top left, rgba(34,197,94,0.24), transparent 32%),
+        radial-gradient(circle at top right, rgba(20,184,166,0.2), transparent 30%),
+        linear-gradient(180deg, rgba(15,23,42,0.15), rgba(2,6,23,1));
+    }
+  </style>
+</head>
+<body class="min-h-screen bg-slate-950 text-white font-sans antialiased">
+
+  <!-- Navigation -->
+  <section class="relative overflow-hidden">
+    <div class="absolute inset-0 hero-bg"></div>
+    <div class="relative mx-auto max-w-7xl px-6 py-8 lg:px-8">
+      <nav class="flex items-center justify-between rounded-full border border-white/10 bg-white/5 px-5 py-3 backdrop-blur-xl">
+        <div class="flex items-center gap-3">
+          <div class="flex h-10 w-10 items-center justify-center rounded-full bg-emerald-400 text-slate-950 font-black text-lg">G</div>
+          <div>
+            <p class="text-sm font-semibold tracking-wide">GreenAI × IISER Kolkata</p>
+            <p class="text-xs text-slate-300">World Environment Day Summit</p>
+          </div>
+        </div>
+        <div class="hidden sm:flex items-center gap-4">
+          <a href="index.html" class="text-sm text-slate-300 hover:text-white transition"><i class="fas fa-arrow-left mr-1"></i> Home</a>
+          <a href="#register" class="rounded-full bg-emerald-400 px-5 py-2 text-sm font-bold text-slate-950 shadow-lg shadow-emerald-500/20 transition hover:scale-105">Register Interest</a>
+        </div>
+      </nav>
+
+      <!-- Hero -->
+      <div class="grid items-center gap-12 py-20 lg:grid-cols-[1.1fr_0.9fr] lg:py-28">
+        <div>
+          <div class="mb-6 inline-flex rounded-full border border-emerald-300/20 bg-emerald-300/10 px-4 py-2 text-sm font-medium text-emerald-200">
+            June 5, 2026 · IISER Kolkata · 7-Hour Day Summit
+          </div>
+          <h1 class="max-w-4xl text-5xl font-black leading-tight tracking-tight sm:text-6xl lg:text-7xl">
+            Sustainable Intelligence for India
+          </h1>
+          <p class="mt-6 max-w-2xl text-xl leading-8 text-slate-300">
+            A landmark summit on building AI that is efficient, inclusive, sovereign and rooted in Indian realities — from language equity to Indian Knowledge Systems-aware models.
+          </p>
+          <div class="mt-8 flex flex-col gap-4 sm:flex-row">
+            <a href="#register" class="rounded-full bg-emerald-400 px-7 py-4 text-center text-base font-bold text-slate-950 shadow-xl shadow-emerald-500/25 transition hover:-translate-y-1 hover:bg-emerald-300">Join the Summit</a>
+            <a href="#agenda" class="rounded-full border border-white/15 bg-white/5 px-7 py-4 text-center text-base font-bold text-white transition hover:-translate-y-1 hover:bg-white/10">View Agenda</a>
+          </div>
+          <p class="mt-6 text-sm text-slate-400">Theme: Rooting Intelligence in Sustainability, Inclusion, and Sovereignty</p>
+        </div>
+
+        <div class="relative">
+          <div class="absolute -inset-4 rounded-3xl bg-emerald-400/20 blur-3xl"></div>
+          <div class="relative rounded-3xl border border-white/10 bg-white/10 p-6 shadow-2xl backdrop-blur-2xl">
+            <div class="rounded-2xl bg-slate-950/80 p-6">
+              <p class="text-sm uppercase tracking-[0.3em] text-emerald-300">Featured Tracks</p>
+              <div class="mt-6 space-y-4" id="featured-tracks"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why this summit -->
+  <section class="mx-auto max-w-7xl px-6 py-20 lg:px-8">
+    <div class="grid gap-10 lg:grid-cols-[0.8fr_1.2fr]">
+      <div>
+        <p class="text-sm font-bold uppercase tracking-[0.25em] text-emerald-300">Why this summit</p>
+        <h2 class="mt-4 text-4xl font-black tracking-tight sm:text-5xl">AI must become sustainable before it becomes universal.</h2>
+      </div>
+      <div class="rounded-3xl border border-white/10 bg-white/[0.04] p-8 text-lg leading-8 text-slate-300">
+        The global AI race is often defined by larger models, larger data centers and larger compute bills. India needs a different imagination: AI that preserves languages, reduces unnecessary compute, serves local public needs and builds responsible models around Indian Knowledge Systems without costing the earth.
+      </div>
+    </div>
+  </section>
+
+  <!-- Four pillars -->
+  <section id="pillars" class="bg-white/[0.03] py-20">
+    <div class="mx-auto max-w-7xl px-6 lg:px-8">
+      <div class="mx-auto max-w-3xl text-center">
+        <p class="text-sm font-bold uppercase tracking-[0.25em] text-emerald-300">Four pillars</p>
+        <h2 class="mt-4 text-4xl font-black tracking-tight sm:text-5xl">The architecture of Sustainable Intelligence</h2>
+      </div>
+      <div class="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-4" id="pillars-grid"></div>
+    </div>
+  </section>
+
+  <!-- IKS + MVI -->
+  <section class="mx-auto max-w-7xl px-6 py-20 lg:px-8">
+    <div class="grid gap-8 lg:grid-cols-3">
+      <div class="rounded-3xl border border-emerald-300/20 bg-emerald-300/10 p-8 lg:col-span-1">
+        <p class="text-sm font-bold uppercase tracking-[0.25em] text-emerald-200">Core theme</p>
+        <h2 class="mt-4 text-3xl font-black">Indian Knowledge Systems for AI</h2>
+        <p class="mt-4 leading-7 text-emerald-50/80">
+          How can AI models be designed with Indian Knowledge Systems in mind — not as an afterthought, but as a foundation for culturally grounded, linguistically rich and context-aware intelligence?
+        </p>
+      </div>
+      <div class="grid gap-5 md:grid-cols-2 lg:col-span-2">
+        <div class="rounded-3xl border border-white/10 bg-white/[0.04] p-8">
+          <h3 class="text-2xl font-black">Minimum Viable Intelligence</h3>
+          <p class="mt-4 leading-7 text-slate-400">A practical discussion on when a compact 3B-parameter model can serve people better than a massive cloud-dependent model.</p>
+        </div>
+        <div class="rounded-3xl border border-white/10 bg-white/[0.04] p-8">
+          <h3 class="text-2xl font-black">Community-Led Data</h3>
+          <p class="mt-4 leading-7 text-slate-400">A grounded roadmap for language data, domain data and Indian Knowledge Systems that are ethically sourced, carefully structured and publicly useful.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Agenda -->
+  <section id="agenda" class="bg-slate-900/70 py-20">
+    <div class="mx-auto max-w-7xl px-6 lg:px-8">
+      <div class="flex flex-col justify-between gap-6 md:flex-row md:items-end">
+        <div>
+          <p class="text-sm font-bold uppercase tracking-[0.25em] text-emerald-300">Agenda</p>
+          <h2 class="mt-4 text-4xl font-black tracking-tight sm:text-5xl">A focused 7-hour journey</h2>
+        </div>
+        <p class="max-w-xl text-slate-400">From keynote and panels to workshops and policy synthesis, the summit is designed to end with concrete outputs.</p>
+      </div>
+      <div class="mt-12 overflow-hidden rounded-3xl border border-white/10 bg-slate-950/70" id="schedule-list"></div>
+    </div>
+  </section>
+
+  <!-- Audience + Outcomes -->
+  <section class="mx-auto max-w-7xl px-6 py-20 lg:px-8">
+    <div class="grid gap-8 lg:grid-cols-2">
+      <div class="rounded-3xl border border-white/10 bg-white/[0.04] p-8">
+        <p class="text-sm font-bold uppercase tracking-[0.25em] text-emerald-300">Who should attend</p>
+        <h2 class="mt-4 text-3xl font-black">Built for participants who want to shape the next AI decade.</h2>
+        <div class="mt-8 grid gap-3 sm:grid-cols-2" id="audience-grid"></div>
+      </div>
+      <div class="rounded-3xl border border-white/10 bg-white/[0.04] p-8">
+        <p class="text-sm font-bold uppercase tracking-[0.25em] text-emerald-300">Expected outcomes</p>
+        <h2 class="mt-4 text-3xl font-black">Not just a conference. A policy and research launchpad.</h2>
+        <div class="mt-8 space-y-4" id="outcomes-list"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Register -->
+  <section id="register" class="px-6 pb-20 lg:px-8">
+    <div class="mx-auto max-w-7xl overflow-hidden rounded-[2.5rem] border border-emerald-300/20 bg-gradient-to-br from-emerald-400 to-teal-300 p-1 shadow-2xl shadow-emerald-500/10">
+      <div class="grid gap-8 rounded-[2.35rem] bg-slate-950 p-8 lg:grid-cols-[1.1fr_0.9fr] lg:p-12">
+        <div>
+          <p class="text-sm font-bold uppercase tracking-[0.25em] text-emerald-300">Register interest</p>
+          <h2 class="mt-4 text-4xl font-black tracking-tight sm:text-5xl">Be part of India's Sustainable Intelligence conversation.</h2>
+          <p class="mt-5 max-w-2xl text-lg leading-8 text-slate-300">
+            Seats may be limited for researchers, students, policymakers, founders and institutional representatives. Submit interest early to receive the final invitation, speaker updates and participation details.
+          </p>
+          <div class="mt-8 flex flex-col gap-3 sm:flex-row">
+            <a href="https://mail.google.com/mail/?view=cm&to=events@greenai.services&su=Registration+Interest:+Sustainable+Intelligence+for+India" target="_blank" rel="noopener" class="rounded-full bg-emerald-400 px-7 py-4 text-center font-black text-slate-950 transition hover:bg-emerald-300 inline-block"><i class="fas fa-envelope mr-2"></i>Email Registration Interest</a>
+            <a href="#agenda" class="rounded-full border border-white/15 px-7 py-4 text-center font-black text-white transition hover:bg-white/10">Explore Agenda</a>
+          </div>
+        </div>
+        <div class="rounded-3xl border border-white/10 bg-white/[0.04] p-6">
+          <div class="space-y-5">
+            <div><p class="text-sm text-slate-400">Date</p><p class="text-2xl font-black">June 5, 2026</p></div>
+            <div><p class="text-sm text-slate-400">Venue</p><p class="text-2xl font-black">IISER Kolkata</p></div>
+            <div><p class="text-sm text-slate-400">Hosted by</p><p class="text-2xl font-black">GreenAI with IISER Kolkata</p></div>
+            <div class="rounded-2xl bg-emerald-400/10 p-4 text-emerald-100">Intelligence that doesn't cost the Earth, for the people who need it most.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="border-t border-white/10 px-6 py-8 lg:px-8">
+    <div class="mx-auto flex max-w-7xl flex-col justify-between gap-4 text-sm text-slate-400 md:flex-row">
+      <p>&copy; 2026 GreenAI Services. Sustainable Intelligence for India.</p>
+      <p>World Environment Day · IISER Kolkata</p>
+    </div>
+  </footer>
+
+  <script>
+    var schedule = [
+      { time: "09:30 AM", title: "Inaugural Keynote: AI for the Next Billion", detail: "Leadership voices from MeitY, Bhashini, GreenAI and IISER Kolkata open the summit." },
+      { time: "10:15 AM", title: "Panel I: The Linguistic Frontier", detail: "Architecting AI for India\u2019s 22 scheduled languages and beyond, with attention to Eastern and North-Eastern dialects." },
+      { time: "11:30 AM", title: "Networking Coffee Break", detail: "Meet researchers, policy leaders, founders, students and language technology practitioners." },
+      { time: "11:45 AM", title: "Focus Session: Indian Knowledge Systems for AI", detail: "Building AI models that understand, preserve and responsibly reason over Indian Knowledge Systems, including classical texts, local knowledge traditions, cultural taxonomies and domain-specific vocabularies." },
+      { time: "12:45 PM", title: "Networking Lunch & Sustainable Tech Showcase", detail: "Interactive demos of SLMs, efficient AI systems and IKS-aware knowledge interfaces." },
+      { time: "01:45 PM", title: "Panel II: Right-Sized Intelligence", detail: "Can smaller, efficient models serve public needs better than massive general-purpose models?" },
+      { time: "03:15 PM", title: "Action Workshop: Addressing Domain Data Voids", detail: "Working groups on vernacular agriculture, indigenous medicine, local governance and legal frameworks." },
+      { time: "04:15 PM", title: "Plenary: From Discussion to Action", detail: "Synthesis of white papers, policy directions and collaborative next steps." },
+      { time: "04:45 PM", title: "Closing Remarks", detail: "GreenAI founders and IISER host committee close the day with a 12-month action roadmap." }
+    ];
+
+    var pillars = [
+      { title: "Linguistic Equity", text: "Bring under-represented Indian languages into AI so the technology revolution reaches every citizen." },
+      { title: "Right-Sized Intelligence", text: "Promote Small Language Models and efficient architectures that can run on affordable local hardware." },
+      { title: "Domain Depth", text: "Address India-specific data voids in agriculture, indigenous medicine, local governance and legal systems." },
+      { title: "Indian Knowledge Systems", text: "Develop specialized AI models rooted in knowledge relevant to the Indian subcontinent." }
+    ];
+
+    var audiences = [
+      "AI researchers and PhD scholars",
+      "Faculty working in AI, Indian Knowledge Systems and society",
+      "Public policy and digital governance leaders",
+      "Language technology and NLP practitioners",
+      "Startup founders and product innovators",
+      "Students interested in sustainable AI careers"
+    ];
+
+    var outcomes = [
+      "White Paper on Linguistic Sustainability in Indian AI",
+      "Technical standards for Right-Sized AI and IKS-aware model design",
+      "12-month roadmap for collaborative domain-data gathering",
+      "Proposal pathway for an Indian Knowledge Systems model-building consortium"
+    ];
+
+    var tracks = ["Linguistic Equity", "Indian Knowledge Systems", "Small Language Models", "Indian Domain Data"];
+
+    // Featured tracks
+    var tracksEl = document.getElementById("featured-tracks");
+    tracks.forEach(function(item, idx) {
+      tracksEl.innerHTML += '<div class="flex items-center gap-4 rounded-2xl border border-white/10 bg-white/5 p-4">' +
+        '<div class="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-emerald-400/15 text-lg font-black text-emerald-200">' + (idx + 1) + '</div>' +
+        '<div><p class="font-bold">' + item + '</p><p class="text-sm text-slate-400">From ideas to white papers and action plans</p></div></div>';
+    });
+
+    // Pillars
+    var pillarsEl = document.getElementById("pillars-grid");
+    pillars.forEach(function(p) {
+      pillarsEl.innerHTML += '<article class="rounded-[1.75rem] border border-white/10 bg-slate-900/80 p-6 transition hover:-translate-y-1 hover:border-emerald-300/40 hover:bg-slate-900">' +
+        '<div class="mb-5 h-2 w-16 rounded-full bg-emerald-400"></div>' +
+        '<h3 class="text-xl font-black">' + p.title + '</h3>' +
+        '<p class="mt-4 text-sm leading-6 text-slate-400">' + p.text + '</p></article>';
+    });
+
+    // Schedule
+    var schedEl = document.getElementById("schedule-list");
+    schedule.forEach(function(item, idx) {
+      var border = idx !== schedule.length - 1 ? " border-b border-white/10" : "";
+      schedEl.innerHTML += '<div class="grid gap-4 p-6 md:grid-cols-[140px_1fr]' + border + '">' +
+        '<div class="font-mono text-sm font-bold text-emerald-300">' + item.time + '</div>' +
+        '<div><h3 class="text-xl font-black">' + item.title + '</h3>' +
+        '<p class="mt-2 text-slate-400">' + item.detail + '</p></div></div>';
+    });
+
+    // Audience
+    var audEl = document.getElementById("audience-grid");
+    audiences.forEach(function(a) {
+      audEl.innerHTML += '<div class="rounded-2xl border border-white/10 bg-slate-950/70 px-4 py-3 text-sm text-slate-300">' + a + '</div>';
+    });
+
+    // Outcomes
+    var outEl = document.getElementById("outcomes-list");
+    outcomes.forEach(function(o) {
+      outEl.innerHTML += '<div class="flex gap-4 rounded-2xl bg-slate-950/70 p-4">' +
+        '<span class="mt-1 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-emerald-400 text-xs font-black text-slate-950">\u2713</span>' +
+        '<p class="text-slate-300">' + o + '</p></div>';
+    });
+  </script>
+</body>
+</html>
