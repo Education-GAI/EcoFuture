@@ -1,0 +1,1267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Faculty AI Orientation Brochure & Companion</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts (Inter & Playfair) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            serif: ['Playfair Display', 'serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #f1f5f9;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #cbd5e1;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #94a3b8;
+    }
+    /* Printing styles */
+    @media print {
+      body {
+        background-color: white;
+        color: black;
+        font-size: 12px;
+      }
+      .no-print {
+        display: none !important;
+      }
+      .print-page-break {
+        page-break-before: always;
+      }
+      .shadow-xl, .shadow-md, .shadow-sm {
+        box-shadow: none !important;
+      }
+      .border {
+        border-color: #e2e8f0 !important;
+      }
+    }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans min-h-screen flex flex-col antialiased selection:bg-teal-100 selection:text-teal-900">
+
+  <!-- TOP HEADER / BANNER -->
+  <header class="bg-gradient-to-r from-slate-900 via-blue-950 to-slate-900 text-white relative overflow-hidden border-b-4 border-amber-500 no-print">
+    <!-- Visual background flourishes -->
+    <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#3b82f6_1px,transparent_1px)] [background-size:16px_16px]"></div>
+    <div class="absolute -top-40 -right-40 w-96 h-96 bg-blue-500 rounded-full blur-3xl opacity-20"></div>
+    <div class="absolute -bottom-40 -left-40 w-96 h-96 bg-teal-500 rounded-full blur-3xl opacity-20"></div>
+
+    <div class="max-w-6xl mx-auto px-4 py-8 md:py-12 relative z-10">
+      <!-- Breadcrumb / Organization -->
+      <div class="flex flex-wrap items-center justify-between gap-4 mb-6">
+        <div class="flex items-center space-x-3">
+          <div class="bg-amber-500/20 text-amber-400 border border-amber-500/40 px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider">
+            Draft for Vetting
+          </div>
+          <div class="bg-slate-800/80 text-slate-300 border border-slate-700 px-3 py-1 rounded-full text-xs">
+            Academic Consultant Draft
+          </div>
+        </div>
+        <div class="text-right text-xs md:text-sm text-slate-400 font-medium">
+          Collaborator: <span class="text-teal-400 font-semibold">GreenAI Services</span>
+        </div>
+      </div>
+
+      <!-- Main Title Block -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
+        <div class="md:col-span-2">
+          <p class="text-amber-400 text-sm md:text-base font-bold tracking-widest uppercase mb-2">St. Xavier's College</p>
+          <h1 class="text-3xl md:text-5xl font-serif font-bold tracking-tight mb-4 leading-tight">
+            Faculty AI Orientation <br class="hidden md:inline"><span class="bg-gradient-to-r from-teal-400 via-emerald-400 to-amber-300 bg-clip-text text-transparent">Programme</span>
+          </h1>
+          <p class="text-slate-300 text-base md:text-lg max-w-2xl font-light">
+            An intensive two-day immersive workshop redesigned to foster direct AI adoption across departments, showcasing comprehensive tool setups, pedagogical workflows, and ethical research frameworks.
+          </p>
+        </div>
+        <!-- Quick Summary Card -->
+        <div class="bg-white/10 backdrop-blur-md border border-white/15 rounded-2xl p-5 text-slate-200 shadow-xl">
+          <h3 class="text-amber-400 font-bold text-xs uppercase tracking-wider mb-3 flex items-center">
+            <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+            Programme Metrics
+          </h3>
+          <div class="space-y-3 text-sm">
+            <div class="flex justify-between border-b border-white/10 pb-2">
+              <span class="text-slate-400">Structure</span>
+              <span class="font-semibold text-white">2 Days (Focus Streams)</span>
+            </div>
+            <div class="flex justify-between border-b border-white/10 pb-2">
+              <span class="text-slate-400">Total Cohort Limit</span>
+              <span class="font-semibold text-white">120 Faculty Members</span>
+            </div>
+            <div class="flex justify-between border-b border-white/10 pb-2">
+              <span class="text-slate-400">Daily Contact Hours</span>
+              <span class="font-semibold text-white">10:00 AM – 3:00 PM (5 hrs)</span>
+            </div>
+            <div class="flex justify-between">
+              <span class="text-slate-400">Lunch Break</span>
+              <span class="font-semibold text-teal-300">1:00 PM – 2:00 PM (1 hr)</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- INTERACTIVE NAVIGATION BAR -->
+  <nav class="bg-white border-b border-slate-200 sticky top-0 z-40 shadow-sm no-print">
+    <div class="max-w-6xl mx-auto px-4 flex items-center justify-between overflow-x-auto">
+      <div class="flex space-x-1 md:space-x-4 py-2 min-w-max">
+        <button onclick="switchTab('schedule')" id="tab-schedule" class="nav-tab px-4 py-3 text-sm font-semibold border-b-2 border-teal-600 text-teal-600 transition-colors">
+          📅 Restructured Schedule
+        </button>
+        <button onclick="switchTab('tools')" id="tab-tools" class="nav-tab px-4 py-3 text-sm font-semibold border-b-2 border-transparent text-slate-500 hover:text-slate-800 transition-colors">
+          🛠️ AI Tools Catalog
+        </button>
+        <button onclick="switchTab('frameworks')" id="tab-frameworks" class="nav-tab px-4 py-3 text-sm font-semibold border-b-2 border-transparent text-slate-500 hover:text-slate-800 transition-colors">
+          ⚖️ Regulatory Frameworks
+        </button>
+        <button onclick="switchTab('text')" id="tab-text" class="nav-tab px-4 py-3 text-sm font-semibold border-b-2 border-transparent text-slate-500 hover:text-slate-800 transition-colors">
+          📄 Text Brochure & MD
+        </button>
+      </div>
+
+      <div class="flex items-center space-x-3 py-2 pl-4 border-l border-slate-200 min-w-max">
+        <button onclick="window.print()" class="bg-slate-800 hover:bg-slate-900 text-white text-xs font-semibold py-1.5 px-3 rounded-lg flex items-center transition-all shadow-sm">
+          <svg class="w-3.5 h-3.5 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-3a2 2 0 00-2-2H9a2 2 0 00-2 2v3a2 2 0 002 2zm0 0v-9a2 2 0 012-2h2a2 2 0 012 2v9m-4 0h4"></path></svg>
+          Print Brochure
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- MAIN CONTAINER -->
+  <main class="flex-grow max-w-6xl w-full mx-auto px-4 py-6 md:py-8">
+
+    <!-- TAB 1: INTERACTIVE SCHEDULE -->
+    <section id="section-schedule" class="tab-content block">
+      
+      <!-- Stream Switcher Buttons -->
+      <div class="mb-8 flex flex-col md:flex-row items-stretch md:items-center justify-between gap-4 bg-slate-100 p-2 rounded-2xl no-print">
+        <div class="flex flex-1 rounded-xl bg-white p-1 shadow-inner border border-slate-200">
+          <button onclick="switchDay('day1')" id="btn-day1" class="day-btn flex-1 text-center py-2.5 px-4 rounded-lg text-sm font-bold transition-all bg-teal-600 text-white shadow-sm">
+            <span class="block text-xs uppercase tracking-widest text-teal-100 opacity-90">Day 1 Focus</span>
+            Science & Arts
+          </button>
+          <button onclick="switchDay('day2')" id="btn-day2" class="day-btn flex-1 text-center py-2.5 px-4 rounded-lg text-sm font-bold transition-all text-slate-600 hover:bg-slate-50">
+            <span class="block text-xs uppercase tracking-widest text-slate-400">Day 2 Focus</span>
+            Commerce & Management
+          </button>
+        </div>
+
+        <div class="relative max-w-xs w-full">
+          <span class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+            <svg class="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+          </span>
+          <input type="text" id="search-input" onkeyup="filterSchedule()" placeholder="Search tools or schedule..." 
+            class="w-full bg-white border border-slate-300 rounded-xl pl-9 pr-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition-all shadow-sm">
+        </div>
+      </div>
+
+      <!-- ACTIVE COHORT METRIC BANNER -->
+      <div id="cohort-banner" class="bg-gradient-to-r from-teal-50 to-emerald-50 border border-teal-100 rounded-2xl p-4 md:p-6 mb-8 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+        <div>
+          <div class="flex items-center space-x-2">
+            <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-teal-100 text-teal-800">
+              Operational Hours
+            </span>
+            <span class="text-xs text-slate-500" id="session-time-marker">10:00 AM — 3:00 PM</span>
+          </div>
+          <h2 id="day-title" class="text-xl md:text-2xl font-serif font-bold text-slate-900 mt-1">Science, Arts & Humanities Streams</h2>
+          <p id="day-desc" class="text-sm text-slate-600 mt-0.5">Designed specifically for teaching, curriculum planning, and research in pure sciences and humanistic disciplines.</p>
+        </div>
+        <div class="flex items-center space-x-4 shrink-0 bg-white p-3 rounded-xl border border-slate-200/60 shadow-sm w-full md:w-auto justify-around">
+          <div>
+            <span class="block text-xs uppercase text-slate-400 font-semibold">Attendees</span>
+            <span class="text-lg font-bold text-slate-800">120 Faculty</span>
+          </div>
+          <div class="border-l border-slate-200 h-8"></div>
+          <div>
+            <span class="block text-xs uppercase text-slate-400 font-semibold">Net Content</span>
+            <span class="text-lg font-bold text-slate-800">4 hrs (+1 hr Lunch)</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- TIMELINE / SCHEDULE container -->
+      <div class="space-y-6 relative before:absolute before:inset-y-0 before:left-4 md:before:left-1/2 before:w-0.5 before:bg-slate-200">
+        
+        <!-- ================== DAY 1 CONTENT (10 to 3) ================== -->
+        <div id="day1-schedule" class="schedule-day-container space-y-6">
+          
+          <!-- Morning Header Separator -->
+          <div class="relative flex items-center justify-start md:justify-center no-print">
+            <span class="bg-white border border-slate-200 text-slate-600 font-bold text-xs uppercase tracking-widest px-4 py-1.5 rounded-full z-10 shadow-sm">
+              🌅 Morning Modules (10:00 AM – 1:00 PM)
+            </span>
+          </div>
+
+          <!-- D1 Session 1: Welcome & Orientation -->
+          <div class="schedule-item-card grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8 relative" data-search="welcome orientation brief assessment goals baseline digital pre-survey survey goals dean hod plenary">
+            <div class="absolute left-4 md:left-1/2 top-6 -translate-x-1/2 w-4 h-4 rounded-full border-4 border-white bg-teal-500 shadow z-20"></div>
+            
+            <div class="md:text-right md:pr-8 pl-10 md:pl-0">
+              <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold bg-blue-100 text-blue-800 mb-2">
+                Plenary Intro
+              </span>
+              <h4 class="text-lg font-bold text-slate-900">Welcome & Orientation Brief</h4>
+              <p class="text-xs font-bold text-teal-600 mt-1 flex items-center md:justify-end">
+                <svg class="w-3.5 h-3.5 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                10:00 AM – 10:15 AM (15 mins)
+              </p>
+            </div>
+            <div class="pl-10 md:pl-8 md:border-l border-transparent md:pt-1">
+              <p class="text-sm text-slate-600 leading-relaxed">
+                Dean/HOD welcoming remarks. Presentation of the restructured compact workshop goals, distribution of course workcards, and execution of a brief 5-minute digital survey to capture the cohort's baseline AI experience.
+              </p>
+            </div>
+          </div>
+
+          <!-- D1 Session 2: AI FOR TEACHING -->
+          <div class="schedule-item-card grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8 relative" data-search="AI for teaching note making content creation student evaluation assignment planning lesson plans scaffolding Claude ChatGPT MagicSchool.ai Gamma Canva prompt design grading rubrics quizzes anti plagiarism teaching tools pedagogy live demo">
+            <div class="absolute left-4 md:left-1/2 top-6 -translate-x-1/2 w-4 h-4 rounded-full border-4 border-white bg-teal-500 shadow z-20"></div>
+            
+            <div class="md:text-right md:pr-8 pl-10 md:pl-0">
+              <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold bg-emerald-100 text-emerald-800 mb-2">
+                Pillar A — Pedagogy & Classroom
+              </span>
+              <h4 class="text-lg font-bold text-slate-900">AI for Teaching: Workflow & Design</h4>
+              <p class="text-xs font-bold text-teal-600 mt-1 flex items-center md:justify-end">
+                <svg class="w-3.5 h-3.5 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                10:15 AM – 11:30 AM (75 mins)
+              </p>
+            </div>
+            <div class="pl-10 md:pl-8 md:border-l border-transparent md:pt-1">
+              <p class="text-sm text-slate-600 leading-relaxed mb-3">
+                How educators can restructure their daily preparation, material creation, and evaluation schedules. Focuses heavily on direct AI interactions.
+              </p>
+              
+              <!-- Core Activities List -->
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 mb-3 text-xs">
+                <div class="bg-slate-100 p-2.5 rounded-lg">
+                  <span class="block font-bold text-slate-700 uppercase mb-1">Content & Notes</span>
+                  Automated lecture note-making, text summarization, content synthesis, slide layout generation, and curriculum design.
+                </div>
+                <div class="bg-slate-100 p-2.5 rounded-lg">
+                  <span class="block font-bold text-slate-700 uppercase mb-1">Assessments & Scaffolding</span>
+                  Creating structured evaluation rubrics, planning assignments, generating custom question banks, and setting up anti-plagiarism guardrails.
+                </div>
+              </div>
+
+              <!-- High-Impact Live Demos -->
+              <div class="bg-teal-50 border-l-2 border-teal-500 p-3 rounded-r-lg">
+                <span class="block text-xs font-bold text-teal-900 uppercase tracking-wide mb-1">⚡ SIGNIFICANT TOOL DEMONSTRATIONS:</span>
+                <p class="text-xs text-teal-850 leading-relaxed mb-2">
+                  Live, interactive walk-throughs showcasing prompts and exports:
+                </p>
+                <div class="flex flex-wrap gap-1">
+                  <span class="px-2 py-0.5 bg-white text-teal-800 border border-teal-200 rounded text-[10px] font-semibold">Claude (Syllabus Drafts)</span>
+                  <span class="px-2 py-0.5 bg-white text-teal-800 border border-teal-200 rounded text-[10px] font-semibold">ChatGPT (Question Banks)</span>
+                  <span class="px-2 py-0.5 bg-white text-teal-800 border border-teal-200 rounded text-[10px] font-semibold">NotebookLM (Note-making & Audio Briefs)</span>
+                  <span class="px-2 py-0.5 bg-white text-teal-800 border border-teal-200 rounded text-[10px] font-semibold">Gamma.app (Decks)</span>
+                  <span class="px-2 py-0.5 bg-white text-teal-800 border border-teal-200 rounded text-[10px] font-semibold">MagicSchool.ai</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- D1 Session 3: AI FOR RESEARCH -->
+          <div class="schedule-item-card grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8 relative" data-search="AI for research literature review searching mapping citation tracking bibliographies Elicit Semantic Scholar SciSpace Research Rabbit Zotero AI Voyant JSTOR text mining research tools live demo">
+            <div class="absolute left-4 md:left-1/2 top-6 -translate-x-1/2 w-4 h-4 rounded-full border-4 border-white bg-teal-500 shadow z-20"></div>
+            
+            <div class="md:text-right md:pr-8 pl-10 md:pl-0">
+              <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold bg-indigo-100 text-indigo-800 mb-2">
+                Pillar B — Scientific & Academic Discovery
+              </span>
+              <h4 class="text-lg font-bold text-slate-900">AI for Research: Literature & Mapping</h4>
+              <p class="text-xs font-bold text-teal-600 mt-1 flex items-center md:justify-end">
+                <svg class="w-3.5 h-3.5 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                11:30 AM – 12:45 PM (75 mins)
+              </p>
+            </div>
+            <div class="pl-10 md:pl-8 md:border-l border-transparent md:pt-1">
+              <p class="text-sm text-slate-600 leading-relaxed mb-3">
+                Streamlining academic reviews, identifying research discrepancies, managing references, and exploring computational textual analysis across pure sciences, arts, and humanities.
+              </p>
+
+              <!-- Core Research Concepts -->
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 mb-3 text-xs text-slate-700">
+                <div class="bg-slate-100 p-2.5 rounded-lg border border-slate-150">
+                  <strong>Literature Mapping:</strong> Identifying relationships between scholarly publications and tracking the developmental pipeline of ideas.
+                </div>
+                <div class="bg-slate-100 p-2.5 rounded-lg border border-slate-150">
+                  <strong>Digital Text Mining:</strong> Conducting high-speed pattern analysis inside historical records, databases, and massive corpora.
+                </div>
+              </div>
+
+              <!-- Significant Research Tool Demos -->
+              <div class="bg-amber-50 border-l-2 border-amber-500 p-3 rounded-r-lg">
+                <span class="block text-xs font-bold text-amber-900 uppercase tracking-wide mb-1">⚡ SIGNIFICANT TOOL DEMONSTRATIONS:</span>
+                <p class="text-xs text-amber-950 leading-relaxed mb-2">
+                  Direct live searches and graph configurations to motivate active faculty adoption:
+                </p>
+                <div class="flex flex-wrap gap-1">
+                  <span class="px-2 py-0.5 bg-white text-amber-800 border border-amber-200 rounded text-[10px] font-semibold">Elicit (Meta-analysis & Metadata Extraction)</span>
+                  <span class="px-2 py-0.5 bg-white text-amber-800 border border-amber-200 rounded text-[10px] font-semibold">Semantic Scholar</span>
+                  <span class="px-2 py-0.5 bg-white text-amber-800 border border-amber-200 rounded text-[10px] font-semibold">SciSpace (Interactive PDF Co-pilot)</span>
+                  <span class="px-2 py-0.5 bg-white text-amber-800 border border-amber-200 rounded text-[10px] font-semibold">Research Rabbit (Visual Maps)</span>
+                  <span class="px-2 py-0.5 bg-white text-amber-800 border border-amber-200 rounded text-[10px] font-semibold">Voyant Tools & JSTOR AI (Arts Track)</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- D1 Session 4: MORNING WRAP / REFLECTION -->
+          <div class="schedule-item-card grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8 relative" data-search="morning wrap reflection feedback survey recap baseline plenary">
+            <div class="absolute left-4 md:left-1/2 top-6 -translate-x-1/2 w-4 h-4 rounded-full border-4 border-white bg-teal-500 shadow z-20"></div>
+            
+            <div class="md:text-right md:pr-8 pl-10 md:pl-0">
+              <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold bg-blue-100 text-blue-800 mb-2">
+                Mid-day Review
+              </span>
+              <h4 class="text-lg font-bold text-slate-900">Morning Reflections & QA</h4>
+              <p class="text-xs font-bold text-teal-600 mt-1 flex items-center md:justify-end">
+                <svg class="w-3.5 h-3.5 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                12:45 PM – 1:00 PM (15 mins)
+              </p>
+            </div>
+            <div class="pl-10 md:pl-8 md:border-l border-transparent md:pt-1">
+              <p class="text-sm text-slate-600 leading-relaxed">
+                Brief interactive question-and-answer cycle, capturing initial feedback on demonstrated tools. Clear outline of the afternoon practical case scenarios.
+              </p>
+            </div>
+          </div>
+
+          <!-- LUNCH BREAK -->
+          <div class="relative flex items-center justify-start md:justify-center no-print">
+            <span class="bg-amber-100 border border-amber-200 text-amber-800 font-bold text-xs uppercase tracking-widest px-4 py-1.5 rounded-full z-10 shadow-sm">
+              🍽️ Lunch & Informal Networking (1:00 PM – 2:00 PM)
+            </span>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8 relative select-none opacity-80 no-print">
+            <div class="absolute left-4 md:left-1/2 top-4 -translate-x-1/2 w-4 h-4 rounded-full border-4 border-white bg-amber-500 shadow z-20"></div>
+            <div class="md:text-right md:pr-8 pl-10 md:pl-0">
+              <h5 class="text-sm font-semibold text-slate-500">Break Block</h5>
+            </div>
+            <div class="pl-10 md:pl-8">
+              <p class="text-xs text-slate-500 italic">
+                Lunch break. Display of AI student posters in the breakout zone. Distribution of the Science & Arts AI quick-start reference booklet.
+              </p>
+            </div>
+          </div>
+
+          <!-- Afternoon Header Separator -->
+          <div class="relative flex items-center justify-start md:justify-center no-print">
+            <span class="bg-white border border-slate-200 text-slate-600 font-bold text-xs uppercase tracking-widest px-4 py-1.5 rounded-full z-10 shadow-sm">
+              🌅 Afternoon Modules (2:00 PM – 3:00 PM)
+            </span>
+          </div>
+
+          <!-- D1 Session 5: AI & ETHICS -->
+          <div class="schedule-item-card grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8 relative" data-search="AI and ethics algorithmic bias data provenance copyright authorship IndiaAI Mission visual classifiers gender skew case study audit">
+            <div class="absolute left-4 md:left-1/2 top-6 -translate-x-1/2 w-4 h-4 rounded-full border-4 border-white bg-teal-500 shadow z-20"></div>
+            
+            <div class="md:text-right md:pr-8 pl-10 md:pl-0">
+              <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold bg-red-100 text-red-800 mb-2">
+                Pillar C — Responsibility & Bias
+              </span>
+              <h4 class="text-lg font-bold text-slate-900">AI and Ethics: Academic Integrity</h4>
+              <p class="text-xs font-bold text-teal-600 mt-1 flex items-center md:justify-end">
+                <svg class="w-3.5 h-3.5 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                2:00 PM – 2:30 PM (30 mins)
+              </p>
+            </div>
+            <div class="pl-10 md:pl-8 md:border-l border-transparent md:pt-1">
+              <p class="text-sm text-slate-600 leading-relaxed mb-2">
+                Addressing critical concerns of algorithmic bias, data provenance, copyright boundaries, and authorship standards inside academic writing.
+              </p>
+              <div class="bg-slate-100 p-2.5 rounded text-xs text-slate-700">
+                <strong>Science & Arts Cases:</strong> Bias in image classifier datasets, citation index gender skewing, and the IndiaAI Mission's ethical guidelines.
+              </div>
+            </div>
+          </div>
+
+          <!-- D1 Session 6: REGULATORY FRAMEWORKS -->
+          <div class="schedule-item-card grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8 relative" data-search="Regulatory framework UGC guidelines NEP 2020 alignment digital competency targets AICTE advisory responsible AI statement charters validation close feedback">
+            <div class="absolute left-4 md:left-1/2 top-6 -translate-x-1/2 w-4 h-4 rounded-full border-4 border-white bg-teal-500 shadow z-20"></div>
+            
+            <div class="md:text-right md:pr-8 pl-10 md:pl-0">
+              <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold bg-purple-100 text-purple-800 mb-2">
+                Pillar D — Policy & Compliance
+              </span>
+              <h4 class="text-lg font-bold text-slate-900">Regulatory Frameworks & Charters</h4>
+              <p class="text-xs font-bold text-teal-600 mt-1 flex items-center md:justify-end">
+                <svg class="w-3.5 h-3.5 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                2:30 PM – 3:00 PM (30 mins)
+              </p>
+            </div>
+            <div class="pl-10 md:pl-8 md:border-l border-transparent md:pt-1">
+              <p class="text-sm text-slate-600 leading-relaxed mb-2">
+                Mapping institutional policy structures to the national regulatory directives.
+              </p>
+              <p class="text-xs text-slate-600 leading-relaxed mb-3">
+                Reviewing <strong>UGC's Draft framework</strong> on Generative AI in Higher Education, aligning targets with <strong>NEP 2020 Digital Competency</strong> standards, and drafting a template departmental responsible AI use charter.
+              </p>
+              <div class="border-t border-slate-200 pt-2 text-xxs text-slate-500 italic">
+                * Session concludes with commitment card completion, workshop surveys, and certificate preview.
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- ================== DAY 2 CONTENT (10 to 3) ================== -->
+        <div id="day2-schedule" class="schedule-day-container space-y-6 hidden">
+          
+          <!-- Morning Header Separator -->
+          <div class="relative flex items-center justify-start md:justify-center no-print">
+            <span class="bg-white border border-slate-200 text-slate-600 font-bold text-xs uppercase tracking-widest px-4 py-1.5 rounded-full z-10 shadow-sm">
+              🌅 Morning Modules (10:00 AM – 1:00 PM)
+            </span>
+          </div>
+
+          <!-- D2 Session 1: Welcome & Day 1 Recap -->
+          <div class="schedule-item-card grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8 relative" data-search="welcome recap day 1 highlights cross pollination survey commerce finance teaching baseline plenary">
+            <div class="absolute left-4 md:left-1/2 top-6 -translate-x-1/2 w-4 h-4 rounded-full border-4 border-white bg-teal-500 shadow z-20"></div>
+            
+            <div class="md:text-right md:pr-8 pl-10 md:pl-0">
+              <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold bg-blue-100 text-blue-800 mb-2">
+                Plenary Intro
+              </span>
+              <h4 class="text-lg font-bold text-slate-900">Welcome & Day 1 Highlights</h4>
+              <p class="text-xs font-bold text-teal-600 mt-1 flex items-center md:justify-end">
+                <svg class="w-3.5 h-3.5 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                10:00 AM – 10:15 AM (15 mins)
+              </p>
+            </div>
+            <div class="pl-10 md:pl-8 md:border-l border-transparent md:pt-1">
+              <p class="text-sm text-slate-600 leading-relaxed">
+                Quick recap of Day 1's foundational frameworks to ensure seamless multidisciplinary cross-pollination. Administration of the Day 2 diagnostic survey focused on automated analytic tools in Commerce and Finance streams.
+              </p>
+            </div>
+          </div>
+
+          <!-- D2 Session 2: AI FOR TEACHING -->
+          <div class="schedule-item-card grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8 relative" data-search="AI for teaching note making content creation student evaluation assignment planning case pedagogy simulation Claude ChatGPT Excel Copilot Power BI AI narratives financial modeling presentations teaching tools pedagogy live demo">
+            <div class="absolute left-4 md:left-1/2 top-6 -translate-x-1/2 w-4 h-4 rounded-full border-4 border-white bg-teal-500 shadow z-20"></div>
+            
+            <div class="md:text-right md:pr-8 pl-10 md:pl-0">
+              <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold bg-emerald-100 text-emerald-800 mb-2">
+                Pillar A — Commerce & Business Pedagogy
+              </span>
+              <h4 class="text-lg font-bold text-slate-900">AI for Teaching: Cases & Simulation</h4>
+              <p class="text-xs font-bold text-teal-600 mt-1 flex items-center md:justify-end">
+                <svg class="w-3.5 h-3.5 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                10:15 AM – 11:30 AM (75 mins)
+              </p>
+            </div>
+            <div class="pl-10 md:pl-8 md:border-l border-transparent md:pt-1">
+              <p class="text-sm text-slate-600 leading-relaxed mb-3">
+                Integrating AI within business curriculum structures. Designing dynamic student note-making templates, commercial case briefs, and evaluation pipelines that are resilient to simple copy-pasting.
+              </p>
+
+              <!-- Core Business Teaching Areas -->
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 mb-3 text-xs text-slate-700">
+                <div class="bg-slate-100 p-2.5 rounded-lg">
+                  <span class="block font-bold text-slate-800 uppercase mb-0.5">Synthetic Case Studies</span>
+                  Generating intricate, localized, and multi-variable business narratives on corporate actions and policy parameters.
+                </div>
+                <div class="bg-slate-100 p-2.5 rounded-lg">
+                  <span class="block font-bold text-slate-800 uppercase mb-0.5">Automated Workbooks</span>
+                  Guiding interactive Excel workflows and presenting narrative data summaries from financial dashboards.
+                </div>
+              </div>
+
+              <!-- Significant Business Tool Demos -->
+              <div class="bg-teal-50 border-l-2 border-teal-500 p-3 rounded-r-lg">
+                <span class="block text-xs font-bold text-teal-900 uppercase tracking-wide mb-1">⚡ SIGNIFICANT TOOL DEMONSTRATIONS:</span>
+                <p class="text-xs text-teal-850 leading-relaxed mb-2">
+                  Live prompt templates and output rendering designed to drive immediate faculty interest:
+                </p>
+                <div class="flex flex-wrap gap-1">
+                  <span class="px-2 py-0.5 bg-white text-teal-800 border border-teal-200 rounded text-[10px] font-semibold">Claude (Dynamic Corporate Case Studies)</span>
+                  <span class="px-2 py-0.5 bg-white text-teal-800 border border-teal-200 rounded text-[10px] font-semibold">ChatGPT (Customer-Support Bot Simulations)</span>
+                  <span class="px-2 py-0.5 bg-white text-teal-800 border border-teal-200 rounded text-[10px] font-semibold">Excel Copilot (Formula & Trend Generation)</span>
+                  <span class="px-2 py-0.5 bg-white text-teal-800 border border-teal-200 rounded text-[10px] font-semibold">Power BI (AI Text Summaries)</span>
+                  <span class="px-2 py-0.5 bg-white text-teal-800 border border-teal-200 rounded text-[10px] font-semibold">Gamma.app (B-School Pitch Decks)</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- D2 Session 3: AI FOR RESEARCH -->
+          <div class="schedule-item-card grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8 relative" data-search="AI for research literature review systematic reviews Consensus Perplexity SPSS AI ATLAS.ti qualitative Connected Papers Mendeley BloombergGPT quantitative qualitative coding citations research tools live demo">
+            <div class="absolute left-4 md:left-1/2 top-6 -translate-x-1/2 w-4 h-4 rounded-full border-4 border-white bg-teal-500 shadow z-20"></div>
+            
+            <div class="md:text-right md:pr-8 pl-10 md:pl-0">
+              <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold bg-indigo-100 text-indigo-800 mb-2">
+                Pillar B — Business Analytics & Discovery
+              </span>
+              <h4 class="text-lg font-bold text-slate-900">AI for Research: Market Intelligence & Data</h4>
+              <p class="text-xs font-bold text-teal-600 mt-1 flex items-center md:justify-end">
+                <svg class="w-3.5 h-3.5 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                11:30 AM – 12:45 PM (75 mins)
+              </p>
+            </div>
+            <div class="pl-10 md:pl-8 md:border-l border-transparent md:pt-1">
+              <p class="text-sm text-slate-600 leading-relaxed mb-3">
+                Applying advanced citation mapping, qualitative transcript coding, and consensus gathering tools to economic, commercial, and financial study plans.
+              </p>
+
+              <!-- Research Methodologies Split -->
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 mb-3 text-xs text-slate-700">
+                <div class="bg-slate-100 p-2.5 rounded-lg border border-slate-150">
+                  <strong>Quantitative Analysis:</strong> Assisting structured dataset setups, suggesting logical regressions, and tracing stock/trade metrics.
+                </div>
+                <div class="bg-slate-100 p-2.5 rounded-lg border border-slate-150">
+                  <strong>Qualitative Synthesis:</strong> Analyzing and semantic-tagging consumer interviews, focus group recordings, and survey text sheets.
+                </div>
+              </div>
+
+              <!-- Significant Business Research Tool Demos -->
+              <div class="bg-amber-50 border-l-2 border-amber-500 p-3 rounded-r-lg">
+                <span class="block text-xs font-bold text-amber-900 uppercase tracking-wide mb-1">⚡ SIGNIFICANT TOOL DEMONSTRATIONS:</span>
+                <p class="text-xs text-amber-950 leading-relaxed mb-2">
+                  Demonstrating live queries and citation tracking structures to inspire commercial academic study:
+                </p>
+                <div class="flex flex-wrap gap-1">
+                  <span class="px-2 py-0.5 bg-white text-amber-800 border border-amber-200 rounded text-[10px] font-semibold">Elicit & Consensus (Evidence Matrix Generation)</span>
+                  <span class="px-2 py-0.5 bg-white text-amber-800 border border-amber-200 rounded text-[10px] font-semibold">Perplexity AI (Market Research Intelligence Summaries)</span>
+                  <span class="px-2 py-0.5 bg-white text-amber-800 border border-amber-200 rounded text-[10px] font-semibold">SPSS (AI Statistical Suggestion Pipeline)</span>
+                  <span class="px-2 py-0.5 bg-white text-amber-800 border border-amber-200 rounded text-[10px] font-semibold">ATLAS.ti (Auto-coding Interview Transcripts)</span>
+                  <span class="px-2 py-0.5 bg-white text-amber-800 border border-amber-200 rounded text-[10px] font-semibold">BloombergGPT (Domain Architecture Review)</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- D2 Session 4: TAKEAWAY SYNTHESIS -->
+          <div class="schedule-item-card grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8 relative" data-search="takeaway synthesis panel qa review mid-day reflections feedback session plenary">
+            <div class="absolute left-4 md:left-1/2 top-6 -translate-x-1/2 w-4 h-4 rounded-full border-4 border-white bg-teal-500 shadow z-20"></div>
+            
+            <div class="md:text-right md:pr-8 pl-10 md:pl-0">
+              <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold bg-blue-100 text-blue-800 mb-2">
+                Mid-day Review
+              </span>
+              <h4 class="text-lg font-bold text-slate-900">Takeaway Synthesis & Q&A</h4>
+              <p class="text-xs font-bold text-teal-600 mt-1 flex items-center md:justify-end">
+                <svg class="w-3.5 h-3.5 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                12:45 PM – 1:00 PM (15 mins)
+              </p>
+            </div>
+            <div class="pl-10 md:pl-8 md:border-l border-transparent md:pt-1">
+              <p class="text-sm text-slate-600 leading-relaxed">
+                Collecting immediate participant feedback regarding demonstrated commerce platforms. Explaining afternoon cases on financial ethics and regulatory compliance audits.
+              </p>
+            </div>
+          </div>
+
+          <!-- LUNCH BREAK -->
+          <div class="relative flex items-center justify-start md:justify-center no-print">
+            <span class="bg-amber-100 border border-amber-200 text-amber-800 font-bold text-xs uppercase tracking-widest px-4 py-1.5 rounded-full z-10 shadow-sm">
+              🍽️ Lunch & Informal Networking (1:00 PM – 2:00 PM)
+            </span>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8 relative select-none opacity-80 no-print">
+            <div class="absolute left-4 md:left-1/2 top-4 -translate-x-1/2 w-4 h-4 rounded-full border-4 border-white bg-amber-500 shadow z-20"></div>
+            <div class="md:text-right md:pr-8 pl-10 md:pl-0">
+              <h5 class="text-sm font-semibold text-slate-500">Break Block</h5>
+            </div>
+            <div class="pl-10 md:pl-8">
+              <p class="text-xs text-slate-500 italic">
+                Lunch break. Distribution of domain-specific Commerce & Management AI references cards. Interactive networking on digital curriculum design.
+              </p>
+            </div>
+          </div>
+
+          <!-- Afternoon Header Separator -->
+          <div class="relative flex items-center justify-start md:justify-center no-print">
+            <span class="bg-white border border-slate-200 text-slate-600 font-bold text-xs uppercase tracking-widest px-4 py-1.5 rounded-full z-10 shadow-sm">
+              🌅 Afternoon Modules (2:00 PM – 3:00 PM)
+            </span>
+          </div>
+
+          <!-- D2 Session 5: AI & ETHICS -->
+          <div class="schedule-item-card grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8 relative" data-search="AI and ethics accountability credit scoring bias hiring algorithms RBI SEBI dark patterns ESG reports Amazon recruiter case study debate grading MBA cases ethics policy">
+            <div class="absolute left-4 md:left-1/2 top-6 -translate-x-1/2 w-4 h-4 rounded-full border-4 border-white bg-teal-500 shadow z-20"></div>
+            
+            <div class="md:text-right md:pr-8 pl-10 md:pl-0">
+              <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold bg-red-100 text-red-800 mb-2">
+                Pillar C — Corporate Accountability
+              </span>
+              <h4 class="text-lg font-bold text-slate-900">AI and Ethics: Business Boundaries</h4>
+              <p class="text-xs font-bold text-teal-600 mt-1 flex items-center md:justify-end">
+                <svg class="w-3.5 h-3.5 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                2:00 PM – 2:30 PM (30 mins)
+              </p>
+            </div>
+            <div class="pl-10 md:pl-8 md:border-l border-transparent md:pt-1">
+              <p class="text-sm text-slate-600 leading-relaxed mb-3">
+                Reviewing systemic bias, algorithmic compliance, transparency, and accountability parameters in regulated markets (RBI & SEBI contexts).
+              </p>
+              <div class="bg-slate-100 p-2.5 rounded text-xs text-slate-700 space-y-1.5">
+                <div><strong>Business Case Issues:</strong> Biases in credit-scoring scoring, dark commercial pattern design, and Amazon's decommissioned recruitment parser.</div>
+                <div class="text-[11px] font-semibold text-slate-900 border-t border-slate-200 pt-1.5 flex items-center">
+                  💬 Group Debate: <span class="italic text-teal-800 ml-1">"Is utilizing AI models to grade intricate MBA case assignments ethically viable?"</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- D2 Session 6: REGULATORY FRAMEWORKS -->
+          <div class="schedule-item-card grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8 relative" data-search="Regulatory framework AICTE model curriculum NAAC NBA documentation IQAC audit trails departmental use policy charter valediction close feedback">
+            <div class="absolute left-4 md:left-1/2 top-6 -translate-x-1/2 w-4 h-4 rounded-full border-4 border-white bg-teal-500 shadow z-20"></div>
+            
+            <div class="md:text-right md:pr-8 pl-10 md:pl-0">
+              <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold bg-purple-100 text-purple-800 mb-2">
+                Pillar D — Licensing & Documentation
+              </span>
+              <h4 class="text-lg font-bold text-slate-900">Regulatory Frameworks & Accreditation</h4>
+              <p class="text-xs font-bold text-teal-600 mt-1 flex items-center md:justify-end">
+                <svg class="w-3.5 h-3.5 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                2:30 PM – 3:00 PM (30 mins)
+              </p>
+            </div>
+            <div class="pl-10 md:pl-8 md:border-l border-transparent md:pt-1">
+              <p class="text-sm text-slate-600 leading-relaxed mb-2">
+                Aligning academic technology deployment with high-stakes external quality evaluations.
+              </p>
+              <p class="text-xs text-slate-600 leading-relaxed mb-3">
+                Highlighting structural AI criteria requirements within <strong>NAAC and NBA document filings</strong>, utilizing <strong>AICTE's Model Syllabus</strong> designs for baseline digital literacy, and building internal <strong>IQAC compliance check loops</strong>.
+              </p>
+              <div class="border-t border-slate-200 pt-2 text-xxs text-slate-500 italic">
+                * Session closes with learning harvest, commitment card collections, PG Certificate announcements, and final sign-offs.
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- No search results screen -->
+        <div id="no-results" class="hidden text-center py-12 no-print">
+          <svg class="w-16 h-16 text-slate-300 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+          <h3 class="text-lg font-semibold text-slate-700">No matching segments found</h3>
+          <p class="text-sm text-slate-500 mt-1">Try searching for other key terms (e.g., "Claude", "Elicit", "Rubric", "Ethics")</p>
+          <button onclick="resetSearch()" class="mt-4 text-xs font-semibold bg-teal-600 hover:bg-teal-700 text-white py-1.5 px-3 rounded-lg">Clear Search</button>
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- TAB 2: AI TOOLS CATALOG -->
+    <section id="section-tools" class="tab-content hidden no-print">
+      <div class="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm mb-6">
+        <h2 class="text-xl font-serif font-bold text-slate-900 mb-2">Significant Tool Demonstrations Library</h2>
+        <p class="text-sm text-slate-600">The Faculty AI Orientation introduces 20+ specialized software engines. Use this directory to review their application contexts, operational roles, and focus streams to build high levels of user interest.</p>
+        
+        <!-- Filter Pills -->
+        <div class="flex flex-wrap gap-2 mt-4">
+          <button onclick="filterTools('all')" class="tool-filter-btn px-3.5 py-1.5 rounded-full text-xs font-semibold bg-teal-600 text-white shadow-sm transition-all">All Tools</button>
+          <button onclick="filterTools('research')" class="tool-filter-btn px-3.5 py-1.5 rounded-full text-xs font-semibold bg-slate-100 text-slate-600 hover:bg-slate-200 transition-all">Research Focus</button>
+          <button onclick="filterTools('teaching')" class="tool-filter-btn px-3.5 py-1.5 rounded-full text-xs font-semibold bg-slate-100 text-slate-600 hover:bg-slate-200 transition-all">Teaching Focus</button>
+          <button onclick="filterTools('science')" class="tool-filter-btn px-3.5 py-1.5 rounded-full text-xs font-semibold bg-slate-100 text-slate-600 hover:bg-slate-200 transition-all">Science & Arts Focus</button>
+          <button onclick="filterTools('commerce')" class="tool-filter-btn px-3.5 py-1.5 rounded-full text-xs font-semibold bg-slate-100 text-slate-600 hover:bg-slate-200 transition-all">Commerce Focus</button>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4" id="tools-grid">
+        <!-- Tools will be inserted dynamically via JS -->
+      </div>
+    </section>
+
+    <!-- TAB 3: REGULATORY FRAMEWORKS -->
+    <section id="section-frameworks" class="tab-content hidden no-print">
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        
+        <!-- Pillar 1: UGC & NEP -->
+        <div class="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm flex flex-col">
+          <div class="flex items-center space-x-3 mb-4">
+            <div class="p-3 bg-red-50 text-red-700 rounded-xl">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg>
+            </div>
+            <div>
+              <span class="text-xs uppercase font-bold text-red-500 tracking-wider">Policy Alignments</span>
+              <h3 class="text-lg font-bold text-slate-900">UGC & NEP 2020 Guidelines</h3>
+            </div>
+          </div>
+          <div class="space-y-4 flex-grow text-sm text-slate-600">
+            <p>The updated syllabus targets critical guidelines defined by central statutory panels for higher education institutes.</p>
+            <div class="bg-slate-50 p-4 rounded-xl border border-slate-100">
+              <span class="block font-bold text-slate-800 text-xs uppercase mb-1">UGC GenAI Framework</span>
+              An in-depth outline of UGC's draft regulatory policies regarding ethical boundary deployments for Generative models in colleges.
+            </div>
+            <div class="bg-slate-50 p-4 rounded-xl border border-slate-100">
+              <span class="block font-bold text-slate-800 text-xs uppercase mb-1">NEP 2020 Digital Mandate</span>
+              Achieving NEP core indicators regarding systemic technological integration, flexible grading templates, and digital literacy.
+            </div>
+          </div>
+        </div>
+
+        <!-- Pillar 2: AICTE & Accreditation -->
+        <div class="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm flex flex-col">
+          <div class="flex items-center space-x-3 mb-4">
+            <div class="p-3 bg-blue-50 text-blue-700 rounded-xl">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+            </div>
+            <div>
+              <span class="text-xs uppercase font-bold text-blue-500 tracking-wider">Accreditation</span>
+              <h3 class="text-lg font-bold text-slate-900">AICTE, NAAC & NBA</h3>
+            </div>
+          </div>
+          <div class="space-y-4 flex-grow text-sm text-slate-600">
+            <p>Preparing structural documentation protocols for official national accreditation and verification bodies.</p>
+            <div class="bg-slate-50 p-4 rounded-xl border border-slate-100">
+              <span class="block font-bold text-slate-800 text-xs uppercase mb-1">AICTE Curriculum Rules</span>
+              Reviewing the integration pathways outlined in AICTE’s model curriculums concerning standardized, foundational AI classes.
+            </div>
+            <div class="bg-slate-50 p-4 rounded-xl border border-slate-100">
+              <span class="block font-bold text-slate-800 text-xs uppercase mb-1">NAAC & NBA Audit Prep</span>
+              Drafting structured data trail models and evidence parameters showing automated evaluation tools used in classrooms.
+            </div>
+          </div>
+        </div>
+
+        <!-- Pillar 3: Ethics & Institutional Integrity -->
+        <div class="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm flex flex-col">
+          <div class="flex items-center space-x-3 mb-4">
+            <div class="p-3 bg-teal-50 text-teal-700 rounded-xl">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 11c0 3.517-1.009 6.799-2.753 9.571m-3.44-2.04l.054-.09A13.916 13.916 0 009 11a13.918 13.918 0 00-6.109-11.536M12 11a13.93 13.93 0 017 2.924m-7-2.924v8.854m-6 3.805a3 3 0 003 3h1.5a3 3 0 003-3m-9 0h9m-9 0a3 3 0 013-3h1.5a3 3 0 013 3m0 0V5a3 3 0 013-3h1.5a3 3 0 013 3v12.438c0 .817-.442 1.573-1.151 1.968l-1.306.721M17 11a13.93 13.93 0 01-3 6.941M13 11V5a1.5 1.5 0 00-1.5-1.5h-1A1.5 1.5 0 009 5v6"></path></svg>
+            </div>
+            <div>
+              <span class="text-xs uppercase font-bold text-teal-500 tracking-wider">Ethics & Auditing</span>
+              <h3 class="text-lg font-bold text-slate-900">IndiaAI & IQAC Trails</h3>
+            </div>
+          </div>
+          <div class="space-y-4 flex-grow text-sm text-slate-600">
+            <p>Creating transparent standards that avoid algorithmic bias and formulate reliable department use parameters.</p>
+            <div class="bg-slate-50 p-4 rounded-xl border border-slate-100">
+              <span class="block font-bold text-slate-800 text-xs uppercase mb-1">IndiaAI Ethics Guardrails</span>
+              Unveiling sovereign ethics frameworks, research publication copyright protocols, and unbiased source modeling metrics.
+            </div>
+            <div class="bg-slate-50 p-4 rounded-xl border border-slate-100">
+              <span class="block font-bold text-slate-800 text-xs uppercase mb-1">IQAC Verification Tracks</span>
+              Aligning Internal Quality Assurance Cells with systematic digital verification templates for classroom evaluation methods.
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- TAB 4: TEXT BROCHURE & MARKDOWN EXPORTER -->
+    <section id="section-text" class="tab-content hidden no-print">
+      <div class="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm mb-6">
+        <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+          <div>
+            <h2 class="text-xl font-serif font-bold text-slate-900">Restructured Markdown Brochure (10 AM to 3 PM)</h2>
+            <p class="text-sm text-slate-600 mt-1">Below is the restructured, accurate plain-text layout representing the 10:00 AM – 3:00 PM workshop curriculum. Copy this straight to your local editor.</p>
+          </div>
+          <button onclick="copyMarkdownText()" class="bg-teal-600 hover:bg-teal-700 text-white text-xs font-bold py-2.5 px-4 rounded-xl shadow-sm transition-all flex items-center shrink-0">
+            <svg class="w-4 h-4 mr-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"></path></svg>
+            Copy Markdown Text
+          </button>
+        </div>
+        <!-- Alert feedback banner -->
+        <div id="copy-feedback" class="hidden mt-3 bg-emerald-50 border border-emerald-200 text-emerald-800 p-2.5 rounded-lg text-xs font-semibold">
+          ✓ Restructured brochure copied successfully to clipboard! You can paste this in Markdown editors.
+        </div>
+      </div>
+
+      <div class="bg-slate-900 text-slate-300 rounded-2xl p-6 font-mono text-xs overflow-x-auto max-h-[500px] border border-slate-800 leading-relaxed shadow-inner font-light">
+<pre id="markdown-code-block"># ST. XAVIER'S COLLEGE
+## FACULTY AI ORIENTATION PROGRAMME (RESTRUCTURED COMPACT DRAFT)
+
+**Two-Day Immersive Workshop | Joint Initiative with GreenAI Services**
+**Academic Consultant Draft for Vetting**
+
+---
+
+### RESTRUCTURED PROGRAMME OVERVIEW
+* **Operational Hours:** 10:00 AM to 3:00 PM (5 Hours Total)
+* **Lunch Break:** 1:00 PM to 2:00 PM (1 Hour)
+* **Net Core Instruction:** 4 Hours Daily
+* **Cohort Limit:** 120 Faculty Members
+* **Focus Streams:**
+  * Day 1: Science, Arts, and Humanities Focus
+  * Day 2: Commerce, Management, and Economics Focus
+* **Adoption Goal:** High-intensity tool demonstrations to inspire, motivate, and direct active faculty AI adoption in courses.
+
+---
+
+### DAY 1 SCHEDULE: SCIENCE, ARTS & HUMANITIES
+*Focus Areas: Science, Arts, Literature Reviews, and Pedagogical Design.*
+
+#### MORNING SESSIONS (10:00 AM – 1:00 PM)
+
+* **10:00 AM – 10:15 AM | Welcome & Orientation Brief**
+  * *Session Type:* Plenary (15 mins)
+  * *Outline:* HOD welcome, administrative briefing on the compact 10-3 operational timeline, and a 5-minute digital diagnostic of baseline AI exposure.
+
+* **10:15 AM – 11:30 AM | AI for Teaching: Workflow & Design**
+  * *Session Type:* Pillar A Pedagogy (75 mins)
+  * *Outline:* Transforming lesson preparation, notes summarization, slide production, rubric structuring, quiz designs, and anti-plagiarism guidelines.
+  * *Significant Tool Demonstrations:* Showcasing Claude (syllabus templates), ChatGPT (quiz modules), NotebookLM (automated note-making & source synthesis), Gamma.app (lesson slide compilation), and MagicSchool.ai.
+
+* **11:30 AM – 12:45 PM | AI for Research: Literature & Mapping**
+  * *Session Type:* Pillar B Discovery (75 mins)
+  * *Outline:* Streamlining citation mapping, database queries, textual corpus parsing, metadata extraction, and bibliographical automation.
+  * *Significant Tool Demonstrations:* Live searches in Elicit (metadata queries), Semantic Scholar (influence trees), SciSpace (interactive PDF review), Research Rabbit (citation networks), Voyant Tools, and JSTOR AI (textual pattern mining).
+
+* **12:45 PM – 1:00 PM | Morning Reflections & Q&A**
+  * *Session Type:* Plenary QA (15 mins)
+  * *Outline:* Gathering feedback on demonstrated tool pipelines and setting targets for afternoon sessions.
+
+#### LUNCH BREAK (1:00 PM – 2:00 PM)
+*Networking lunch. AI student research poster display in the breakout lounge. Booklet handouts.*
+
+#### AFTERNOON SESSIONS (2:00 PM – 3:00 PM)
+
+* **2:00 PM – 2:30 PM | AI and Ethics: Academic Integrity**
+  * *Session Type:* Pillar C Responsibility (30 mins)
+  * *Outline:* Algorithmic dataset bias, research copyright issues, IndiaAI Mission standards. Bias in visual classifiers and index gender skewing cases.
+
+* **2:30 PM – 3:00 PM | Regulatory Frameworks & Compliance**
+  * *Session Type:* Pillar D Policy (30 mins)
+  * *Outline:* Mapped review of UGC Draft guidelines on Generative AI, alignment with NEP 2020 competency metrics, and drafting a departmental use charter.
+
+---
+
+### DAY 2 SCHEDULE: COMMERCE, MANAGEMENT & ECONOMICS
+*Focus Areas: Business cases, Financial data summaries, Analytics tools, and Corporate ethics.*
+
+#### MORNING SESSIONS (10:00 AM – 1:00 PM)
+
+* **10:00 AM – 10:15 AM | Welcome & Day 1 Recap Highlights**
+  * *Session Type:* Plenary Recap (15 mins)
+  * *Outline:* Takeaway summaries to support cross-pollination. Custom survey on business-classroom digital tool use.
+
+* **10:15 AM – 11:30 AM | AI for Teaching: Cases & Simulation**
+  * *Session Type:* Pillar A Pedagogy (75 mins)
+  * *Outline:* Designing interactive note-making templates, commercial case briefs, customer support simulation bots, and live financial metric decks.
+  * *Significant Tool Demonstrations:* Claude (dynamic business cases), ChatGPT (interactive chatbots), Excel Copilot (formula and trend generation), Power BI AI Narratives (dashboard auto-summaries), and Gamma.app (B-school pitches).
+
+* **11:30 AM – 12:45 PM | AI for Research: Market Intelligence & Data**
+  * *Session Type:* Pillar B Discovery (75 mins)
+  * *Outline:* Systematic evidence review pipelines, competitive analysis, automated statistic suggestions, and qualitative transcript tagging.
+  * *Significant Tool Demonstrations:* Live operations in Elicit & Consensus (literature reviews), Perplexity AI (market intelligence tracking), SPSS AI Assist (regression suggestions), ATLAS.ti (qualitative transcript coding), Connected Papers (citation networks), and BloombergGPT architecture.
+
+* **12:45 PM – 1:00 PM | Takeaway Synthesis & Q&A**
+  * *Session Type:* Plenary QA (15 mins)
+  * *Outline:* Gathering feedback on illustrated tools and preparing afternoon cases.
+
+#### LUNCH BREAK (1:00 PM – 2:00 PM)
+*Networking lunch. Commerce-specific AI reference cards distribution.*
+
+#### AFTERNOON SESSIONS (2:00 PM – 3:00 PM)
+
+* **2:00 PM – 2:30 PM | AI and Ethics: Business Boundaries**
+  * *Session Type:* Pillar C Responsibility (30 mins)
+  * *Outline:* Credit ratings biases, automated HR filters, corporate ESG fraud indicators, SEBI/RBI contexts. Amazon recruiter case study. Interactive Debate: "Should AI grade MBA case studies?"
+
+* **2:30 PM – 3:00 PM | Regulatory Frameworks & Accreditation**
+  * *Session Type:* Pillar D Policy (30 mins)
+  * *Outline:* AI assessment parameters within NAAC & NBA frameworks, utilizing AICTE's model syllabus for AI literacy, IQAC audit trails. Final certificates, survey completions, and Pg Cert pathway briefs.
+
+---
+*Draft compiled by GreenAI Services. Mapped precisely to the revised 10:00 AM - 3:00 PM guidelines.*</pre>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- PRINT-ONLY DETAILED BROCHURE LAYOUT (Hidden on screen) -->
+  <div class="hidden print:block p-8 bg-white text-slate-900 leading-relaxed font-sans text-sm">
+    <div class="text-center border-b-2 border-slate-950 pb-4 mb-6">
+      <h1 class="text-3xl font-serif font-extrabold uppercase">St. Xavier's College</h1>
+      <p class="text-sm font-semibold tracking-widest uppercase text-slate-600 mt-1">Faculty AI Orientation Programme (Restructured 10-3)</p>
+      <div class="flex justify-center space-x-6 text-xs font-mono mt-2 text-slate-500">
+        <span>Strategic Partner: GreenAI Services</span>
+        <span>•</span>
+        <span>Draft for Academic Vetting</span>
+      </div>
+    </div>
+
+    <!-- Overview -->
+    <div class="mb-6">
+      <h2 class="text-lg font-bold border-b border-slate-300 pb-1 mb-2">I. Restructured Programme Overview & Targets</h2>
+      <p class="text-slate-700">
+        This intensive, structured academic orientation has been compact-scheduled to run from <strong>10:00 AM to 3:00 PM</strong> daily, training a target limit of <strong>120 faculty members</strong> across two focus streams. Spanning exactly <strong>5 hours daily</strong> (which includes a designated 1-hour lunch break), the revised schedule prioritizes substantial live tool demonstrations in Teaching and Research to motivate active faculty adoption, integrated alongside essential ethics case briefs and regulatory frameworks.
+      </p>
+    </div>
+
+    <!-- Day 1 Schedule -->
+    <div class="mb-8">
+      <h2 class="text-lg font-bold border-b border-slate-300 pb-1 mb-2">II. Day 1 Schedule: Science & Arts Focus</h2>
+      <p class="text-xs text-slate-500 italic mb-3">Focus Areas: Pure Sciences, Arts, and Humanities.</p>
+      
+      <table class="w-full border-collapse text-left text-xs">
+        <thead>
+          <tr class="border-b border-slate-400 font-bold bg-slate-100">
+            <th class="py-2 px-1 w-28">Time Slot</th>
+            <th class="py-2 px-1 w-24">Pillar</th>
+            <th class="py-2 px-1">Session Topic & Curricular Outline</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="border-b border-slate-200">
+            <td class="py-2.5 px-1 font-semibold">10:00 – 10:15 AM</td>
+            <td class="py-2.5 px-1 font-mono text-slate-600">Intro</td>
+            <td class="py-2.5 px-1"><strong>Welcome & Orientation Brief:</strong> Administrative welcome, programme goals, and digital diagnostic of baseline AI familiarity metrics.</td>
+          </tr>
+          <tr class="border-b border-slate-200">
+            <td class="py-2.5 px-1 font-semibold">10:15 – 11:30 AM</td>
+            <td class="py-2.5 px-1 font-mono text-slate-600">Teaching</td>
+            <td class="py-2.5 px-1"><strong>AI for Teaching (Pedagogy & Design):</strong> Core preparation workflows: note-making, content creation, student evaluation, anti-plagiarism, and assignment planning. <br><strong>Significant Demonstrations:</strong> <em>Claude, ChatGPT, NotebookLM, Canva AI, MagicSchool.ai, Gamma.app</em>.</td>
+          </tr>
+          <tr class="border-b border-slate-200">
+            <td class="py-2.5 px-1 font-semibold">11:30 AM – 12:45 PM</td>
+            <td class="py-2.5 px-1 font-mono text-slate-600">Research</td>
+            <td class="py-2.5 px-1"><strong>AI for Research (Literature Reviews & Mapping):</strong> Systematic bibliography discovery, citation mapping, interactive PDF query tools, and digital text mining. <br><strong>Significant Demonstrations:</strong> <em>Elicit, Semantic Scholar, SciSpace, Research Rabbit, Zotero AI, Voyant Tools, JSTOR AI</em>.</td>
+          </tr>
+          <tr class="border-b border-slate-200">
+            <td class="py-2.5 px-1 font-semibold text-slate-500">12:45 – 1:00 PM</td>
+            <td class="py-2.5 px-1 font-mono text-slate-400">QA</td>
+            <td class="py-2.5 px-1 text-slate-500 italic">QA cycle, initial tool feedback gathers, and briefing on afternoon modules.</td>
+          </tr>
+          <tr class="border-b border-slate-200">
+            <td class="py-2.5 px-1 font-semibold text-slate-500">1:00 – 2:00 PM</td>
+            <td class="py-2.5 px-1 font-mono text-slate-400">Lunch Break</td>
+            <td class="py-2.5 px-1 text-slate-500 italic">Net operational break. AI student research poster exhibition inside breakout lounge.</td>
+          </tr>
+          <tr class="border-b border-slate-200">
+            <td class="py-2.5 px-1 font-semibold">2:00 – 2:30 PM</td>
+            <td class="py-2.5 px-1 font-mono text-slate-600">Ethics</td>
+            <td class="py-2.5 px-1"><strong>AI and Ethics (Academic Integrity):</strong> Data provenance, copyright, authorship, and algorithmic bias. Cases detailing bias in image classifiers and citation index gender gaps under IndiaAI Mission.</td>
+          </tr>
+          <tr class="border-b border-slate-200">
+            <td class="py-2.5 px-1 font-semibold">2:30 – 3:00 PM</td>
+            <td class="py-2.5 px-1 font-mono text-slate-600">Policy</td>
+            <td class="py-2.5 px-1"><strong>Regulatory Frameworks & Charters:</strong> Reviewing UGC's Draft Generative AI guidelines, alignment with NEP 2020 digital competency targets, and drafting a departmental use charter. Plenary close & commitments.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="print-page-break"></div>
+
+    <!-- Day 2 Schedule -->
+    <div class="mb-8 pt-6">
+      <h2 class="text-lg font-bold border-b border-slate-300 pb-1 mb-2">III. Day 2 Schedule: Commerce, Management & Economics Focus</h2>
+      <p class="text-xs text-slate-500 italic mb-3">Focus Areas: Commerce, Finance, Economics, and B-School Pedagogy.</p>
+      
+      <table class="w-full border-collapse text-left text-xs">
+        <thead>
+          <tr class="border-b border-slate-400 font-bold bg-slate-100">
+            <th class="py-2 px-1 w-28">Time Slot</th>
+            <th class="py-2 px-1 w-24">Pillar</th>
+            <th class="py-2 px-1">Session Topic & Curricular Outline</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="border-b border-slate-200">
+            <td class="py-2.5 px-1 font-semibold">10:00 – 10:15 AM</td>
+            <td class="py-2.5 px-1 font-mono text-slate-600">Intro</td>
+            <td class="py-2.5 px-1"><strong>Welcome & Highlights:</strong> Day 1 synthesis for cross-pollination. Diagnostic survey on finance-classroom AI application metrics.</td>
+          </tr>
+          <tr class="border-b border-slate-200">
+            <td class="py-2.5 px-1 font-semibold">10:15 – 11:30 AM</td>
+            <td class="py-2.5 px-1 font-mono text-slate-600">Teaching</td>
+            <td class="py-2.5 px-1"><strong>AI for Teaching (Cases & Simulation):</strong> Planning dynamic business case briefs, note-making templates, interactive Excel workbooks, and simulated customer chatbots. <br><strong>Significant Demonstrations:</strong> <em>Claude, ChatGPT, Excel Copilot, Power BI AI Narratives, Gamma.app</em>.</td>
+          </tr>
+          <tr class="border-b border-slate-200">
+            <td class="py-2.5 px-1 font-semibold">11:30 AM – 12:45 PM</td>
+            <td class="py-2.5 px-1 font-mono text-slate-600">Research</td>
+            <td class="py-2.5 px-1"><strong>AI for Research (Market Intelligence & Data):</strong> Evidence review, systematic survey coding, regression guidelines, and competitive analysis. <br><strong>Significant Demonstrations:</strong> <em>Elicit, Consensus, Perplexity AI, SPSS AI Assist, ATLAS.ti, Connected Papers, Mendeley AI, BloombergGPT</em>.</td>
+          </tr>
+          <tr class="border-b border-slate-200">
+            <td class="py-2.5 px-1 font-semibold text-slate-500">12:45 – 1:00 PM</td>
+            <td class="py-2.5 px-1 font-mono text-slate-400">QA</td>
+            <td class="py-2.5 px-1 text-slate-500 italic">QA cycle, initial tool feedback gathers, and briefing on afternoon modules.</td>
+          </tr>
+          <tr class="border-b border-slate-200">
+            <td class="py-2.5 px-1 font-semibold text-slate-500">1:00 – 2:00 PM</td>
+            <td class="py-2.5 px-1 font-mono text-slate-400">Lunch Break</td>
+            <td class="py-2.5 px-1 text-slate-500 italic">Net break. Distribution of customized Commerce AI reference cards.</td>
+          </tr>
+          <tr class="border-b border-slate-200">
+            <td class="py-2.5 px-1 font-semibold">2:00 – 2:30 PM</td>
+            <td class="py-2.5 px-1 font-mono text-slate-600">Ethics</td>
+            <td class="py-2.5 px-1"><strong>AI and Ethics (Business Accountability):</strong> Biases in automated credit scoring rating and HR recruitment; corporate ESG fraud; dark commerce pattern frameworks; Amazon recruitment case study; debate on grading case studies with AI.</td>
+          </tr>
+          <tr class="border-b border-slate-200">
+            <td class="py-2.5 px-1 font-semibold">2:30 – 3:00 PM</td>
+            <td class="py-2.5 px-1 font-mono text-slate-600">Policy</td>
+            <td class="py-2.5 px-1"><strong>Regulatory Frameworks & Accreditation:</strong> Tracking AI assessment criteria requirements within NAAC & NBA documentation, adopting AICTE model syllabus criteria, and IQAC data audits. Valediction, survey collections, PG Cert brief.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Sign-off Section -->
+    <div class="mt-12 pt-6 border-t border-slate-300 text-xs">
+      <div class="grid grid-cols-2 gap-4">
+        <div>
+          <span class="block font-bold">St. Xavier's College Authority</span>
+          <span class="block text-slate-500 text-xxs mt-4">Draft Signature Block (Vetting Approval Pending)</span>
+        </div>
+        <div class="text-right">
+          <span class="block font-bold">GreenAI Services Academic Consulting</span>
+          <span class="block text-slate-500 text-xxs mt-4">Draft Authorized Document</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="bg-slate-900 text-slate-400 py-8 border-t border-slate-800 no-print mt-12">
+    <div class="max-w-6xl mx-auto px-4 text-center space-y-4">
+      <p class="text-sm">
+        St. Xavier's College Faculty AI Orientation Programme • Designed in partnership with <span class="text-teal-400 font-semibold">GreenAI Services</span>.
+      </p>
+      <p class="text-xs text-slate-500">
+        All curriculum content, timing restructures, tool setups, and policy alignments have been mapped with absolute fidelity from approved syllabus matrices.
+      </p>
+    </div>
+  </footer>
+
+  <!-- SCRIPT LOGIC -->
+  <script>
+    // Tab switching logic
+    function switchTab(tabId) {
+      // Hide all tabs
+      document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
+      document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('block'));
+      
+      // Deactive nav states
+      document.querySelectorAll('.nav-tab').forEach(el => {
+        el.classList.remove('border-teal-600', 'text-teal-600');
+        el.classList.add('border-transparent', 'text-slate-500', 'hover:text-slate-800');
+      });
+
+      // Show current tab
+      const targetSec = document.getElementById('section-' + tabId);
+      targetSec.classList.remove('hidden');
+      targetSec.classList.add('block');
+
+      // Set active nav style
+      const activeBtn = document.getElementById('tab-' + tabId);
+      activeBtn.classList.add('border-teal-600', 'text-teal-600');
+      activeBtn.classList.remove('border-transparent', 'text-slate-500', 'hover:text-slate-800');
+    }
+
+    // Day switching logic
+    function switchDay(dayId) {
+      // Toggle schedule lists
+      if (dayId === 'day1') {
+        document.getElementById('day1-schedule').classList.remove('hidden');
+        document.getElementById('day2-schedule').classList.add('hidden');
+        
+        // Style Buttons
+        document.getElementById('btn-day1').className = "day-btn flex-1 text-center py-2.5 px-4 rounded-lg text-sm font-bold transition-all bg-teal-600 text-white shadow-sm";
+        document.getElementById('btn-day2').className = "day-btn flex-1 text-center py-2.5 px-4 rounded-lg text-sm font-bold transition-all text-slate-600 hover:bg-slate-50";
+        
+        // Update Metrics Banner
+        document.getElementById('day-title').textContent = "Science, Arts & Humanities Streams";
+        document.getElementById('day-desc').textContent = "Designed specifically for teaching, curriculum planning, and research in pure sciences and humanistic disciplines.";
+      } else {
+        document.getElementById('day1-schedule').classList.add('hidden');
+        document.getElementById('day2-schedule').classList.remove('hidden');
+
+        // Style Buttons
+        document.getElementById('btn-day2').className = "day-btn flex-1 text-center py-2.5 px-4 rounded-lg text-sm font-bold transition-all bg-teal-600 text-white shadow-sm";
+        document.getElementById('btn-day1').className = "day-btn flex-1 text-center py-2.5 px-4 rounded-lg text-sm font-bold transition-all text-slate-600 hover:bg-slate-50";
+
+        // Update Metrics Banner
+        document.getElementById('day-title').textContent = "Commerce, Management & Economics Focus";
+        document.getElementById('day-desc').textContent = "Formulated around business intelligence tools, algorithmic trading ethics, asset modeling, and case pedagogical analysis.";
+      }
+      // Reset search on day switch
+      resetSearch();
+    }
+
+    // Schedule filtration/search logic
+    function filterSchedule() {
+      const searchVal = document.getElementById('search-input').value.toLowerCase().trim();
+      const currentActiveDayId = document.getElementById('day1-schedule').classList.contains('hidden') ? 'day2' : 'day1';
+      const container = document.getElementById(currentActiveDayId + '-schedule');
+      const items = container.querySelectorAll('.schedule-item-card');
+      
+      let visibleCount = 0;
+
+      items.forEach(card => {
+        const searchText = card.getAttribute('data-search') || "";
+        if (searchText.includes(searchVal)) {
+          card.classList.remove('hidden');
+          card.classList.add('grid');
+          visibleCount++;
+        } else {
+          card.classList.remove('grid');
+          card.classList.add('hidden');
+        }
+      });
+
+      const noResultsDiv = document.getElementById('no-results');
+      if (visibleCount === 0) {
+        noResultsDiv.classList.remove('hidden');
+      } else {
+        noResultsDiv.classList.add('hidden');
+      }
+    }
+
+    // Reset Search
+    function resetSearch() {
+      document.getElementById('search-input').value = "";
+      const currentActiveDayId = document.getElementById('day1-schedule').classList.contains('hidden') ? 'day2' : 'day1';
+      const container = document.getElementById(currentActiveDayId + '-schedule');
+      const items = container.querySelectorAll('.schedule-item-card');
+      
+      items.forEach(card => {
+        card.classList.remove('hidden');
+        card.classList.add('grid');
+      });
+
+      document.getElementById('no-results').classList.add('hidden');
+    }
+
+    // Clipboard copy action
+    function copyMarkdownText() {
+      const textBlock = document.getElementById('markdown-code-block');
+      
+      // Traditional safe text-copy due to potential frame limitations
+      const el = document.createElement('textarea');
+      el.value = textBlock.textContent;
+      document.body.appendChild(el);
+      el.select();
+      document.execCommand('copy');
+      document.body.removeChild(el);
+
+      // Trigger alert banner animation
+      const banner = document.getElementById('copy-feedback');
+      banner.classList.remove('hidden');
+      setTimeout(() => {
+        banner.classList.add('hidden');
+      }, 5000);
+    }
+
+    // Tools Library list data
+    const toolsData = [
+      { name: "Elicit", type: "research", stream: ["science", "arts", "commerce"], desc: "Executed for rapid literature discovery, semantic mapping of publications, and generating rigorous synthesis frameworks of existing bibliographies." },
+      { name: "Semantic Scholar", type: "research", stream: ["science", "arts"], desc: "Used to navigate scholarly citation trees, review influence scoring, and map adjacent academic domains using deep neural indexing." },
+      { name: "SciSpace", type: "research", stream: ["science", "arts"], desc: "Provides interactive PDF exploration tools, allowing researchers to ask real-time semantic questions, unpack complex math formulas, and explain diagrams instantly." },
+      { name: "Research Rabbit", type: "research", stream: ["science", "arts"], desc: "Serves as a visual 'Spotify for Papers', mapping citation ecosystems, tracing author pipelines, and illustrating academic networks." },
+      { name: "Zotero AI", type: "research", stream: ["science", "arts", "commerce"], desc: "Next-gen references assistant helping with bibliography auto-indexing, semantic category parsing, and smart folder tagging." },
+      { name: "NotebookLM", type: "teaching", stream: ["science", "arts"], desc: "Creates personalized study books and dynamic audio briefings by synthesizing multiple PDFs, notes, and teaching materials safely." },
+      { name: "Voyant Tools", type: "research", stream: ["arts"], desc: "Web-based analytical corpus suite utilized for computational reading of literary materials, providing frequency mappings, vocabulary trends, and text mining metrics." },
+      { name: "JSTOR AI", type: "research", stream: ["arts"], desc: "Deep analytical engine optimized for querying historical databases, identifying semantic trend lines across multi-decade publications." },
+      { name: "Claude", type: "teaching", stream: ["science", "arts", "commerce"], desc: "Premium LLM chosen for structured prompt composition, drafting custom course rubrics, planning logical lesson arcs, and crafting synthetic case scenarios." },
+      { name: "ChatGPT", type: "teaching", stream: ["science", "arts", "commerce"], desc: "Utilized for general pedagogical lesson structures, building live classroom interactive quiz cards, and programming simulation chatbots." },
+      { name: "Canva AI", type: "teaching", stream: ["science", "arts"], desc: "Generates high-quality instructional graphics, visual templates, and modern presentation guides based on plain-text pedagogical prompts." },
+      { name: "Gamma.app", type: "teaching", stream: ["science", "arts", "commerce"], desc: "Rapidly synthesizes outlines into beautifully structured lecture decks, syllabus visual models, and interactive course portals." },
+      { name: "MagicSchool.ai", type: "teaching", stream: ["science", "arts"], desc: "Specifically calibrated to assist K-12 and higher-ed teachers with standard curriculum scaffolding, behavioral rubric drafting, and automated query designs." },
+      { name: "Consensus", type: "research", stream: ["commerce"], desc: "A specialized search tool that reviews and extracts consensus trends across scientific and social-science publications to answer direct questions." },
+      { name: "Perplexity AI", type: "research", stream: ["commerce"], desc: "Used for conversational search, executing targeted real-time market discovery, competitive business analysis, and sourcing clean, referenced information." },
+      { name: "SPSS AI Assist", type: "research", stream: ["commerce"], desc: "Deploys algorithmic help on quantitative datasets, proposing regression curves, validating survey metrics, and highlighting mathematical biases." },
+      { name: "ATLAS.ti", type: "research", stream: ["commerce"], desc: "Enables qualitative data mining, providing semantic auto-coding to highlight recurring thematic blocks across survey databases and research journals." },
+      { name: "BloombergGPT", type: "research", stream: ["commerce"], desc: "A specialized financial-domain model trained to map corporate reporting, financial news trends, sentiment indexes, and macro-economic data." },
+      { name: "Connected Papers", type: "research", stream: ["science", "commerce"], desc: "A visual citation mapping engine that builds structural graph networks of related academic papers based on a single seed document." },
+      { name: "Mendeley AI", type: "research", stream: ["commerce"], desc: "Next-gen citation library helper, supporting automated academic annotation matching, bibliographical formatting, and smart collaboration circles." },
+      { name: "Excel Copilot", type: "teaching", stream: ["commerce"], desc: "Enables teachers to guide financial modeling, formula composition, macro creation, and economic data visualization using direct natural language." },
+      { name: "Power BI AI Narratives", type: "teaching", stream: ["commerce"], desc: "Automatically summarizes complex spreadsheet data and dashboards into highly descriptive, clean executive summaries for case teaching." }
+    ];
+
+    // Render Tools Library Grid
+    function renderTools(filterType = 'all') {
+      const grid = document.getElementById('tools-grid');
+      grid.innerHTML = ""; // Clear existing
+
+      const filtered = toolsData.filter(tool => {
+        if (filterType === 'all') return true;
+        if (filterType === 'research') return tool.type === 'research';
+        if (filterType === 'teaching') return tool.type === 'teaching';
+        if (filterType === 'science') return tool.stream.includes('science') || tool.stream.includes('arts');
+        if (filterType === 'commerce') return tool.stream.includes('commerce');
+        return true;
+      });
+
+      filtered.forEach(tool => {
+        const card = document.createElement('div');
+        card.className = "bg-white p-5 rounded-2xl border border-slate-200/80 shadow-sm hover:shadow-md transition-all flex flex-col justify-between";
+        
+        // Build badges
+        const typeBadge = tool.type === 'research' 
+          ? `<span class="bg-blue-50 text-blue-700 text-xxs font-bold px-2 py-0.5 rounded uppercase font-mono">Research Tool</span>`
+          : `<span class="bg-emerald-50 text-emerald-700 text-xxs font-bold px-2 py-0.5 rounded uppercase font-mono">Teaching Tool</span>`;
+
+        let streamsMarkup = '';
+        tool.stream.forEach(str => {
+          let strColor = 'bg-slate-100 text-slate-700';
+          if (str === 'science') strColor = 'bg-cyan-50 text-cyan-800 border border-cyan-150';
+          if (str === 'arts') strColor = 'bg-violet-50 text-violet-800 border border-violet-150';
+          if (str === 'commerce') strColor = 'bg-amber-50 text-amber-800 border border-amber-150';
+          streamsMarkup += `<span class="${strColor} text-[10px] font-semibold px-2 py-0.5 rounded">${str}</span> `;
+        });
+
+        card.innerHTML = `
+          <div>
+            <div class="flex justify-between items-start gap-2 mb-3">
+              <h3 class="font-bold text-slate-900 text-base flex items-center">
+                <span class="w-2.5 h-2.5 rounded-full bg-teal-500 mr-2 shrink-0"></span>
+                ${tool.name}
+              </h3>
+              ${typeBadge}
+            </div>
+            <p class="text-xs text-slate-600 leading-relaxed">${tool.desc}</p>
+          </div>
+          <div class="border-t border-slate-100 pt-3 mt-4 flex flex-wrap gap-1 items-center">
+            <span class="text-[10px] text-slate-400 font-bold uppercase mr-1">Target:</span>
+            ${streamsMarkup}
+          </div>
+        `;
+        grid.appendChild(card);
+      });
+    }
+
+    function filterTools(filterType) {
+      // Toggle button active states
+      document.querySelectorAll('.tool-filter-btn').forEach(btn => {
+        btn.className = "tool-filter-btn px-3.5 py-1.5 rounded-full text-xs font-semibold bg-slate-100 text-slate-600 hover:bg-slate-200 transition-all";
+      });
+
+      // Find selected button
+      event.target.className = "tool-filter-btn px-3.5 py-1.5 rounded-full text-xs font-semibold bg-teal-600 text-white shadow-sm transition-all";
+
+      renderTools(filterType);
+    }
+
+    // Initialize application on window load
+    window.onload = function() {
+      renderTools('all');
+    }
+  </script>
+</body>
+</html>
