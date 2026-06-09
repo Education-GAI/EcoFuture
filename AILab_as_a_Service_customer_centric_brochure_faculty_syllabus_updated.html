@@ -1,0 +1,1680 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AILab as a Service | Customer-Centric Interactive Brochure</title>
+  <style>
+    :root {
+      --bg: #f7fafc;
+      --panel: rgba(255,255,255,0.88);
+      --panel-solid: #ffffff;
+      --ink: #102033;
+      --muted: #607086;
+      --brand: #12715b;
+      --brand-2: #246bfe;
+      --accent: #f59e0b;
+      --danger: #b91c1c;
+      --line: rgba(16, 32, 51, 0.12);
+      --shadow: 0 22px 60px rgba(15, 23, 42, 0.12);
+      --radius: 24px;
+      --soft: #eaf7f2;
+      --blue-soft: #ebf2ff;
+      --orange-soft: #fff4df;
+      --red-soft: #fff1f1;
+    }
+
+    [data-theme="dark"] {
+      --bg: #08111f;
+      --panel: rgba(15, 23, 42, 0.86);
+      --panel-solid: #111827;
+      --ink: #f8fafc;
+      --muted: #a8b3c7;
+      --brand: #54d8b2;
+      --brand-2: #7aa2ff;
+      --accent: #fbbf24;
+      --danger: #fb7185;
+      --line: rgba(248, 250, 252, 0.14);
+      --shadow: 0 24px 80px rgba(0,0,0,0.36);
+      --soft: rgba(84,216,178,0.12);
+      --blue-soft: rgba(122,162,255,0.12);
+      --orange-soft: rgba(251,191,36,0.12);
+      --red-soft: rgba(251,113,133,0.12);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(36,107,254,0.16), transparent 34rem),
+        radial-gradient(circle at 85% 8%, rgba(18,113,91,0.14), transparent 32rem),
+        var(--bg);
+      color: var(--ink);
+      line-height: 1.58;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    .container { width: min(1180px, calc(100% - 36px)); margin: 0 auto; }
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(18px);
+      background: color-mix(in srgb, var(--panel-solid) 82%, transparent);
+      border-bottom: 1px solid var(--line);
+    }
+    .nav-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 18px;
+      min-height: 72px;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 850;
+      letter-spacing: -0.03em;
+      font-size: 1.05rem;
+    }
+    .logo-mark {
+      width: 42px;
+      height: 42px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, var(--brand), var(--brand-2));
+      display: grid;
+      place-items: center;
+      color: white;
+      box-shadow: 0 12px 28px rgba(18,113,91,0.22);
+    }
+    .logo small {
+      display: block;
+      color: var(--muted);
+      font-weight: 600;
+      letter-spacing: 0;
+      font-size: 0.72rem;
+      margin-top: -4px;
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+    .nav-links a, .theme-toggle {
+      border: 1px solid transparent;
+      color: var(--muted);
+      padding: 9px 11px;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 0.88rem;
+      background: transparent;
+      cursor: pointer;
+    }
+    .nav-links a:hover, .theme-toggle:hover {
+      color: var(--ink);
+      border-color: var(--line);
+      background: var(--panel);
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      border: 0;
+      border-radius: 999px;
+      padding: 13px 20px;
+      font-weight: 850;
+      cursor: pointer;
+      transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+      white-space: nowrap;
+    }
+    .btn:hover { transform: translateY(-2px); }
+    .btn-primary {
+      background: linear-gradient(135deg, var(--brand), var(--brand-2));
+      color: white;
+      box-shadow: 0 16px 34px rgba(36,107,254,0.22);
+    }
+    .btn-secondary {
+      background: var(--panel-solid);
+      color: var(--ink);
+      border: 1px solid var(--line);
+      box-shadow: 0 12px 28px rgba(15,23,42,0.06);
+    }
+
+    .hero {
+      padding: 82px 0 46px;
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.08fr 0.92fr;
+      gap: 34px;
+      align-items: center;
+    }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: var(--soft);
+      color: var(--brand);
+      font-weight: 850;
+      border: 1px solid color-mix(in srgb, var(--brand) 20%, transparent);
+      margin-bottom: 18px;
+    }
+    h1 {
+      font-size: clamp(2.45rem, 5.4vw, 5.4rem);
+      line-height: 0.96;
+      letter-spacing: -0.07em;
+      margin: 0 0 22px;
+    }
+    .hero p.lead {
+      color: var(--muted);
+      font-size: clamp(1.08rem, 2vw, 1.35rem);
+      margin: 0 0 28px;
+      max-width: 760px;
+    }
+    .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 24px; }
+    .trust-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+      margin-top: 26px;
+    }
+    .trust-card {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 14px;
+      min-height: 94px;
+    }
+    .trust-card b { display: block; font-size: 1.4rem; letter-spacing: -0.04em; }
+    .trust-card span { color: var(--muted); font-size: 0.86rem; }
+
+    .hero-card {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 22px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-card:before {
+      content: "";
+      position: absolute;
+      inset: -120px -120px auto auto;
+      width: 250px;
+      height: 250px;
+      background: radial-gradient(circle, rgba(36,107,254,0.18), transparent 70%);
+      border-radius: 50%;
+    }
+    .mini-dashboard {
+      display: grid;
+      gap: 14px;
+      position: relative;
+    }
+    .dash-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+    .status-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--brand);
+      background: var(--soft);
+      padding: 8px 10px;
+      border-radius: 999px;
+      font-size: 0.82rem;
+      font-weight: 850;
+    }
+    .pulse {
+      width: 9px; height: 9px;
+      border-radius: 50%;
+      background: var(--brand);
+      box-shadow: 0 0 0 7px color-mix(in srgb, var(--brand) 14%, transparent);
+    }
+    .route-card {
+      padding: 16px;
+      border-radius: 20px;
+      border: 1px solid var(--line);
+      background: color-mix(in srgb, var(--panel-solid) 80%, transparent);
+    }
+    .route-line {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin: 10px 0;
+      color: var(--muted);
+      font-weight: 700;
+    }
+    .bar {
+      height: 10px;
+      border-radius: 999px;
+      background: color-mix(in srgb, var(--muted) 14%, transparent);
+      overflow: hidden;
+      margin-top: 8px;
+    }
+    .bar > i {
+      display: block;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--brand), var(--brand-2));
+      width: var(--w);
+    }
+    .model-pills { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+    .model-pills span {
+      border: 1px solid var(--line);
+      background: var(--panel-solid);
+      border-radius: 999px;
+      padding: 7px 10px;
+      font-weight: 800;
+      font-size: 0.8rem;
+    }
+
+    section { padding: 54px 0; }
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 20px;
+      margin-bottom: 24px;
+    }
+    .section-head h2 {
+      font-size: clamp(2rem, 3.4vw, 3.2rem);
+      line-height: 1;
+      letter-spacing: -0.055em;
+      margin: 0;
+      max-width: 780px;
+    }
+    .section-head p {
+      color: var(--muted);
+      margin: 0;
+      max-width: 420px;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+    .grid-4 {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+    .card {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 22px;
+      box-shadow: 0 14px 34px rgba(15,23,42,0.06);
+    }
+    .card h3 {
+      margin: 0 0 8px;
+      font-size: 1.14rem;
+      letter-spacing: -0.025em;
+    }
+    .card p { color: var(--muted); margin: 0; }
+    .icon {
+      width: 46px; height: 46px;
+      border-radius: 16px;
+      display: grid; place-items: center;
+      font-size: 1.25rem;
+      background: var(--blue-soft);
+      margin-bottom: 14px;
+    }
+    .icon.green { background: var(--soft); }
+    .icon.orange { background: var(--orange-soft); }
+    .icon.red { background: var(--red-soft); }
+
+    .persona-tabs {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 18px;
+    }
+    .tab {
+      border: 1px solid var(--line);
+      background: var(--panel-solid);
+      color: var(--muted);
+      border-radius: 999px;
+      padding: 10px 14px;
+      font-weight: 850;
+      cursor: pointer;
+    }
+    .tab.active {
+      background: linear-gradient(135deg, var(--brand), var(--brand-2));
+      color: #fff;
+      border-color: transparent;
+    }
+    .persona-panel {
+      display: none;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 18px;
+      align-items: stretch;
+    }
+    .persona-panel.active { display: grid; }
+    .bullets {
+      list-style: none;
+      padding: 0;
+      margin: 14px 0 0;
+      display: grid;
+      gap: 10px;
+    }
+    .bullets li {
+      position: relative;
+      padding-left: 28px;
+      color: var(--muted);
+      font-weight: 650;
+    }
+    .bullets li:before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      top: 0;
+      color: var(--brand);
+      font-weight: 950;
+    }
+    .quote {
+      font-size: 1.2rem;
+      font-weight: 850;
+      letter-spacing: -0.02em;
+      padding: 22px;
+      border-radius: 22px;
+      background: linear-gradient(135deg, var(--soft), var(--blue-soft));
+      border: 1px solid var(--line);
+      min-height: 100%;
+    }
+    .quote span {
+      display: block;
+      font-size: 0.9rem;
+      color: var(--muted);
+      font-weight: 700;
+      margin-top: 12px;
+    }
+
+    .architecture {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 30px;
+      padding: 24px;
+      box-shadow: var(--shadow);
+    }
+    .flow {
+      display: grid;
+      grid-template-columns: 1fr 0.8fr 1.2fr 1fr;
+      gap: 14px;
+      align-items: stretch;
+    }
+    .flow-col {
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      padding: 16px;
+      background: color-mix(in srgb, var(--panel-solid) 76%, transparent);
+    }
+    .flow-col h3 { margin: 0 0 12px; font-size: 1rem; }
+    .node {
+      padding: 11px 12px;
+      border-radius: 16px;
+      background: var(--panel-solid);
+      border: 1px solid var(--line);
+      margin: 9px 0;
+      font-weight: 800;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+    .node.core { color: var(--ink); background: var(--orange-soft); }
+    .node.green { background: var(--soft); }
+    .node.blue { background: var(--blue-soft); }
+    .node.red { background: var(--red-soft); }
+
+    .router-demo {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 18px;
+      align-items: stretch;
+    }
+    textarea, input[type="number"] {
+      width: 100%;
+      border: 1px solid var(--line);
+      background: var(--panel-solid);
+      color: var(--ink);
+      border-radius: 18px;
+      padding: 14px;
+      font: inherit;
+      outline: none;
+    }
+    textarea { min-height: 138px; resize: vertical; }
+    label { font-weight: 850; display: block; margin-bottom: 8px; }
+    .result-box {
+      min-height: 138px;
+      border-radius: 22px;
+      padding: 20px;
+      background: linear-gradient(135deg, var(--soft), var(--blue-soft));
+      border: 1px solid var(--line);
+    }
+    .result-box h3 { margin-top: 0; letter-spacing: -0.02em; }
+    .tag-row { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 12px; }
+    .tag {
+      padding: 7px 10px;
+      border-radius: 999px;
+      background: var(--panel-solid);
+      border: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 0.78rem;
+      font-weight: 850;
+    }
+
+    .calculator {
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: 18px;
+      align-items: stretch;
+    }
+    .calc-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+    .range-wrap input[type="range"] { width: 100%; accent-color: var(--brand); }
+    .big-number {
+      font-size: clamp(2.2rem, 5vw, 4.4rem);
+      line-height: 1;
+      font-weight: 950;
+      letter-spacing: -0.07em;
+      margin: 8px 0;
+      background: linear-gradient(135deg, var(--brand), var(--brand-2));
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+    .mini-metrics {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin-top: 14px;
+    }
+    .metric {
+      border: 1px solid var(--line);
+      background: var(--panel-solid);
+      padding: 14px;
+      border-radius: 18px;
+    }
+    .metric b { display: block; font-size: 1.25rem; letter-spacing: -0.035em; }
+    .metric span { color: var(--muted); font-size: 0.82rem; font-weight: 700; }
+
+    .timeline {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+      counter-reset: step;
+    }
+    .step {
+      position: relative;
+      counter-increment: step;
+      padding-top: 54px;
+    }
+    .step:before {
+      content: counter(step);
+      position: absolute;
+      top: 18px;
+      left: 22px;
+      width: 30px;
+      height: 30px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--brand), var(--brand-2));
+      color: white;
+      font-weight: 950;
+    }
+
+    .packages {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      align-items: stretch;
+    }
+    .package {
+      position: relative;
+      overflow: hidden;
+    }
+    .package.featured {
+      border: 2px solid color-mix(in srgb, var(--brand-2) 55%, transparent);
+      transform: translateY(-8px);
+    }
+    .ribbon {
+      position: absolute;
+      top: 18px;
+      right: -36px;
+      transform: rotate(36deg);
+      background: var(--accent);
+      color: #1f2937;
+      font-weight: 950;
+      padding: 6px 46px;
+      font-size: 0.74rem;
+    }
+    .price {
+      font-size: 2rem;
+      font-weight: 950;
+      letter-spacing: -0.05em;
+      margin: 12px 0 4px;
+    }
+    .price small { font-size: 0.86rem; color: var(--muted); font-weight: 800; }
+
+    .faq { display: grid; gap: 12px; }
+    .faq-item {
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      background: var(--panel);
+      overflow: hidden;
+    }
+    .faq-q {
+      width: 100%;
+      text-align: left;
+      background: transparent;
+      border: 0;
+      color: var(--ink);
+      padding: 18px 20px;
+      font: inherit;
+      font-weight: 900;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+    }
+    .faq-a {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.25s ease;
+      color: var(--muted);
+      padding: 0 20px;
+    }
+    .faq-item.open .faq-a {
+      max-height: 220px;
+      padding: 0 20px 18px;
+    }
+
+    .cta {
+      background: linear-gradient(135deg, color-mix(in srgb, var(--brand) 92%, #000), color-mix(in srgb, var(--brand-2) 92%, #000));
+      color: white;
+      border-radius: 34px;
+      padding: 42px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 20px;
+      align-items: center;
+      box-shadow: var(--shadow);
+    }
+    .cta h2 { color: white; margin: 0 0 10px; font-size: clamp(2rem, 4vw, 3.4rem); letter-spacing: -0.055em; line-height: 1; }
+    .cta p { margin: 0; color: rgba(255,255,255,0.82); }
+    .cta .btn { background: #fff; color: #102033; box-shadow: none; }
+
+    footer {
+      padding: 34px 0 50px;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .footer-grid {
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      border-top: 1px solid var(--line);
+      padding-top: 20px;
+      flex-wrap: wrap;
+    }
+
+
+    .infra-tabs {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 18px;
+    }
+    .infra-panel {
+      display: none;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+      align-items: stretch;
+    }
+    .infra-panel.active { display: grid; }
+    .cost-table {
+      width: 100%;
+      border-collapse: collapse;
+      overflow: hidden;
+      border-radius: 18px;
+      font-size: 0.94rem;
+    }
+    .cost-table th, .cost-table td {
+      border-bottom: 1px solid var(--line);
+      padding: 13px 12px;
+      text-align: left;
+      vertical-align: top;
+    }
+    .cost-table th {
+      background: var(--blue-soft);
+      font-weight: 950;
+    }
+    .cost-table tr:last-child td { border-bottom: 0; }
+    .cost-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 999px;
+      padding: 7px 10px;
+      font-weight: 950;
+      background: var(--soft);
+      color: var(--brand);
+      border: 1px solid color-mix(in srgb, var(--brand) 22%, transparent);
+      white-space: nowrap;
+    }
+    .cost-slider-card {
+      background: linear-gradient(135deg, var(--soft), var(--blue-soft));
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 22px;
+    }
+
+
+    .training-panel {
+      display: none;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: 18px;
+      align-items: stretch;
+    }
+    .training-panel.active { display: grid; }
+    .module-strip {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      margin-top: 18px;
+    }
+    .module-chip {
+      border: 1px solid var(--line);
+      background: var(--panel-solid);
+      border-radius: 18px;
+      padding: 14px;
+      font-weight: 850;
+      color: var(--muted);
+    }
+    .module-chip b {
+      display: block;
+      color: var(--ink);
+      margin-bottom: 4px;
+      font-size: 1.05rem;
+    }
+
+    .mobile-menu { display: none; }
+
+    @media (max-width: 940px) {
+      .hero-grid, .persona-panel, .infra-panel, .training-panel, .router-demo, .calculator, .flow, .cta {
+        grid-template-columns: 1fr;
+      }
+      .grid-3, .grid-4, .packages, .timeline, .module-strip {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .section-head {
+        align-items: start;
+        flex-direction: column;
+      }
+      .trust-row { grid-template-columns: repeat(2, 1fr); }
+      .package.featured { transform: none; }
+      .nav-links a { display: none; }
+      .mobile-menu { display: inline-flex; }
+    }
+
+    @media (max-width: 620px) {
+      .grid-3, .grid-4, .packages, .timeline, .trust-row, .calc-grid, .mini-metrics {
+        grid-template-columns: 1fr;
+      }
+      .hero { padding-top: 54px; }
+      .container { width: min(100% - 24px, 1180px); }
+      .cta { padding: 28px; border-radius: 26px; }
+      .nav-inner { min-height: 66px; }
+      .logo small { display: none; }
+      h1 { font-size: 3rem; }
+    }
+
+    @media print {
+      .nav, .theme-toggle, .btn, .faq-q span { display: none !important; }
+      body { background: white; color: #111827; }
+      .card, .hero-card, .architecture, .cta, .faq-item { box-shadow: none; break-inside: avoid; }
+      section { padding: 24px 0; }
+      .faq-a { max-height: none !important; padding: 0 20px 18px !important; }
+      .persona-panel { display: grid !important; }
+    }
+  </style>
+</head>
+<body data-theme="light">
+  <nav class="nav">
+    <div class="container nav-inner">
+      <a href="#top" class="logo" aria-label="AILab as a Service home">
+        <span class="logo-mark">AI</span>
+        <span>AILab as a Service <small>by GreenAI Services</small></span>
+      </a>
+      <div class="nav-links">
+        <a href="#customers">Customers</a>
+        <a href="#why-not-free">Why AILab</a>
+        <a href="#infra-cost">Infrastructure & Cost</a>
+        <a href="#faculty-training">Faculty Training</a>
+        <a href="#routing">Routing</a>
+        <a href="#savings">Savings</a>
+        <a href="#pilot">Pilot</a>
+        <button class="theme-toggle" id="themeToggle" type="button">🌙 Theme</button>
+        <a class="btn btn-primary" href="#contact">Start Pilot</a>
+      </div>
+    </div>
+  </nav>
+
+  <main id="top">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow">Customer-first AI infrastructure for Indian institutions</div>
+          <h1>One secure gateway for every institutional AI need.</h1>
+          <p class="lead">
+            AILab as a Service helps schools, colleges, universities, law institutions, and PSUs adopt AI without losing control over cost, data, compliance, faculty readiness, or academic integrity.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#savings">Estimate Savings</a>
+            <a class="btn btn-secondary" href="#architecture">View Architecture</a>
+          </div>
+          <div class="trust-row" aria-label="Key benefits">
+            <div class="trust-card"><b>One</b><span>institutional login for multiple AI models</span></div>
+            <div class="trust-card"><b>Role</b><span>based access for students, faculty, staff, and officers</span></div>
+            <div class="trust-card"><b>Quota</b><span>based token governance and budget control</span></div>
+            <div class="trust-card"><b>Audit</b><span>ready logs for responsible AI governance</span></div>
+          </div>
+        </div>
+
+        <aside class="hero-card" aria-label="AILab dashboard preview">
+          <div class="mini-dashboard">
+            <div class="dash-top">
+              <strong>Live Gateway Snapshot</strong>
+              <span class="status-pill"><i class="pulse"></i>Secure routing active</span>
+            </div>
+            <div class="route-card">
+              <div class="route-line"><span>Routine classroom prompts</span><strong>Open-source</strong></div>
+              <div class="bar"><i style="--w: 82%"></i></div>
+              <div class="route-line"><span>Advanced research prompts</span><strong>Frontier API</strong></div>
+              <div class="bar"><i style="--w: 47%"></i></div>
+              <div class="route-line"><span>Sensitive legal / PSU data</span><strong>Sovereign model</strong></div>
+              <div class="bar"><i style="--w: 63%"></i></div>
+            </div>
+            <div class="route-card">
+              <strong>Available Model Layer</strong>
+              <div class="model-pills">
+                <span>Llama</span><span>Mistral</span><span>Qwen</span><span>DeepSeek</span><span>Gemini</span><span>OpenAI</span><span>Anthropic</span><span>Custom RAG</span>
+              </div>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="challenge">
+      <div class="container">
+        <div class="section-head">
+          <h2>Your institution wants AI. But unmanaged AI creates new risks.</h2>
+          <p>AILab is built around the everyday anxieties of institutional decision-makers: cost, safety, governance, and adoption.</p>
+        </div>
+        <div class="grid-4">
+          <div class="card">
+            <div class="icon red">₹</div>
+            <h3>Budget uncertainty</h3>
+            <p>Uncontrolled token usage can turn AI adoption into unpredictable recurring expenditure.</p>
+          </div>
+          <div class="card">
+            <div class="icon orange">🔐</div>
+            <h3>Data leakage risk</h3>
+            <p>Student data, legal data, exam material, research files, and PSU documents need protected routing.</p>
+          </div>
+          <div class="card">
+            <div class="icon blue">🧩</div>
+            <h3>Tool fragmentation</h3>
+            <p>Multiple tools, accounts, vendors, and API keys make administration difficult and unsafe.</p>
+          </div>
+          <div class="card">
+            <div class="icon green">📋</div>
+            <h3>Weak auditability</h3>
+            <p>Institutions need logs, access controls, and review mechanisms for responsible AI use.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="customers">
+      <div class="container">
+        <div class="section-head">
+          <h2>Designed around your institution’s real users.</h2>
+          <p>Choose your institution type to see the most relevant customer outcomes.</p>
+        </div>
+
+        <div class="persona-tabs" role="tablist" aria-label="Customer segments">
+          <button class="tab active" data-tab="school" type="button">Schools</button>
+          <button class="tab" data-tab="college" type="button">Colleges & Universities</button>
+          <button class="tab" data-tab="law" type="button">Law Institutions</button>
+          <button class="tab" data-tab="psu" type="button">PSUs</button>
+        </div>
+
+        <div class="persona-panel active" id="school">
+          <div class="card">
+            <h3>For Schools</h3>
+            <p>Give teachers and students a safe, age-appropriate AI workspace supported by faculty training and mapped to CBSE, ICSE/CISCE, or State Board syllabi.</p>
+            <ul class="bullets">
+              <li>Student-safe access with class-wise controls instead of unmanaged free mobile apps</li>
+              <li>Teacher assistants for lesson plans, worksheets, and rubrics</li>
+              <li>AI and computational thinking support from early grades</li>
+              <li>Faculty training module for responsible, board-aligned classroom use</li>
+              <li>Parent and administrator confidence through transparent governance</li>
+            </ul>
+          </div>
+          <div class="quote">“We want AI in classrooms, but not chaos. AILab gives us a governed path.” <span>Ideal buyer: Principal, school trust, academic coordinator</span></div>
+        </div>
+
+        <div class="persona-panel" id="college">
+          <div class="card">
+            <h3>For Colleges & Universities</h3>
+            <p>Enable faculty research, academic writing, assignment design, coding, data analysis, and institutional knowledge discovery from one governed AI gateway.</p>
+            <ul class="bullets">
+              <li>Department-wise quotas and usage analytics</li>
+              <li>Faculty research assistants and student learning tools</li>
+              <li>Institutional RAG over approved documents and repositories</li>
+              <li>Academic integrity review with prompt and response logs</li>
+            </ul>
+          </div>
+          <div class="quote">“We need AI access at scale, but with academic integrity and budget discipline.” <span>Ideal buyer: Vice Chancellor, Registrar, Dean, IQAC, IT Cell</span></div>
+        </div>
+
+        <div class="persona-panel" id="law">
+          <div class="card">
+            <h3>For Law Institutions</h3>
+            <p>Teach AI-assisted legal research and drafting in a controlled environment where confidentiality, citations, and audit trails are built into the workflow.</p>
+            <ul class="bullets">
+              <li>Controlled legal research assistants</li>
+              <li>Case-law summarisation and drafting support</li>
+              <li>Legal aid clinic workflows with protected data handling</li>
+              <li>Human review before sensitive use</li>
+            </ul>
+          </div>
+          <div class="quote">“Students must learn AI-assisted law, but not by uploading client facts into uncontrolled public systems.” <span>Ideal buyer: Law school director, legal clinic head, faculty coordinator</span></div>
+        </div>
+
+        <div class="persona-panel" id="psu">
+          <div class="card">
+            <h3>For PSUs</h3>
+            <p>Support secure AI use across departments for policy, compliance, procurement, ESG reporting, multilingual operations, and internal knowledge management.</p>
+            <ul class="bullets">
+              <li>Officer-wise and department-wise access control</li>
+              <li>Sovereign routing for sensitive workloads</li>
+              <li>Audit-ready logs for governance and RTI preparedness</li>
+              <li>Integration with internal documents, manuals, and compliance workflows</li>
+            </ul>
+          </div>
+          <div class="quote">“We need productivity gains without compromising sovereignty, compliance, or public accountability.” <span>Ideal buyer: CMD office, IT, compliance, HRD, digital transformation cell</span></div>
+        </div>
+      </div>
+    </section>
+
+
+    <section id="why-not-free">
+      <div class="container">
+        <div class="section-head">
+          <h2>Why should a school use AILab when free AI apps are available on mobile?</h2>
+          <p>Free AI apps are useful for individual experimentation. A school, however, needs safety, governance, equal access, curriculum alignment, and accountability.</p>
+        </div>
+
+        <div class="grid-3">
+          <div class="card">
+            <div class="icon blue">🏫</div>
+            <h3>Free apps are individual tools. AILab is institutional infrastructure.</h3>
+            <p>When students use random free apps, the school has no control over which tool is used, what data is uploaded, what answers are generated, or how AI is used. AILab gives the school one managed AI gateway for students, teachers, and administrators.</p>
+          </div>
+
+          <div class="card">
+            <div class="icon red">🛡️</div>
+            <h3>Schools need child-safe and supervised AI.</h3>
+            <p>Schools work with minors. AILab allows class-wise controls, age-appropriate access, teacher supervision, restricted model choices, and safe usage policies. This is not possible when students independently use free mobile apps.</p>
+          </div>
+
+          <div class="card">
+            <div class="icon orange">✍️</div>
+            <h3>Academic integrity needs visibility.</h3>
+            <p>If students use free AI secretly, teachers cannot distinguish genuine learning support from copying. AILab creates transparent usage logs, assignment-level controls, and responsible AI workflows so AI becomes a learning aid, not a shortcut.</p>
+          </div>
+
+          <div class="card">
+            <div class="icon green">👩‍🏫</div>
+            <h3>Teachers need structured classroom support.</h3>
+            <p>AILab is not just another chatbot. It helps teachers create lesson plans, worksheets, rubrics, quizzes, differentiated learning material, translations, and classroom activities within the school’s academic context.</p>
+          </div>
+
+          <div class="card">
+            <div class="icon blue">⚖️</div>
+            <h3>Equal access matters.</h3>
+            <p>Free tools often have limits, advertisements, inconsistent quality, or paid upgrades. AILab gives the school predictable access and common standards, so AI support is not limited to students with better phones or paid subscriptions.</p>
+          </div>
+
+          <div class="card">
+            <div class="icon green">🔐</div>
+            <h3>School data should not be casually uploaded.</h3>
+            <p>Student work, exam material, school circulars, teacher notes, and internal documents should not be exposed to uncontrolled public AI tools. AILab keeps AI use inside a controlled, privacy-conscious institutional framework.</p>
+          </div>
+        </div>
+
+        <div class="card" style="margin-top:18px; background:linear-gradient(135deg,var(--soft),var(--blue-soft));">
+          <h3>The simple comparison</h3>
+          <p style="font-size:1.12rem; color:var(--ink); font-weight:800;">
+            Free mobile AI is like students bringing random tuition notes from the internet. AILab is like building a supervised, school-approved AI laboratory: safe, accountable, curriculum-aligned, and scalable.
+          </p>
+        </div>
+      </div>
+    </section>
+
+
+    <section id="infra-cost">
+      <div class="container">
+        <div class="section-head">
+          <h2>What infrastructure does the school or college need to provide?</h2>
+          <p>AILab is designed so institutions can start without buying GPUs or building a complex AI stack. Most deployments need only users, internet, access policy, and a nodal coordinator.</p>
+        </div>
+
+        <div class="infra-tabs" role="tablist" aria-label="Infrastructure requirements">
+          <button class="tab infra-tab active" data-infra="infra-school" type="button">For Schools</button>
+          <button class="tab infra-tab" data-infra="infra-college" type="button">For Colleges & Universities</button>
+          <button class="tab infra-tab" data-infra="infra-private" type="button">For Private / Sovereign Deployment</button>
+        </div>
+
+        <div class="infra-panel active" id="infra-school">
+          <div class="card">
+            <h3>Minimum school-side requirements</h3>
+            <ul class="bullets">
+              <li>Stable internet connection in computer lab or smart classroom</li>
+              <li>Existing desktops, laptops, tablets, or shared lab devices</li>
+              <li>Student and teacher user list with class and section mapping</li>
+              <li>One school coordinator and one IT/contact person</li>
+              <li>Responsible AI usage policy approved by the school</li>
+              <li>Parent/guardian consent workflow where required for minors</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>What GreenAI / AILab provides</h3>
+            <ul class="bullets">
+              <li>Hosted AI gateway and secure login environment</li>
+              <li>Class-wise access control and student-safe model choices</li>
+              <li>Teacher tools for worksheets, rubrics, lesson plans, and quizzes</li>
+              <li>Usage dashboard, quotas, and audit logs</li>
+              <li>Onboarding session for teachers and administrators</li>
+              <li>Faculty training linked to CBSE, ICSE/CISCE, or State Board syllabus</li>
+              <li>No school-side GPU required for the standard SaaS model</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="infra-panel" id="infra-college">
+          <div class="card">
+            <h3>Minimum college-side requirements</h3>
+            <ul class="bullets">
+              <li>Campus internet and user access through lab, Wi-Fi, or personal devices</li>
+              <li>Student, faculty, department, and role-wise user data</li>
+              <li>Preferred SSO through Google Workspace, Microsoft, SAML, OAuth, LDAP, or Active Directory</li>
+              <li>Academic coordinator, IT coordinator, and data/privacy nodal officer</li>
+              <li>List of approved institutional documents for knowledge assistants</li>
+              <li>AI usage policy covering assignments, research, and academic integrity</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>What GreenAI / AILab provides</h3>
+            <ul class="bullets">
+              <li>Unified model gateway with department-wise access control</li>
+              <li>Quota and budget dashboards for departments, courses, or projects</li>
+              <li>Institutional RAG over approved documents and repositories</li>
+              <li>Faculty research, coding, writing, and assessment assistants</li>
+              <li>Audit logs for academic review and governance</li>
+              <li>Optional integration with LMS, library systems, or internal portals</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="infra-panel" id="infra-private">
+          <div class="card">
+            <h3>Additional requirements for private or sovereign deployment</h3>
+            <ul class="bullets">
+              <li>Approved India-hosted cloud, MeitY-empaneled cloud, or institution-controlled server environment</li>
+              <li>VPN/firewall access rules and security review support</li>
+              <li>Storage allocation for logs, documents, and institutional knowledge base</li>
+              <li>Optional GPU server or GPU cloud budget for local open-source models</li>
+              <li>Defined data retention, deletion, and audit policy</li>
+              <li>Institutional approval for sensitive-data routing rules</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>When this option is recommended</h3>
+            <ul class="bullets">
+              <li>Law schools handling client-like legal clinic data</li>
+              <li>Universities processing research, exam, or confidential administrative records</li>
+              <li>PSUs working with internal operational, procurement, compliance, or citizen data</li>
+              <li>Institutions requiring strict data residency and private model hosting</li>
+              <li>High-volume deployments needing custom open-source model optimisation</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="section-head" style="margin-top:42px;">
+          <h2>Projected cost per student per month.</h2>
+          <p>Indicative pricing for planning discussions. Final price depends on number of users, model mix, token limits, deployment model, onboarding, and support level.</p>
+        </div>
+
+        <div class="calculator">
+          <div class="card">
+            <table class="cost-table" aria-label="Projected per student monthly cost">
+              <thead>
+                <tr>
+                  <th>Plan</th>
+                  <th>Best for</th>
+                  <th>Indicative cost</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>School Starter</strong></td>
+                  <td>AI awareness, teacher tools, controlled student access, basic quota dashboard</td>
+                  <td><span class="cost-badge">₹75–₹125 / student / month</span></td>
+                </tr>
+                <tr>
+                  <td><strong>School Plus</strong></td>
+                  <td>Regular classroom use, worksheets, assessments, student-safe AI lab, audit logs</td>
+                  <td><span class="cost-badge">₹125–₹225 / student / month</span></td>
+                </tr>
+                <tr>
+                  <td><strong>College / University</strong></td>
+                  <td>Faculty research, student learning, coding, academic writing, institutional RAG</td>
+                  <td><span class="cost-badge">₹150–₹350 / student / month</span></td>
+                </tr>
+                <tr>
+                  <td><strong>Sovereign / Private</strong></td>
+                  <td>Private deployment, sensitive data, custom models, advanced audit and integration</td>
+                  <td><span class="cost-badge">₹300–₹700+ / user / month</span></td>
+                </tr>
+              </tbody>
+            </table>
+            <p style="color:var(--muted); margin-top:14px;">
+              For schools, a practical introductory offer can start with a limited cohort such as Classes 6–10, a computer lab, or an AI club before full-school rollout.
+            </p>
+          </div>
+
+          <div class="cost-slider-card">
+            <label for="studentCount">Active students in pilot: <span id="studentCountVal">500</span></label>
+            <input id="studentCount" type="range" min="100" max="5000" step="100" value="500" />
+
+            <label for="studentPrice" style="margin-top:18px;">Selected price per student/month: ₹<span id="studentPriceVal">150</span></label>
+            <input id="studentPrice" type="range" min="75" max="700" step="25" value="150" />
+
+            <div class="big-number" id="monthlyPilotOut">₹75,000</div>
+            <p id="studentCostExplain">For 500 active students at ₹150 per student/month, the projected monthly subscription is ₹75,000.</p>
+
+            <div class="mini-metrics">
+              <div class="metric"><b id="annualPilotOut">₹9,00,000</b><span>annual subscription</span></div>
+              <div class="metric"><b id="dailyCostOut">₹5</b><span>approx. per student/day</span></div>
+              <div class="metric"><b id="teacherSeatOut">Included</b><span>teacher/admin access*</span></div>
+            </div>
+
+            <p style="font-size:0.82rem; color:var(--muted); margin-top:14px;">
+              *Teacher/admin seats and initial faculty orientation can be bundled for pilot proposals. Detailed board-syllabus mapping, heavy research, private deployment, custom RAG, or high-token use may require separate pricing.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="solution">
+      <div class="container">
+        <div class="section-head">
+          <h2>What AILab gives your institution.</h2>
+          <p>A complete managed layer between your users, teachers, institutional curriculum, and the global AI ecosystem.</p>
+        </div>
+        <div class="grid-3">
+          <div class="card">
+            <div class="icon green">🔑</div>
+            <h3>One Login</h3>
+            <p>SSO integration with role-based access across students, faculty, officers, researchers, and administrators.</p>
+          </div>
+          <div class="card">
+            <div class="icon blue">🧠</div>
+            <h3>Right-Size Intelligence</h3>
+            <p>Automatically routes routine, advanced, and sensitive prompts to the most appropriate model.</p>
+          </div>
+          <div class="card">
+            <div class="icon orange">📊</div>
+            <h3>Token Governance</h3>
+            <p>Hard quotas, department budgets, usage dashboards, and fallback routing prevent runaway AI costs.</p>
+          </div>
+          <div class="card">
+            <div class="icon green">🇮🇳</div>
+            <h3>Sovereign Deployment</h3>
+            <p>Sensitive workloads can be routed to India-based or institution-controlled infrastructure.</p>
+          </div>
+          <div class="card">
+            <div class="icon blue">📚</div>
+            <h3>Institutional Knowledge</h3>
+            <p>Build AI assistants over approved policies, handbooks, research documents, circulars, and legal material.</p>
+          </div>
+          <div class="card">
+            <div class="icon red">🛡️</div>
+            <h3>Compliance-Aligned Logs</h3>
+            <p>Capture prompts, responses, model choices, token use, and user actions for review and governance.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <section id="faculty-training">
+      <div class="container">
+        <div class="section-head">
+          <h2>Faculty training integrated with school education mandates and board syllabi.</h2>
+          <p>GreenAI will not only provide the AI gateway. It will also train teachers to use AI responsibly, safely, and in alignment with the curriculum followed by the school.</p>
+        </div>
+
+        <div class="grid-3">
+          <div class="card">
+            <div class="icon green">👩‍🏫</div>
+            <h3>Teacher-first adoption</h3>
+            <p>AILab begins with faculty orientation so teachers understand AI before students use it. The training covers prompt design, classroom use, assignment design, academic integrity, and safe student guidance.</p>
+          </div>
+          <div class="card">
+            <div class="icon blue">📘</div>
+            <h3>Board-aligned content</h3>
+            <p>CBSE, ICSE/CISCE, and State Board syllabi can be mapped into AILab so AI activities, worksheets, projects, and assessments remain relevant to the school’s actual curriculum.</p>
+          </div>
+          <div class="card">
+            <div class="icon orange">🧭</div>
+            <h3>Mandate-ready implementation</h3>
+            <p>The programme helps schools respond to the national push for AI and computational thinking by converting policy intent into practical classroom workflows.</p>
+          </div>
+        </div>
+
+        <div class="persona-tabs" style="margin-top:28px;" role="tablist" aria-label="Board syllabus integration">
+          <button class="tab training-tab active" data-training="cbse-panel" type="button">CBSE</button>
+          <button class="tab training-tab" data-training="icse-panel" type="button">ICSE / CISCE</button>
+          <button class="tab training-tab" data-training="state-panel" type="button">State Boards</button>
+        </div>
+
+        <div class="training-panel active" id="cbse-panel">
+          <div class="card">
+            <h3>CBSE-aligned AI enablement</h3>
+            <p>For CBSE schools, AILab can support AI literacy, computational thinking, classroom projects, coding activities, assessment design, and teacher productivity workflows aligned with grade-wise learning outcomes.</p>
+            <ul class="bullets">
+              <li>Grade-wise AI and computational thinking activities</li>
+              <li>Teacher prompts for lesson planning, worksheets, and rubrics</li>
+              <li>Safe student AI usage for projects and guided assignments</li>
+              <li>AI club, lab, and innovation project support</li>
+            </ul>
+          </div>
+          <div class="quote">“CBSE schools can move from occasional AI workshops to a continuous, governed AI learning environment.” <span>Outcome: trained teachers, safer student use, curriculum-linked AI practice</span></div>
+        </div>
+
+        <div class="training-panel" id="icse-panel">
+          <div class="card">
+            <h3>ICSE / CISCE-aligned AI enablement</h3>
+            <p>For ICSE and ISC pathways, AILab can support analytical writing, computer applications, project-based learning, language support, science explanation, and assessment workflows.</p>
+            <ul class="bullets">
+              <li>Subject-wise AI support for language, science, mathematics, and computer applications</li>
+              <li>Project and practical-work guidance with academic integrity controls</li>
+              <li>Rubric-based assessment and feedback support</li>
+              <li>Teacher training for responsible classroom AI use</li>
+            </ul>
+          </div>
+          <div class="quote">“ICSE/CISCE schools can use AILab to strengthen project work, writing support, and analytical learning without encouraging blind copying.” <span>Outcome: better assignments, better feedback, stronger teacher control</span></div>
+        </div>
+
+        <div class="training-panel" id="state-panel">
+          <div class="card">
+            <h3>State Board-aligned AI enablement</h3>
+            <p>For State Board schools, AILab can be localised to the relevant syllabus, regional language needs, textbook structure, examination patterns, and teacher training requirements.</p>
+            <ul class="bullets">
+              <li>State syllabus mapping for classes and subjects selected by the school</li>
+              <li>Regional language support for explanation, translation, and classroom activities</li>
+              <li>Teacher capacity building for practical AI adoption</li>
+              <li>Affordable phased rollout through AI clubs, labs, or selected classes</li>
+            </ul>
+          </div>
+          <div class="quote">“State Board schools can adopt AI without importing a generic, metro-centric model. AILab can be localised to language, syllabus, and classroom reality.” <span>Outcome: inclusive, affordable, board-sensitive AI adoption</span></div>
+        </div>
+
+        <div class="card" style="margin-top:18px;">
+          <h3>Faculty training module included in the rollout</h3>
+          <div class="module-strip">
+            <div class="module-chip"><b>Module 1</b>AI literacy, risks, and responsible use</div>
+            <div class="module-chip"><b>Module 2</b>Prompting for lesson plans, worksheets, and quizzes</div>
+            <div class="module-chip"><b>Module 3</b>Assessment design, plagiarism risk, and academic integrity</div>
+            <div class="module-chip"><b>Module 4</b>Board syllabus mapping and classroom implementation plan</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="routing">
+      <div class="container">
+        <div class="section-head">
+          <h2>Try the routing logic.</h2>
+          <p>Type a sample request and see how the AILab gateway would classify and route it.</p>
+        </div>
+        <div class="router-demo">
+          <div class="card">
+            <label for="promptInput">Sample institutional AI request</label>
+            <textarea id="promptInput">Summarise this internal procurement policy and identify compliance risks.</textarea>
+            <div class="hero-actions" style="margin-top:14px; margin-bottom:0;">
+              <button class="btn btn-primary" type="button" id="routeBtn">Route Prompt</button>
+              <button class="btn btn-secondary" type="button" id="sampleBtn">Try Another Sample</button>
+            </div>
+          </div>
+          <div class="result-box" id="routeResult" aria-live="polite">
+            <h3>Recommended route: Sovereign / controlled model</h3>
+            <p>This prompt appears to involve internal policy or compliance material. AILab would prefer a protected route with audit logging and access control.</p>
+            <div class="tag-row">
+              <span class="tag">Sensitive data</span><span class="tag">Audit log</span><span class="tag">RBAC</span><span class="tag">Controlled model</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="savings">
+      <div class="container">
+        <div class="section-head">
+          <h2>Estimate how governance reduces waste.</h2>
+          <p>This simple estimator shows why routing routine prompts away from expensive models can matter at institutional scale.</p>
+        </div>
+        <div class="calculator">
+          <div class="card">
+            <div class="calc-grid">
+              <div>
+                <label for="users">Active users</label>
+                <input id="users" type="number" min="10" step="10" value="500" />
+              </div>
+              <div>
+                <label for="prompts">Prompts per user / month</label>
+                <input id="prompts" type="number" min="1" step="1" value="80" />
+              </div>
+              <div class="range-wrap">
+                <label for="routine">Routine prompts routed to low-cost models: <span id="routineVal">65%</span></label>
+                <input id="routine" type="range" min="0" max="90" value="65" />
+              </div>
+              <div class="range-wrap">
+                <label for="cost">Assumed premium cost per prompt: ₹<span id="costVal">2.00</span></label>
+                <input id="cost" type="range" min="0.5" max="8" step="0.25" value="2" />
+              </div>
+            </div>
+            <p style="color:var(--muted); margin-top:14px;">Assumption: routine prompts routed to low-cost models cost 25% of the premium route. Actual savings depend on model mix, contracts, token sizes, and deployment model.</p>
+          </div>
+          <div class="card">
+            <span class="eyebrow" style="margin-bottom:8px;">Illustrative monthly savings</span>
+            <div class="big-number" id="savingsOut">₹52,000</div>
+            <p id="calcExplain">With 500 users and 40,000 monthly prompts, routing 65% routine prompts can reduce estimated spend from ₹80,000 to ₹28,000.</p>
+            <div class="mini-metrics">
+              <div class="metric"><b id="promptOut">40,000</b><span>monthly prompts</span></div>
+              <div class="metric"><b id="beforeOut">₹80,000</b><span>without routing</span></div>
+              <div class="metric"><b id="afterOut">₹28,000</b><span>with routing</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="architecture">
+      <div class="container">
+        <div class="section-head">
+          <h2>Unified gateway architecture.</h2>
+          <p>The institution interacts with one governed AI layer. The gateway handles identity, cost, privacy, auditability, and model selection.</p>
+        </div>
+        <div class="architecture">
+          <div class="flow">
+            <div class="flow-col">
+              <h3>1. User Layer</h3>
+              <div class="node">Students</div>
+              <div class="node">Faculty & Researchers</div>
+              <div class="node">Law Clinics</div>
+              <div class="node">PSU Officers</div>
+            </div>
+            <div class="flow-col">
+              <h3>2. One Login</h3>
+              <div class="node core">SSO</div>
+              <div class="node core">OAuth / SAML</div>
+              <div class="node core">Active Directory</div>
+            </div>
+            <div class="flow-col">
+              <h3>3. AILab Gateway</h3>
+              <div class="node blue">Identity & RBAC</div>
+              <div class="node orange">Budget & Quotas</div>
+              <div class="node red">Privacy Guardrails</div>
+              <div class="node red">Immutable Audit Logs</div>
+              <div class="node green">Intelligent Prompt Router</div>
+            </div>
+            <div class="flow-col">
+              <h3>4. Model Layer</h3>
+              <div class="node green">Low-cost open-source models</div>
+              <div class="node blue">Advanced commercial APIs</div>
+              <div class="node orange">Institution-specific RAG</div>
+              <div class="node red">Sovereign deployment</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="pilot">
+      <div class="container">
+        <div class="section-head">
+          <h2>Launch as a controlled pilot.</h2>
+          <p>Start small, measure adoption, prove savings, and scale with governance.</p>
+        </div>
+        <div class="timeline">
+          <div class="card step">
+            <h3>Discovery</h3>
+            <p>Map user groups, data sensitivity, policies, workflows, and existing SSO environment.</p>
+          </div>
+          <div class="card step">
+            <h3>Gateway Setup</h3>
+            <p>Configure roles, quotas, model routes, audit rules, and institution-specific knowledge sources.</p>
+          </div>
+          <div class="card step">
+            <h3>Training</h3>
+            <p>Onboard faculty, students, officers, and administrators with responsible usage guidelines.</p>
+          </div>
+          <div class="card step">
+            <h3>Scale Decision</h3>
+            <p>Review adoption, savings, risk logs, user feedback, and recommendations for wider rollout.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="packages">
+      <div class="container">
+        <div class="section-head">
+          <h2>Flexible engagement packages.</h2>
+          <p>Pricing should be tailored to user count, model mix, security requirements, and deployment preference.</p>
+        </div>
+        <div class="packages">
+          <div class="card package">
+            <h3>Starter Pilot</h3>
+            <p>For small cohorts and proof-of-value.</p>
+            <div class="price">100–500 <small>users</small></div>
+            <ul class="bullets">
+              <li>SSO-ready access</li>
+              <li>Basic quota dashboard</li>
+              <li>Selected model access</li>
+              <li>Responsible AI onboarding</li>
+              <li>Faculty training orientation</li>
+            </ul>
+          </div>
+          <div class="card package featured">
+            <div class="ribbon">Recommended</div>
+            <h3>Institution Plan</h3>
+            <p>For campus-wide or department-wide rollout.</p>
+            <div class="price">500–5,000 <small>users</small></div>
+            <ul class="bullets">
+              <li>Department-wise budgets</li>
+              <li>Advanced routing policies</li>
+              <li>Institutional knowledge assistant</li>
+              <li>Audit and adoption reports</li>
+            </ul>
+          </div>
+          <div class="card package">
+            <h3>Sovereign Enterprise</h3>
+            <p>For PSUs and sensitive institutional workloads.</p>
+            <div class="price">Custom <small>deployment</small></div>
+            <ul class="bullets">
+              <li>India-hosted infrastructure</li>
+              <li>Custom models and RAG</li>
+              <li>Strict RBAC and audit</li>
+              <li>Integration with internal systems</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq-section">
+      <div class="container">
+        <div class="section-head">
+          <h2>Questions decision-makers ask.</h2>
+          <p>Clear answers for principals, registrars, IT heads, legal educators, and PSU leadership.</p>
+        </div>
+        <div class="faq">
+          <div class="faq-item open">
+            <button class="faq-q" type="button">Will users still access leading AI models? <span>+</span></button>
+            <div class="faq-a">Yes. The gateway can provide controlled access to commercial APIs, open-source models, custom fine-tuned models, and institution-specific knowledge assistants.</div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" type="button">How does AILab control cost? <span>+</span></button>
+            <div class="faq-a">It applies quotas, routes routine prompts to low-cost models, sets department budgets, monitors usage, and can fall back to alternate models when needed.</div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" type="button">Can sensitive data stay within India? <span>+</span></button>
+            <div class="faq-a">Yes. Sensitive workloads can be routed to India-hosted or institution-controlled infrastructure, depending on the selected deployment model.</div>
+          </div>
+
+
+
+          <div class="faq-item">
+            <button class="faq-q" type="button">Will GreenAI train teachers and align the platform with our board syllabus? <span>+</span></button>
+            <div class="faq-a">Yes. GreenAI can include a faculty training module covering responsible AI use, prompt design, lesson planning, assessment integrity, student safety, and classroom implementation. CBSE, ICSE/CISCE, and State Board syllabi can be mapped so the AI activities remain relevant to the school’s curriculum.</div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" type="button">Does the school need to buy servers or GPUs? <span>+</span></button>
+            <div class="faq-a">No, not for the standard SaaS model. The school usually needs only internet access, existing devices or a computer lab, student/teacher user lists, a nodal coordinator, and an approved responsible AI usage policy. Private or sovereign deployments may require cloud/server infrastructure and a separate deployment plan.</div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" type="button">Why not simply let students use free AI apps on mobile? <span>+</span></button>
+            <div class="faq-a">Free apps are suitable for individual experimentation, not governed school-wide adoption. AILab gives the school child-safe access, teacher supervision, common standards, usage logs, academic integrity controls, and privacy-conscious institutional governance.</div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" type="button">Is this a compliance guarantee? <span>+</span></button>
+            <div class="faq-a">No technology platform alone can guarantee compliance. AILab is compliance-aligned and audit-ready, but final compliance depends on institutional policies, contracts, consent flows, and deployment choices.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <div class="cta">
+          <div>
+            <h2>Move from AI experiments to governed AI adoption.</h2>
+            <p>Start with a focused pilot for one department, one school cluster, one law clinic, or one PSU function.</p>
+          </div>
+          <a class="btn" href="mailto:prasenjit.majumder@gmail.com?subject=AILab%20as%20a%20Service%20Pilot%20Enquiry">Request Pilot</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-grid">
+      <div><strong>AILab as a Service</strong><br/>A GreenAI Services institutional AI gateway offering.</div>
+      <div>Compliance-aligned • Cost-controlled • Sovereign-ready • Audit-ready</div>
+    </div>
+  </footer>
+
+  <script>
+    const body = document.body;
+    const themeToggle = document.getElementById('themeToggle');
+    themeToggle.addEventListener('click', () => {
+      const next = body.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      body.setAttribute('data-theme', next);
+      themeToggle.textContent = next === 'dark' ? '☀️ Theme' : '🌙 Theme';
+    });
+
+    document.querySelectorAll('.tab').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.tab').forEach(b => b.classList.remove('active'));
+        document.querySelectorAll('.persona-panel').forEach(p => p.classList.remove('active'));
+        btn.classList.add('active');
+        document.getElementById(btn.dataset.tab).classList.add('active');
+      });
+    });
+
+    const samples = [
+      "Create five worksheet questions for Class 6 on fractions.",
+      "Summarise this internal procurement policy and identify compliance risks.",
+      "Draft a legal research memo on bail jurisprudence using uploaded case notes.",
+      "Translate this circular into Bengali and Hindi.",
+      "Analyse this PSU ESG data sheet and find missing BRSR evidence.",
+      "Help a student understand Python loops with a simple example.",
+      "Review this confidential student grievance document and recommend next steps."
+    ];
+    let sampleIndex = 0;
+
+    function classifyPrompt(text) {
+      const lower = text.toLowerCase();
+      const sensitive = ["confidential", "legal", "case", "procurement", "policy", "student grievance", "psu", "internal", "esg", "brsr", "evidence", "contract", "client", "court"];
+      const advanced = ["analyse", "analyze", "research", "memo", "coding", "jurisprudence", "reasoning", "compliance", "risk"];
+      const routine = ["worksheet", "translate", "summarise", "summarize", "grammar", "lesson", "simple", "example"];
+
+      const hasSensitive = sensitive.some(w => lower.includes(w));
+      const hasAdvanced = advanced.some(w => lower.includes(w));
+      const hasRoutine = routine.some(w => lower.includes(w));
+
+      if (hasSensitive) {
+        return {
+          title: "Recommended route: Sovereign / controlled model",
+          body: "This prompt appears to involve sensitive institutional, legal, PSU, student, policy, or compliance data. AILab would prefer a protected route with RBAC, audit logging, and restricted model access.",
+          tags: ["Sensitive data", "Audit log", "RBAC", "Controlled model"]
+        };
+      }
+      if (hasAdvanced) {
+        return {
+          title: "Recommended route: Advanced reasoning model",
+          body: "This looks like a higher-complexity request. AILab would route it to an advanced model while preserving institutional logs and cost visibility.",
+          tags: ["Complex reasoning", "Premium model", "Logged usage", "Review ready"]
+        };
+      }
+      if (hasRoutine) {
+        return {
+          title: "Recommended route: Low-cost open-source model",
+          body: "This is likely a routine learning, drafting, summarisation, or translation task. AILab can route it to a faster, lower-cost model to save budget.",
+          tags: ["Routine prompt", "Low-cost model", "Fast response", "Budget saving"]
+        };
+      }
+      return {
+        title: "Recommended route: Standard governed model",
+        body: "This request does not appear highly sensitive or unusually complex. AILab would use a balanced model route with normal logging and quota controls.",
+        tags: ["Standard route", "Quota control", "Logged usage", "Balanced model"]
+      };
+    }
+
+    function renderRoute() {
+      const text = document.getElementById('promptInput').value;
+      const result = classifyPrompt(text);
+      document.getElementById('routeResult').innerHTML = `
+        <h3>${result.title}</h3>
+        <p>${result.body}</p>
+        <div class="tag-row">${result.tags.map(t => `<span class="tag">${t}</span>`).join('')}</div>
+      `;
+    }
+    document.getElementById('routeBtn').addEventListener('click', renderRoute);
+    document.getElementById('sampleBtn').addEventListener('click', () => {
+      sampleIndex = (sampleIndex + 1) % samples.length;
+      document.getElementById('promptInput').value = samples[sampleIndex];
+      renderRoute();
+    });
+
+    const users = document.getElementById('users');
+    const prompts = document.getElementById('prompts');
+    const routine = document.getElementById('routine');
+    const cost = document.getElementById('cost');
+    const routineVal = document.getElementById('routineVal');
+    const costVal = document.getElementById('costVal');
+
+    function money(n) {
+      return new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR', maximumFractionDigits: 0 }).format(n);
+    }
+    function number(n) {
+      return new Intl.NumberFormat('en-IN').format(Math.round(n));
+    }
+    function updateCalc() {
+      const u = Math.max(0, Number(users.value || 0));
+      const p = Math.max(0, Number(prompts.value || 0));
+      const r = Math.max(0, Math.min(0.9, Number(routine.value) / 100));
+      const c = Math.max(0, Number(cost.value || 0));
+      const totalPrompts = u * p;
+      const before = totalPrompts * c;
+      const lowCost = c * 0.25;
+      const after = (totalPrompts * r * lowCost) + (totalPrompts * (1-r) * c);
+      const savings = before - after;
+
+      routineVal.textContent = Math.round(r * 100) + "%";
+      costVal.textContent = c.toFixed(2);
+      document.getElementById('savingsOut').textContent = money(savings);
+      document.getElementById('promptOut').textContent = number(totalPrompts);
+      document.getElementById('beforeOut').textContent = money(before);
+      document.getElementById('afterOut').textContent = money(after);
+      document.getElementById('calcExplain').textContent =
+        `With ${number(u)} users and ${number(totalPrompts)} monthly prompts, routing ${Math.round(r*100)}% routine prompts can reduce estimated spend from ${money(before)} to ${money(after)}.`;
+    }
+    [users, prompts, routine, cost].forEach(el => el.addEventListener('input', updateCalc));
+    updateCalc();
+
+
+    document.querySelectorAll('.infra-tab').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.infra-tab').forEach(b => b.classList.remove('active'));
+        document.querySelectorAll('.infra-panel').forEach(p => p.classList.remove('active'));
+        btn.classList.add('active');
+        document.getElementById(btn.dataset.infra).classList.add('active');
+      });
+    });
+
+    const studentCount = document.getElementById('studentCount');
+    const studentPrice = document.getElementById('studentPrice');
+    function updateStudentCost() {
+      if (!studentCount || !studentPrice) return;
+      const count = Number(studentCount.value || 0);
+      const price = Number(studentPrice.value || 0);
+      const monthly = count * price;
+      const annual = monthly * 12;
+      const daily = price / 30;
+      document.getElementById('studentCountVal').textContent = number(count);
+      document.getElementById('studentPriceVal').textContent = number(price);
+      document.getElementById('monthlyPilotOut').textContent = money(monthly);
+      document.getElementById('annualPilotOut').textContent = money(annual);
+      document.getElementById('dailyCostOut').textContent = money(daily);
+      document.getElementById('studentCostExplain').textContent =
+        `For ${number(count)} active students at ${money(price)} per student/month, the projected monthly subscription is ${money(monthly)}.`;
+    }
+    if (studentCount && studentPrice) {
+      [studentCount, studentPrice].forEach(el => el.addEventListener('input', updateStudentCost));
+      updateStudentCost();
+    }
+
+
+    document.querySelectorAll('.training-tab').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.training-tab').forEach(b => b.classList.remove('active'));
+        document.querySelectorAll('.training-panel').forEach(p => p.classList.remove('active'));
+        btn.classList.add('active');
+        document.getElementById(btn.dataset.training).classList.add('active');
+      });
+    });
+
+    document.querySelectorAll('.faq-q').forEach(button => {
+      button.addEventListener('click', () => {
+        const item = button.closest('.faq-item');
+        item.classList.toggle('open');
+      });
+    });
+  </script>
+</body>
+</html>
