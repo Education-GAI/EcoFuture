@@ -7,6 +7,8 @@
   <title>Sustainable Intelligence for India | GreenAI × IISER Kolkata</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="greenai-brand-bar.css">
+  <link rel="preload" as="image" href="green_ai_logo_cropped.webp" type="image/webp">
   <script>
     tailwind.config = {
       theme: {
@@ -43,6 +45,12 @@
         </div>
         <div class="hidden sm:flex items-center gap-4">
           <a href="index.html" class="text-sm text-slate-300 hover:text-white transition"><i class="fas fa-arrow-left mr-1"></i> Home</a>
+          <a class="greenai-logo-circle greenai-logo-circle--sm" href="index.html" title="GreenAI Services Pvt. Ltd." aria-label="GreenAI Services Pvt. Ltd.">
+            <picture>
+              <source srcset="green_ai_logo_cropped.webp" type="image/webp">
+              <img src="green_ai_logo_cropped.jpeg" alt="" width="308" height="282" decoding="async">
+            </picture>
+          </a>
           <a href="#register" class="rounded-full bg-emerald-400 px-5 py-2 text-sm font-bold text-slate-950 shadow-lg shadow-emerald-500/20 transition hover:scale-105">Register Interest</a>
         </div>
       </nav>

@@ -673,7 +673,20 @@
       .faq-a { max-height: none !important; padding: 0 20px 18px !important; }
       .persona-panel { display: grid !important; }
     }
+
+    /* Larger GreenAI logo in nav — clearer without clipping */
+    .nav .greenai-logo-circle--sm {
+      width: 62px;
+      height: 62px;
+      padding: 3px;
+    }
+    .nav .greenai-logo-circle--sm picture {
+      width: 76%;
+      height: 76%;
+    }
   </style>
+  <link rel="stylesheet" href="greenai-brand-bar.css">
+  <link rel="preload" as="image" href="green_ai_logo_cropped.webp" type="image/webp">
 </head>
 <body data-theme="light">
   <nav class="nav">
@@ -689,6 +702,15 @@
         <a href="#pilot">Pilot</a>
         <button class="theme-toggle" id="themeToggle" type="button">🌙 Theme</button>
         <a class="btn btn-primary" href="#contact">Start Pilot</a>
+        <div class="greenai-nav-brand">
+          <span class="greenai-brand-name-sm">GreenAI Services Pvt. Ltd.</span>
+          <a class="greenai-logo-circle greenai-logo-circle--sm" href="index.html" title="GreenAI Services Pvt. Ltd." aria-label="GreenAI Services Pvt. Ltd.">
+            <picture>
+              <source srcset="green_ai_logo_cropped.webp" type="image/webp">
+              <img src="green_ai_logo_cropped.jpeg" alt="" width="308" height="282" decoding="async">
+            </picture>
+          </a>
+        </div>
       </div>
     </div>
   </nav>

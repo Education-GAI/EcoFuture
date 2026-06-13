@@ -753,13 +753,25 @@
       .faq-a { max-height: none !important; padding: 0 20px 18px !important; }
       .persona-panel { display: grid !important; }
     }
+
+    /* GreenAI logo replaces AI square in left nav brand */
+    .logo .greenai-logo-circle--sm {
+      flex-shrink: 0;
+    }
   </style>
+  <link rel="stylesheet" href="greenai-brand-bar.css">
+  <link rel="preload" as="image" href="green_ai_logo_cropped.webp" type="image/webp">
 </head>
 <body data-theme="light">
   <nav class="nav">
     <div class="container nav-inner">
       <a href="#top" class="logo" aria-label="AILab as a Service home">
-        <span class="logo-mark">AI</span>
+        <span class="greenai-logo-circle greenai-logo-circle--sm" aria-hidden="true">
+          <picture>
+            <source srcset="green_ai_logo_cropped.webp" type="image/webp">
+            <img src="green_ai_logo_cropped.jpeg" alt="" width="308" height="282" decoding="async">
+          </picture>
+        </span>
         <span>AILab as a Service <small>by GreenAI Services</small></span>
       </a>
       <div class="nav-links">

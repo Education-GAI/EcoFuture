@@ -6,6 +6,8 @@
    <title>AI Lab for Lawyers | Practice-First Productivity</title>
    <script src="https://cdn.tailwindcss.com"></script>
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+   <link rel="stylesheet" href="greenai-brand-bar.css">
+   <link rel="preload" as="image" href="green_ai_logo_cropped.webp" type="image/webp">
    <style>
        /* Custom Accordion Styling */
        details > summary {
@@ -78,8 +80,16 @@
                    <a href="#syllabus" class="text-sm font-medium text-slate-600 hover:text-brand-500 transition-colors">Syllabus</a>
                    <a href="#agenda" class="text-sm font-medium text-slate-600 hover:text-brand-500 transition-colors">1-Day Agenda</a>
                </div>
-               <div>
-                   <a href="#register" class="bg-brand-navy text-white px-5 py-2.5 rounded-lg text-sm font-semibold hover:bg-slate-800 transition-colors shadow-md">Request Brochure</a>
+               <div class="flex items-center gap-3">
+                   <div class="greenai-nav-brand hidden sm:flex">
+                     <span class="greenai-brand-name-sm text-slate-500">GreenAI Services Pvt. Ltd.</span>
+                     <a class="greenai-logo-circle greenai-logo-circle--sm" href="index.html" title="GreenAI Services Pvt. Ltd." aria-label="GreenAI Services Pvt. Ltd.">
+                       <picture>
+                         <source srcset="green_ai_logo_cropped.webp" type="image/webp">
+                         <img src="green_ai_logo_cropped.jpeg" alt="" width="308" height="282" decoding="async">
+                       </picture>
+                     </a>
+                   </div>
                </div>
            </div>
        </div>

@@ -1,0 +1,132 @@
+/* GreenAI Services — shared circular logo & top brand bar */
+
+.greenai-brand-bar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 20px;
+  background: linear-gradient(90deg, #085041 0%, #0d6b54 100%);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
+}
+
+.greenai-brand-home {
+  color: rgba(255, 255, 255, 0.88);
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+}
+.greenai-brand-home:hover { color: #fff; text-decoration: underline; }
+
+.greenai-brand-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-left: auto;
+}
+
+.greenai-brand-name {
+  color: rgba(255, 255, 255, 0.92);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  line-height: 1.3;
+  text-align: right;
+  max-width: 200px;
+}
+
+.greenai-nav-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-left: 12px;
+  flex-shrink: 0;
+}
+
+.greenai-brand-name-sm {
+  color: inherit;
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 1.25;
+  max-width: 140px;
+  text-align: right;
+  opacity: 0.85;
+}
+
+/* Circular logo — full image fits inside circle (no corner clipping) */
+.greenai-logo-circle {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: linear-gradient(145deg, #ffffff 0%, #f0faf6 100%);
+  padding: 5px;
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  box-shadow:
+    0 6px 20px rgba(0, 0, 0, 0.22),
+    0 0 0 2px rgba(29, 158, 117, 0.55),
+    0 0 0 5px rgba(255, 255, 255, 0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.greenai-logo-circle:hover {
+  transform: scale(1.05);
+  box-shadow:
+    0 8px 24px rgba(0, 0, 0, 0.28),
+    0 0 0 2px #ef9f27,
+    0 0 0 5px rgba(239, 159, 39, 0.18);
+}
+/* ~72% keeps rectangular logo inside the inscribed circle (308×282 asset) */
+.greenai-logo-circle picture {
+  width: 72%;
+  height: 72%;
+  display: block;
+}
+.greenai-logo-circle img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: contain;
+  object-position: center;
+}
+
+.greenai-logo-circle--lg {
+  width: 96px;
+  height: 96px;
+  padding: 6px;
+}
+.greenai-logo-circle--lg picture {
+  width: 74%;
+  height: 74%;
+}
+
+.greenai-logo-circle--sm {
+  width: 56px;
+  height: 56px;
+  padding: 4px;
+}
+.greenai-logo-circle--sm picture {
+  width: 70%;
+  height: 70%;
+}
+
+@media (max-width: 600px) {
+  .greenai-brand-name { display: none; }
+  .greenai-brand-name-sm { display: none; }
+  .greenai-logo-circle--lg { width: 80px; height: 80px; }
+}
+
+@media print {
+  .greenai-brand-bar { display: none !important; }
+}
